@@ -29,6 +29,15 @@ const Hero = () => {
         <span className={styles.hero_container__btn_text}>VIEW MENU</span>
         <SvgSelector id="arrowTopRight" />
       </button>
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      <lottie-player
+        src="https://lottie.host/4e9ea6df-7a7d-4a69-9870-447a11d50626/RyxuAyIadb.json"
+        background="transparent"
+        speed=".5"
+        style={{ width: "300px", height: "300px" }}
+        loop
+        autoplay
+      ></lottie-player>
     </div>
   );
 };

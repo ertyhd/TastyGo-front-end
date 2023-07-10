@@ -17,51 +17,62 @@
 
 .hero_container {
   width: 100%;
-  height: 800px;
+  height: 863px;
   display: flex;
   flex-direction: column;
-  gap: 48px;
   align-items: center;
-
-  border: 2px solid;
+  outline: 2px solid;
+  overflow: hidden;
 }
 .hero_container__backgroundBlock {
   height: 800px;
-  position: absolute;
-  z-index: -1;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  transform: rotate(-6deg) translateZ(0);
-  justify-content: center;
-  gap: 24px;
+  // transform: rotate(-6deg) translateZ(0);
+  // justify-content: center;
+  gap: 32px;
   // align-items: center;
+  margin-top: 64px;
 }
 .hero_container__backgroundRight {
   background: url("../../assete/svg/FrameRight.svg") repeat-x;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  // margin-bottom: 24px * 3;
   animation: moveRight 32s linear infinite;
+  width: 120vw;
 }
 .hero_container__backgroundBlockLeft {
   background: url("../../assete/svg/FrameLeft.svg") repeat-x;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   animation: moveLeft 32s linear infinite;
-  shape-rendering: crispEdges;
+  width: 120vw;
+}
+.hero_container__content {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  // gap: 48px;
 }
 
 .hero_container__img {
-  margin-top: 160px;
-  width: 800px;
-  height: 480px;
-  border-radius: 160px;
+  margin-top: 109px;
+  // width: 800px;
+  // height: 480px;
+  width: 880px;
+  height: 640px;
+  border-radius: 80px;
   background: #d9d9d9;
 }
 .hero_container__btn {
+  position: absolute;
   display: flex;
   width: 320px;
   height: 80px;
@@ -70,12 +81,14 @@
   align-items: center;
   border-radius: 20px;
   border: 1px solid #f9854e;
-  background: #fffdfa;
+  background: #f9854e;
+  bottom: -40px;
 }
 .hero_container__btn_text {
-  color: #f9854e;
+  color: #fffdfa;
   font-family: Poppins-Regular;
   font-size: 18px;
   line-height: 120%;
   text-transform: uppercase;
+  padding-right: 16px;
 }

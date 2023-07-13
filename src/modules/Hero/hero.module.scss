@@ -1,14 +1,31 @@
 @keyframes moveRight {
   from {
-    background-position: 100px 0;
+    background-position: 0 0;
   }
   to {
-    background-position: 1970px 0;
+    background-position: 1460px 0;
   }
 }
 @keyframes moveLeft {
   from {
-    background-position: 1870px 0;
+    background-position: 1460px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+@keyframes moveRightMob {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 763px 0;
+  }
+}
+@keyframes moveLeftMob {
+  from {
+    background-position: 763px 0;
   }
   to {
     background-position: 0 0;
@@ -16,80 +33,120 @@
 }
 
 .hero_container {
+  position: relative;
   width: 100%;
-  height: 863px;
+  height: 575px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  outline: 2px solid;
   overflow: hidden;
+  @media screen and (min-width: 768px) {
+    height: 837px;
+  }
 }
 .hero_container__backgroundBlock {
-  height: 800px;
   display: flex;
   flex-direction: column;
-  // transform: rotate(-6deg) translateZ(0);
-  // justify-content: center;
-  gap: 32px;
-  // align-items: center;
-  margin-top: 64px;
+  gap: 24px;
+  margin-top: 5px;
+  transform: translateZ(0);
+  @media screen and (min-width: 768px) {
+    gap: 48px;
+    margin-top: 16px;
+  }
 }
 .hero_container__backgroundRight {
-  background: url("../../assete/svg/FrameRight.svg") repeat-x;
-  background-size: cover;
+  background: url("../../assete/svg/tastyBackMobile.svg") repeat-x;
+  height: 72px;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: moveRight 32s linear infinite;
-  width: 120vw;
+  animation: moveRightMob 32s linear infinite;
+  transform: translateZ(0);
+  @media screen and (min-width: 768px) {
+    background: url("../../assete/svg/tastyBack.svg") repeat-x;
+    height: 115px;
+    animation: moveRight 32s linear infinite;
+  }
 }
 .hero_container__backgroundBlockLeft {
-  background: url("../../assete/svg/FrameLeft.svg") repeat-x;
-  background-size: cover;
+  background: url("../../assete/svg/tastyBackMobile.svg") repeat-x;
+  height: 72px;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: moveLeft 32s linear infinite;
-  width: 120vw;
+  animation: moveLeftMob 32s linear infinite;
+  transform: translateZ(0);
+  @media screen and (min-width: 768px) {
+    background: url("../../assete/svg/tastyBack.svg") repeat-x;
+    height: 115px;
+    animation: moveLeft 32s linear infinite;
+  }
 }
 .hero_container__content {
   position: absolute;
   z-index: 2;
   display: flex;
   flex-direction: column;
-
   align-items: center;
-  // gap: 48px;
+  justify-content: center;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .hero_container__img {
-  margin-top: 109px;
-  // width: 800px;
-  // height: 480px;
-  width: 880px;
-  height: 640px;
+  margin-top: 85px;
+  width: 312px;
+  height: 360px;
+  object-fit: cover;
+
   border-radius: 80px;
   background: #d9d9d9;
+  filter: drop-shadow(0px 3px 10px rgba(30, 30, 45, 0.15))
+    drop-shadow(0px -3px 10px rgba(30, 30, 45, 0.15));
+  @media screen and (min-width: 768px) {
+    margin-top: 96px;
+    width: 880px;
+    height: 640px;
+  }
 }
 .hero_container__btn {
   position: absolute;
   display: flex;
-  width: 320px;
-  height: 80px;
-  padding-top: 16px;
-  padding-bottom: 16px;
+
+  width: 220px;
+  height: 50px;
+  padding: 16px;
+
   justify-content: center;
   align-items: center;
   border-radius: 20px;
   border: 1px solid #f9854e;
   background: #f9854e;
-  bottom: -40px;
+  bottom: -82px;
+  box-shadow: 0px 3px 10px 0px rgba(30, 30, 45, 0.15);
+  @media screen and (min-width: 768px) {
+    width: 320px;
+    height: 80px;
+    bottom: -40px;
+  }
 }
 .hero_container__btn_text {
   color: #fffdfa;
   font-family: Poppins-Regular;
-  font-size: 18px;
-  line-height: 120%;
+  font-size: 16px;
+  line-height: 1.2;
   text-transform: uppercase;
   padding-right: 16px;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+.arrowBtnSvg {
+  width: 32px;
+  height: 32px;
+  @media screen and (min-width: 768px) {
+    width: 46px;
+    height: 46px;
+  }
 }

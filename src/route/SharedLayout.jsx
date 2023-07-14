@@ -11,7 +11,7 @@ const UserPage = lazy(() => import("../pages/UserPage/UserPage"));
 const SharedLayout = () => {
   return (
     <Suspense fallback={<p>...loading</p>}>
-      <Header></Header>
+      <Header />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/register" element={<RegisterPage />} />

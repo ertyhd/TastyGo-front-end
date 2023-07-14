@@ -1,6 +1,6 @@
-@import-normalize; /* bring in normalize.css styles */
-
+// @import-normalize; /* bring in normalize.css styles */
+@import "./utils/variables.scss";
 @import "./utils/base.scss";
 @import "./utils/fonts.scss";
-@import "./utils/variable.scss";
+@import "./utils/variables";
 @import "./utils/normalize.scss";

@@ -121,8 +121,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  border: 1px solid #f9854e;
-  background: #f9854e;
+  border: none;
+  background-color: var(--primary-accent);
   bottom: -82px;
   box-shadow: 0px 3px 10px 0px rgba(30, 30, 45, 0.15);
   @media screen and (min-width: 768px) {
@@ -138,6 +138,7 @@
   line-height: 1.2;
   text-transform: uppercase;
   padding-right: 16px;
+  transition: color 0.3s ease;
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
@@ -145,8 +146,24 @@
 .arrowBtnSvg {
   width: 32px;
   height: 32px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: var(--primary-primary);
+
   @media screen and (min-width: 768px) {
     width: 46px;
     height: 46px;
   }
+}
+.hero_container__btn:hover .hero_container__btn_text {
+  color: var(--primary-secondary);
+}
+.hero_container__btn:hover .arrowBtnSvg {
+  color: var(--primary-secondary);
+}
+.hero_container__btn_pressed .hero_container__btn_text {
+  color: var(--primary-secondary);
+}
+.hero_container__btn_pressed .arrowBtnSvg {
+  transform: rotate(45deg);
+  color: var(--primary-secondary);
 }

@@ -1,0 +1,99 @@
+.services_container {
+  outline: 1px solid;
+}
+.services_p {
+  color: var(--primary-accent);
+  font-family: Poppins-Regular;
+  font-size: 16px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+.services_h2 {
+  margin-top: 16px;
+  color: var(--primary-secondary);
+  text-transform: uppercase;
+}
+.services_cardsContainer {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  @media screen and (min-width: 768px) {
+    margin-top: 32px;
+    flex-direction: row;
+    gap: 25px;
+  }
+}
+.services_cardsContainer__card {
+  width: 312px;
+  height: auto;
+  border-radius: 20px;
+  background: var(--primary-accent);
+
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  @media screen and (min-width: 768px) {
+    width: 410px;
+    height: 310px;
+    padding: 24px;
+    gap: 160px;
+  }
+}
+.services_cardsContainer__cardH3 {
+  color: var(--primary-secondary);
+  text-transform: uppercase;
+}
+.services_cardsContainer__cardTextWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    align-items: flex-end;
+  }
+}
+.services_cardsContainer__cardText {
+  width: 213px;
+  color: var(--primary-secondary);
+  font-family: Poppins-Regular;
+  font-size: 12px;
+  line-height: 1.2;
+  @media screen and (min-width: 768px) {
+    width: 298px;
+    font-size: 18px;
+  }
+}
+.services_cardsContainer__cardSvgWrapper {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  @media screen and (min-width: 768px) {
+    width: 46px;
+    height: 46px;
+  }
+}
+.services_cardsContainer__cardSvg {
+  position: static;
+  //   top: 8px;
+  width: 32px;
+  height: 32px;
+  color: var(--primary-secondary);
+  transition: transform 0.3s ease;
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    top: 12px;
+    width: 46px;
+    height: 46px;
+  }
+}
+
+.services_cardsContainer__card:hover .services_cardsContainer__cardSvg {
+  transform: rotate(45deg);
+}

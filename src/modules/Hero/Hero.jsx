@@ -19,7 +19,7 @@ const Hero = () => {
     }
   };
   return (
-    <div className={styles.hero_container}>
+    <section className={styles.hero_container}>
       <div className={styles.hero_container__backgroundBlock}>
         <div className={styles.hero_container__backgroundBlockLeft}>
           <svg width="200vw" />
@@ -60,10 +60,14 @@ const Hero = () => {
           }`}
         >
           <span className={styles.hero_container__btn_text}>Make an order</span>
-          <SvgSelector id="arrowTopRight" />
+          <SvgSelector
+            id="arrowTopRight"
+            styles={styles.arrowBtnSvg}
+            viewBox={"0 0 46 46"}
+          />
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,15 +1,23 @@
 @font-face {
-  font-family: "Inter Medium";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("../fonts/Inter-Medium.ttf");
-}
-
-@font-face {
   font-family: "Poppins-Regular";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: url("../fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Poppins-Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/Poppins-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Poppins-Bold";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Poppins-Bold.ttf");
 }

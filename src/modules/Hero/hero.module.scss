@@ -52,7 +52,7 @@
   transform: translateZ(0);
   @media screen and (min-width: 768px) {
     gap: 48px;
-    margin-top: 16px;
+    // margin-top: 16px;
   }
 }
 .hero_container__backgroundRight {
@@ -105,7 +105,7 @@
   filter: drop-shadow(0px 3px 10px rgba(30, 30, 45, 0.15))
     drop-shadow(0px -3px 10px rgba(30, 30, 45, 0.15));
   @media screen and (min-width: 768px) {
-    margin-top: 96px;
+    margin-top: 109px;
     width: 880px;
     height: 640px;
   }

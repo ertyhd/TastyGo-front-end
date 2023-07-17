@@ -1,6 +1,7 @@
 import Hero from "../../modules/Hero/Hero";
 import Services from "../../modules/Services/Services";
 import InfoContacts from "../../modules/InfoContacts/InfoContacts";
+import Footer from "../../modules/Footer/Footer";
 
 const MainPage = () => {
   return (
@@ -8,6 +9,7 @@ const MainPage = () => {
       <Hero />
       <Services />
       <InfoContacts />
+      <Footer />
     </>
   );
 };

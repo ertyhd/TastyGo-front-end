@@ -44,7 +44,10 @@ const InfoContacts = () => {
               />
               <p className={styles.phone}></p>
             </Link>
-            <Link className={styles.infoContacts_container__blockLink}>
+            <Link
+              to="/map"
+              className={styles.infoContacts_container__blockLink}
+            >
               <SvgSelector
                 id="arrowTopRight"
                 styles={styles.infoContacts_container__blockLinkArrow}

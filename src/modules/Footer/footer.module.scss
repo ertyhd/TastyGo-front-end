@@ -7,7 +7,8 @@
   padding: 48px 24px;
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    justify-content: space-between;
+    // justify-content: space-between;
+    gap: 144px;
     padding: 48px 80px;
   }
 }

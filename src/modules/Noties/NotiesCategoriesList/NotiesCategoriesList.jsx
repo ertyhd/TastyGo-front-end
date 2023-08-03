@@ -1,5 +1,5 @@
-const NotiesCategoriesList = () => {
+const NoticesCategoriesList = () => {
   return <div> NotiesCategoriesList</div>;
 };
 
-export default NotiesCategoriesList;
+export default NoticesCategoriesList;

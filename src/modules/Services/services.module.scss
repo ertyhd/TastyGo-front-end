@@ -40,7 +40,8 @@
   align-items: flex-start;
   gap: 24px;
   @media screen and (min-width: 768px) {
-    width: 410px;
+    max-width: 410px;
+    flex-grow: 1;
     height: 310px;
     padding: 24px;
     gap: 160px;

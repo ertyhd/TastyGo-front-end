@@ -41,6 +41,7 @@
   padding: 24px;
 
   display: flex;
+
   align-items: flex-start;
   flex-direction: column;
 
@@ -49,11 +50,16 @@
   @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
-    width: 1280px;
+    width: 96vw;
+
     // flex-grow: 1;
     height: 400px;
     top: 530px;
     padding: 64px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1280px;
   }
 }
 .infoContacts_container__blockContacts {

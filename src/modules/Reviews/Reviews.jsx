@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import { SvgSelector } from "../../shared/components/SvgSelector/SvgSelector";
 
 import RatingStars from "./RatingStars";
-import UserReviewesCards from "./UserReviewesCards";
-import SwiperMobileWrapper from "./SwiperMobile";
+import UserReviewesCards from "./UserReviewesCards/UserReviewesCards";
+import SwiperMobileWrapper from "./SwiperMobile/SwiperMobile";
 
 import usersRevJ from "./usersReviews.json";
 
@@ -143,7 +143,11 @@ const Reviews = () => {
               </div>
             </div>
 
-            <p>{isUserSingleRev.text}</p>
+            <p
+              className={styles.reviews_container__cardList__singleReview__text}
+            >
+              {isUserSingleRev.text}
+            </p>
           </div>
         </div>
       )}

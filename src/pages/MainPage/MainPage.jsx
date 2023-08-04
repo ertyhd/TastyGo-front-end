@@ -9,7 +9,7 @@ const MainPage = () => {
   return (
     <>
       <Hero />
-      <PopularDishes/>
+      <PopularDishes />
       <Services />
       <Reviews />
       <InfoContacts />

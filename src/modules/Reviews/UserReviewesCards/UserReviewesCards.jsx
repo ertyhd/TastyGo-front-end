@@ -1,4 +1,4 @@
-import styles from "./reviews.module.scss";
+import styles from "../reviews.module.scss";
 
 const UserReviewesCards = ({ items, cardBtnClick, active }) => {
   const cardClick = (id) => {
@@ -15,7 +15,7 @@ const UserReviewesCards = ({ items, cardBtnClick, active }) => {
           <img
             alt="avatar"
             className={styles.reviews_container__cardList__avatar}
-            src={require(`../../assete/jpg/${avatar}`)}
+            src={require(`../../../assete/jpg/${avatar}`)}
           />
         </div>
 

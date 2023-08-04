@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "./swiperSlider.scss";
 import styles from "./swiperMobile.module.scss";
 
-import RatingStars from "./RatingStars";
+import RatingStars from "../RatingStars";
 import { Autoplay } from "swiper/modules";
 
 const SwiperMobile = ({ items }) => {
@@ -18,7 +18,7 @@ const SwiperMobile = ({ items }) => {
               <img
                 alt="avatar"
                 className={styles.swipMobileCard_userInfo__avatar}
-                src={require(`../../assete/jpg/${avatar}`)}
+                src={require(`../../../assete/jpg/${avatar}`)}
               />
             </div>
             <div className={styles.swipMobileCard_userInfo__nameRaitDate}>

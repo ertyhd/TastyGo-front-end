@@ -1,22 +1,20 @@
+.wrapperHeder {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background: #fff;
+  display: flex;
 
-
-.wrapperHeder{
-    padding-top: 16px;
-    padding-bottom: 16px;
-    background: #FFF;
-    display: flex;
-    
-    // justify-content: space-between;
-    align-items: center;
-    @media screen and (min-width: 1440px) {
+  // justify-content: space-between;
+  align-items: center;
+  @media screen and (min-width: 1440px) {
     padding-top: 40px;
     padding-bottom: 40px;
   }
 }
-.menuList{
-   display: none; 
-    @media screen and (min-width: 1440px) {
-     display: flex;
+.menuList {
+  display: none;
+  @media screen and (min-width: 1440px) {
+    display: flex;
     gap: 64px;
     margin-left: auto;
     margin-right: 177px;
@@ -33,49 +31,48 @@ text-transform: uppercase;
 color: var(--primary-secondary);
 }
 .menuListLink:hover {
-    text-decoration-line: underline;
+  text-decoration-line: underline;
 }
-.wrapperIcon{
-   margin-left: auto;
-  
-    @media screen and (min-width: 1440px) {
-        margin-left: 0px;
-      display: flex;
+.wrapperIcon {
+  margin-left: auto;
+
+  @media screen and (min-width: 1440px) {
+    margin-left: 0px;
+    display: flex;
     gap: 32px;
     margin-right: 179px;
   }
 }
-.iconSearch{
-     @media screen and (max-width: 1439px) {
+.iconSearch {
+  @media screen and (max-width: 1439px) {
     display: none;
   }
 }
 .iconSearch:hover .search path,
-.iconSearch:hover .search circle{
-  stroke: #F9854E;
+.iconSearch:hover .search circle {
+  stroke: #f9854e;
 }
-.iconUser{
-     @media screen and (max-width: 1439px) {
+.iconUser {
+  @media screen and (max-width: 1439px) {
     display: none;
   }
 }
 .iconUser:hover .user path,
-.iconUser:hover .user circle{
-  stroke: #F9854E;
+.iconUser:hover .user circle {
+  stroke: #f9854e;
 }
 
-.wrapperBasket{
-  
-    position: relative;
-    margin-right: 25px;
-    margin-left: auto;
-    stroke: #1E1E2D;
+.wrapperBasket {
+  position: relative;
+  margin-right: 25px;
+  margin-left: auto;
+  stroke: #1e1e2d;
   transition: stroke 0.2s;
 }
 .wrapperBasket:hover .bas path,
-.wrapperBasket:hover{
-  stroke: #F9854E;
-  color: #F9854E;
+.wrapperBasket:hover {
+  stroke: #f9854e;
+  color: #f9854e;
 }
 .countBasket{
    position: absolute;
@@ -89,14 +86,12 @@ stroke: #1E1E2D;
   transition: stroke 0.2s;
 }
 
-
-
-.wrapperBurgerMobil{
-    margin-right: 37px;
-      @media screen and (min-width: 1440px) {
-   display: none;
+.wrapperBurgerMobil {
+  margin-right: 37px;
+  @media screen and (min-width: 1440px) {
+    display: none;
   }
 }
-.wrapperBurgerMobil:hover .burgerMobil path{
-  stroke: #F9854E;
+.wrapperBurgerMobil:hover .burgerMobil path {
+  stroke: #f9854e;
 }

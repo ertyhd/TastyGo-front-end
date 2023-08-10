@@ -1,0 +1,202 @@
+.reviews_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  @media screen and (min-width: 768px) {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+.reviews_container__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0;
+  }
+}
+.reviews_container__headerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 312px;
+  @media screen and (min-width: 768px) {
+    width: 632px;
+    gap: 16px;
+  }
+}
+.reviews_container__headerWrapper__p {
+  color: var(--primary-accent);
+  font-family: Poppins-Regular;
+  font-size: 16px;
+
+  text-transform: uppercase;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+.reviews_container__header h2 {
+  text-transform: uppercase;
+  // font-size: 64px;
+}
+// .reviews_container__header a {
+//   //   width: 216px;
+// }
+.reviews_container__header__linkCont {
+  color: var(--primary-secondary);
+  font-family: Poppins-Regular;
+  font-size: 16px;
+  text-transform: uppercase;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+.reviews_container__header__linkCont p {
+  color: var(--primary-secondary);
+}
+.arrowBtnSvg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+.reviews_container__header__link:hover .arrowBtnSvg {
+  transform: rotate(45deg);
+}
+
+.reviews_container__cardList {
+  display: flex;
+  justify-content: space-between;
+}
+.reviews_container__cardList ul {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.reviews_container__cardList button {
+  border-radius: 10px;
+  border: 1px solid var(--primary-secondary);
+  background: var(--primary-primary);
+  padding: 24px;
+  display: flex;
+  width: 514px;
+  align-items: center;
+  gap: 24px;
+  transition: border 0.3s ease;
+}
+.reviews_container__cardList button:hover {
+  border: 1px solid var(--primary-accent);
+}
+
+.reviews_container__cardList__avatarWrapper {
+  width: 64px;
+  height: 64px;
+  fill: #d9d9d9;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.reviews_container__cardList__avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.reviews_container__cardList__reviewsData {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+.reviews_container__cardList__reviewsData__name {
+  color: var(--primary-secondary);
+  font-family: Poppins-Regular;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.reviews_container__cardList__reviewsData__date {
+  color: var(--primary-grey);
+
+  font-family: Poppins-Regular;
+  font-size: 16px;
+}
+// , #B7B7B7
+.reviews_container__cardList__singleReview {
+  display: flex;
+  max-width: 745px;
+  flex-grow: 1;
+  height: 390px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+
+  margin-left: 16px;
+
+  border-radius: 20px;
+  border: 1px solid var(--primary-secondary);
+  background: var(--primary-primary);
+}
+.reviews_container__cardList__singleReview__HeadStars p {
+  color: var(--primary-secondary);
+
+  /* Body desktop/M upper desktop */
+  font-family: Poppins-Regular;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.reviews_container__cardList__singleReview__HeadStars {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.reviews_container__cardList__singleReview__HeadStarsBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.reviews_container__cardList__singleReview__rating {
+  display: flex;
+}
+.reviews_container__cardList__singleReview__ratingIs {
+  text-transform: uppercase;
+  color: var(--primary-accent);
+  font-style: normal;
+}
+.reviews_container__cardList__singleReview__ratingOf {
+  text-transform: uppercase;
+  color: var(--primary-secondary);
+  font-style: normal;
+}
+.reviews_container__cardList__singleReview__text {
+  font-family: Poppins-Regular;
+}
+.reviews_container__cardList__singleReview__starsWraper {
+  display: flex;
+  gap: 8px;
+}
+.reviews_container__cardList__singleReview__stars {
+  width: 24px;
+  height: 24px;
+}
+#buttonActive {
+  border-color: var(--primary-accent);
+}
+
+.swiperComponent {
+  width: 100%;
+}

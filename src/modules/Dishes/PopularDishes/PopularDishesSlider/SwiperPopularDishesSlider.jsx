@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { useEffect, useRef, useCallback } from "react";
-import { SvgSelector } from "../../../../shared/components/SvgSelector/SvgSelector";
+import { useEffect } from "react";
+
 import { Swiper } from "swiper/react";
 
 import ButtonArrow from "../../../../shared/components/Button/ButtonArrow/ButtonArrow";

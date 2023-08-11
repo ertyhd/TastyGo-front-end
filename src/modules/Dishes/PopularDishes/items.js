@@ -2,63 +2,112 @@
 const items = [
   {
     id: 1,
+
     name: "soup",
-    title: "tttt",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    weight: "300g",
+    price: "$ 3.99",
   },
   {
     id: 2,
+
     name: "pizza",
-    title: "PPPP",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    weight: "300g",
+    price: "$ 3.99",
   },
   {
     id: 3,
+
     name: "pasta",
-    title: "aaaa",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    weight: "300g",
+    price: "$ 3.99",
   },
   {
     id: 4,
+
     name: "salad",
-    title: "ssss",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    weight: "300g",
+    price: "$ 3.99",
+
   },
   {
     id: 5,
+
     name: "pie",
-    title: "iiii",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    weight: "300g",
+    price: "$ 3.99",
   },
   {
     id: 6,
+
     name: "whiskey",
-    title: "wwww",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    weight: "300g",
+    price: "$ 3.99",
   },
   {
     id: 7,
+
     name: "soup2",
-    title: "tttt",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    weight: "300g",
+    price: "$ 3.99",
   },
   {
     id: 8,
+
     name: "pizza2",
-    title: "PPPP",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    weight: "300g",
+    price: "$ 3.99",
   },
   {
     id: 9,
+
     name: "pasta2",
-    title: "aaaa",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    weight: "300g",
+    price: "$ 3.99",
   },
   {
     id: 10,
+
     name: "salad2",
-    title: "ssss",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    weight: "300g",
+    price: "$ 3.99",
   },
   {
     id: 11,
+
     name: "pie2",
-    title: "iiii",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    weight: "300g",
+    price: "$ 3.99",
   },
   {
     id: 12,
+
     name: "whiskey2",
-    title: "wwww",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    weight: "300g",
+    price: "$ 3.99",
   },
 ];
 export default items;

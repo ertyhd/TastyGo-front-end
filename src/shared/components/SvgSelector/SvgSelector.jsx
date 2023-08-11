@@ -265,6 +265,36 @@ export const SvgSelector = ({ color, id, styles, viewBox }) => {
           <path d="M0.5 9H32.5" stroke="#1E1E2D" />
         </svg>
       );
+    case "arrowRightPopularDishDesc":
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="33"
+          height="33"
+          viewBox="0 0 33 33"
+          fill="none"
+        >
+          <path
+            d="M28.5 16.074L18.5 6.07397L17.09 7.48397L24.67 15.074L4.5 15.074V17.074H24.67L17.09 24.664L18.5 26.074L28.5 16.074Z"
+            fill="#1E1E2D"
+          />
+        </svg>
+      );
+    case "arrowLeftPopularDishDesc":
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="33"
+          height="33"
+          viewBox="0 0 33 33"
+          fill="none"
+        >
+          <path
+            d="M4.5 16.074L14.5 26.074L15.91 24.664L8.33 17.074H28.5V15.074L8.33 15.074L15.91 7.48397L14.5 6.07397L4.5 16.074Z"
+            fill="#1E1E2D"
+          />
+        </svg>
+      );
 
     default:
       return <svg></svg>;

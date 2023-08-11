@@ -20,13 +20,15 @@
     margin-right: 177px;
   }
 }
-.menuListLink {
-  font-family: Poppins-Regular;
-  font-size: 16px;
+.menuListLink{
+font-family: Poppins-Regular;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 1.2;
+text-transform: uppercase;
 
-  line-height: 1.2;
-  text-transform: uppercase;
-  color: var(--dark-blue, #1e1e2d);
+color: var(--primary-secondary);
 }
 .menuListLink:hover {
   text-decoration-line: underline;
@@ -72,15 +74,15 @@
   stroke: #f9854e;
   color: #f9854e;
 }
-.countBasket {
-  position: absolute;
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 110%;
-  text-transform: uppercase;
-  stroke: #1e1e2d;
+.countBasket{
+   position: absolute;
+    font-family: Poppins-Regular;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 110%;
+text-transform: uppercase;
+stroke: #1E1E2D;
   transition: stroke 0.2s;
 }
 

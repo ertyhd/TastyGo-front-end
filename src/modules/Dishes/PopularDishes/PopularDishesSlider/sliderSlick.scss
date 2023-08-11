@@ -1,0 +1,49 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+
+.wrapperDownSlider .slick-track{
+//   display: flex;
+//   gap: 20px;
+//   padding-right: 8px;
+  display: flex;
+  gap: 8px;
+  width: 313px;
+//   padding-left: 20px;
+padding-bottom: 40px;
+@media screen and (min-width: 768px) {
+   padding-right: 24px;
+//    margin-right: 24px;
+  }
+}
+.wrapperUpSlider .slick-track{
+    display: flex;
+  gap: 10px;
+padding-bottom: 40px;
+}
+.wrapperCategory .slick-track {
+display: flex;
+  gap: 24px;
+// margin-right: 24px;
+padding-bottom: 40px;
+}
+// .slick-track{
+//      display: flex;
+//   gap: 20px;
+// padding-bottom: 40px;
+// }
+// .slick-prev{
+//     z-index: 100;
+//     top: 100%;
+//     left: 45%;}
+//  .slick-next{
+//     top: 100%;
+//     left: 55%;
+// }
+// .slick-prev:before, .slick-next:before {
+//     color: black;
+// }
+.button{
+    
+    background-color: aquamarine;
+}

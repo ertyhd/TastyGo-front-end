@@ -1,4 +1,4 @@
-import { SvgSelector } from "../../shared/components/SvgSelector/SvgSelector";
+import { SvgSelector } from "../SvgSelector/SvgSelector";
 import { nanoid } from "nanoid";
 
 const RatingStars = ({ rating, styles }) => {

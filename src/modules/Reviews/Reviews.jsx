@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { SvgSelector } from "../../shared/components/SvgSelector/SvgSelector";
 
-import RatingStars from "./RatingStars";
+import RatingStars from "../../shared/components/RatingStars/RatingStars";
 import UserReviewesCards from "./UserReviewesCards/UserReviewesCards";
 import SwiperMobileWrapper from "./SwiperMobile/SwiperMobile";
 
@@ -27,16 +27,16 @@ const Reviews = () => {
 
     // Don`t forget. If need to checking media query in real time then switch addListaner
 
-    // const handleMediaChange = (event) => {
-    //   setIsMobile(event.matches);
-    // };
+    const handleMediaChange = (event) => {
+      setIsMobile(event.matches);
+    };
 
-    // handleMediaChange(mediaQuery);
+    handleMediaChange(mediaQuery);
 
-    // mediaQuery.addListener(handleMediaChange);
-    // return () => {
-    //   mediaQuery.removeListener(handleMediaChange);
-    // };
+    mediaQuery.addListener(handleMediaChange);
+    return () => {
+      mediaQuery.removeListener(handleMediaChange);
+    };
   }, []);
 
   const handleButtonClick = (cardId) => {

@@ -14,7 +14,6 @@ const SwiperMobile = ({ items }) => {
     let displayWidth = window.innerWidth;
     let k = 1.1 + ((1.9 - 1.1) * (displayWidth - 360)) / 440;
     setDisplay(k);
-    console.log(isDisplay);
   }, [isDisplay]);
 
   const elements = items.map(

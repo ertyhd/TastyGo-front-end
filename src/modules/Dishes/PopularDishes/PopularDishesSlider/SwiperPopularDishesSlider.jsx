@@ -6,14 +6,12 @@ import { Swiper } from "swiper/react";
 
 import ButtonArrow from "../../../../shared/components/Button/ButtonArrow/ButtonArrow";
 import { Pagination, Autoplay } from "swiper/modules";
-import './swiperSlider.scss'
-import css from "../popularDishes.module.scss"
+import "./swiperSlider.scss";
+import css from "../popularDishes.module.scss";
 // import "swiper/css";
 // import "swiper/css/pagination";
 
 const SwiperPopularDishesSlider = ({ item }) => {
-
-  
   const [isCenterMode, setIsCenterMode] = useState(false);
 
   useEffect(() => {
@@ -43,18 +41,16 @@ const SwiperPopularDishesSlider = ({ item }) => {
     let displayWidth = window.innerWidth;
     let k = 1.08 + ((2.7 - 1.08) * (displayWidth - 360)) / 440;
     setDisplay(k);
-    
   }, [isDisplay]);
   const swiperRef = React.useRef(null);
-  
+
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-const [lengthSlideIndex, setLengthSlideIndex] = useState(0);
+  const [lengthSlideIndex, setLengthSlideIndex] = useState(0);
   const handleSlideChange = (swiper) => {
     setActiveSlideIndex(swiper.realIndex);
-setLengthSlideIndex(swiper.slides.length);
-   
+    setLengthSlideIndex(swiper.slides.length);
   };
-  const handleClickPrev = () => swiperRef.current.swiper.slidePrev()
+  const handleClickPrev = () => swiperRef.current.swiper.slidePrev();
   const handleClickNext = () => swiperRef.current.swiper.slideNext();
   return (
     <div className={css.wrapperSwiper}>
@@ -83,9 +79,8 @@ setLengthSlideIndex(swiper.slides.length);
           </Swiper>
           <div className={css.swiperNavigate}>
             <ButtonArrow prev={handleClickPrev} next={handleClickNext}>
-              <div> {activeSlideIndex + 1}</div>
-              <span>/</span>
-              <div>{lengthSlideIndex} </div>
+              <p>{String(activeSlideIndex + 1).padStart(2, "0")}</p>
+              <p>/{lengthSlideIndex}</p>
             </ButtonArrow>
           </div>
 

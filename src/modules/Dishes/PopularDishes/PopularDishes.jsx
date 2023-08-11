@@ -4,12 +4,13 @@ import items from "./items";
 import itemsCategory from "./itemsCategory";
 import { SwiperSlide } from "swiper/react";
 
-import PopularDishesSlider from "./PopularDishesSlider/PopularDishesSlider";
-import PopularDishesCategorySlider from "./PopularDishesSlider/PopularDishesCategorySlider copy";
+// import PopularDishesSlider from "./PopularDishesSlider/PopularDishesSlider";
+// import PopularDishesCategorySlider from "./PopularDishesSlider/PopularDishesCategorySlider copy";
 import SwiperPopularDishesCategorySlider from "./PopularDishesSlider/SwiperPopularDishesCategorySlider";
 import SwiperPopularDishesSlider from "./PopularDishesSlider/SwiperPopularDishesSlider";
 import SectionLink from "../../../shared/components/SectionLink/SectionLink";
 import css from "./popularDishes.module.scss";
+import { Link } from "react-router-dom";
 
 const PopularDishes = () => {
   const [isCenterMode, setIsCenterMode] = useState(false);
@@ -47,7 +48,7 @@ const PopularDishes = () => {
           </div>
           <div className={css.boxDishFooter}>
             <p className={css.priceDish}>{price}</p>
-            <a className={css.btnDishOrder}>to order</a>
+            <Link className={css.btnDishOrder}>to order</Link>
           </div>
         </div>
       </SwiperSlide>
@@ -79,7 +80,7 @@ const PopularDishes = () => {
       </li>
     );
   });
-  console.log("elementCategory", elementCategory);
+  // console.log("elementCategory", elementCategory);
   return (
     <section className={`${css.section}  ${!isCenterMode && "container"}`}>
       <h2 className={css.titlePopularDish}>popular dishes</h2>

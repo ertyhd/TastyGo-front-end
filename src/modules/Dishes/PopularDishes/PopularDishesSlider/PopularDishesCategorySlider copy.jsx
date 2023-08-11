@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { useEffect, useRef, useCallback } from "react";
-import { SvgSelector } from "../../../../shared/components/SvgSelector/SvgSelector";
+import { useEffect } from "react";
+// import { SvgSelector } from "../../../../shared/components/SvgSelector/SvgSelector";
 import Slider from "react-slick";
 import "./sliderSlick.scss";
-import css from "./popularDishesSlider.module.scss"
+// import css from "./popularDishesSlider.module.scss"
 
 const PopularDishesCategorySlider = ({ item }) => {
-    
   const [isCenterMode, setIsCenterMode] = useState(false);
 
   useEffect(() => {
@@ -21,8 +20,6 @@ const PopularDishesCategorySlider = ({ item }) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
- 
 
   const settings = {
     dots: false,
@@ -45,9 +42,7 @@ const PopularDishesCategorySlider = ({ item }) => {
   };
   return (
     <div className="wrapperCategory">
-      {isCenterMode && <Slider {...settings} >
-        {item}
-      </Slider>}
+      {isCenterMode && <Slider {...settings}>{item}</Slider>}
       {/* {isCenterMode && (
         <div className="wrapperDownSlider">
           <Slider {...settings} ref={sliderRef}>

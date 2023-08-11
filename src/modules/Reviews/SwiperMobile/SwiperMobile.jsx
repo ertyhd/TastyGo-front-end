@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "./swiperSlider.scss";
 import styles from "./swiperMobile.module.scss";
 
-import RatingStars from "../RatingStars";
+import RatingStars from "../../../shared/components/RatingStars/RatingStars";
 import { Autoplay } from "swiper/modules";
 
 const SwiperMobile = ({ items }) => {
+  const [isDisplay, setDisplay] = useState(1);
+  useEffect(() => {
+    let displayWidth = window.innerWidth;
+    let k = 1.1 + ((1.9 - 1.1) * (displayWidth - 360)) / 440;
+    setDisplay(k);
+  }, [isDisplay]);
+
   const elements = items.map(
     ({ id, name, avatar, date, rating, header, text }) => (
       <SwiperSlide key={id}>
@@ -46,14 +53,14 @@ const SwiperMobile = ({ items }) => {
   return (
     <>
       <Swiper
-        slidesPerView={1.2}
+        slidesPerView={isDisplay}
         spaceBetween={-75}
         centeredSlides={true}
         loop={true}
-        className={styles.swaprWrap}
+        className="swaprWrap"
         autoplay={{
-          delay: 4000,
-          disableOnInteraction: false,
+          delay: 5000,
+          // disableOnInteraction: false,
         }}
         modules={[Autoplay]}
       >

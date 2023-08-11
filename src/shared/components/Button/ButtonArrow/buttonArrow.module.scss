@@ -1,20 +1,21 @@
-.swiperBtnWrapper{
-    display: flex;
-    // gap: 16px;
-    align-items: center;
-    color: var(--primary-secondary, #1E1E2D);
-/* body/body desktop/body 16 upper */
-font-family: Poppins-Regular;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 120%;
-text-transform: uppercase;
-
+.swiperBtnWrapper {
+  display: flex;
+  // gap: 16px;
+  align-items: center;
+  color: var(--primary-secondary, #1e1e2d);
+  font-family: Poppins-Regular;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-transform: uppercase;
 }
-.btn{
-    border: none;
-    background: none;
-    margin-right: 16px;
-    margin-left: 16px;
+.swiperBtnWrapper p:first-of-type {
+  color: var(--primary-accent, #f9854e);
+}
+.btn {
+  border: none;
+  background: none;
+  margin-right: 16px;
+  margin-left: 16px;
 }

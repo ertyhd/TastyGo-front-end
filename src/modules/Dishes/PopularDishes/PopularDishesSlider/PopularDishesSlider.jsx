@@ -3,10 +3,9 @@ import { useEffect, useRef, useCallback } from "react";
 import { SvgSelector } from "../../../../shared/components/SvgSelector/SvgSelector";
 import Slider from "react-slick";
 import "./sliderSlick.scss";
-import css from "./popularDishesSlider.module.scss"
+// import css from "./popularDishesSlider.module.scss";
 
 const PopularDishesSlider = ({ item }) => {
-    
   const [isCenterMode, setIsCenterMode] = useState(false);
 
   useEffect(() => {
@@ -32,13 +31,13 @@ const PopularDishesSlider = ({ item }) => {
     sliderRef.current.slickPrev();
   }, []);
 
-const [isDisplay, setDisplay] = useState(1);
-useEffect(() => {
-  let displayWidth = window.innerWidth;
-  let k = 10 + ((180 - 10) * (displayWidth - 360)) / 440;
-  setDisplay(k);
-  console.log(isDisplay);
-}, [isDisplay]);
+  const [isDisplay, setDisplay] = useState(1);
+  useEffect(() => {
+    let displayWidth = window.innerWidth;
+    let k = 10 + ((180 - 10) * (displayWidth - 360)) / 440;
+    setDisplay(k);
+    // console.log(isDisplay);
+  }, [isDisplay]);
 
   const settings = {
     dots: false,
@@ -103,7 +102,7 @@ useEffect(() => {
   //   slidesToShow: isCenterMode ? 1 : 3,
   //   slidesToScroll: 1,
   //   swipeToSlide: isCenterMode,
-    
+
   //   arrows: false,
   // };
   return (

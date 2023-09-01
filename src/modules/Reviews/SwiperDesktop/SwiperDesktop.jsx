@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import "./swiperSlider.scss";
-import styles from "./swiperMobile.module.scss";
+import styles from "./swiperDesktop.module.scss";
 
 import { dateFormater } from "../../../utils/dateFormater";
 
 import RatingStars from "../../../shared/components/RatingStars/RatingStars";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 
-const SwiperMobile = ({ items, viewPort, refference }) => {
+const SwiperMobile = ({ items }) => {
   const [isDisplay, setDisplay] = useState(1);
   useEffect(() => {
     let displayWidth = window.innerWidth;
@@ -64,16 +63,16 @@ const SwiperMobile = ({ items, viewPort, refference }) => {
   return (
     <>
       <Swiper
-        ref={refference}
-        slidesPerView={viewPort ? isDisplay : 2}
-        spaceBetween={viewPort ? -75 : 28}
-        centeredSlides={viewPort ? true : false}
+        slidesPerView={isDisplay}
+        spaceBetween={-75}
+        centeredSlides={true}
         loop={true}
         className="swaprWrap"
         autoplay={{
           delay: 5000,
+          // disableOnInteraction: false,
         }}
-        modules={[Autoplay, Pagination]}
+        modules={[Autoplay]}
       >
         {elements}
       </Swiper>

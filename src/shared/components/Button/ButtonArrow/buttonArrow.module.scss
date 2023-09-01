@@ -1,6 +1,5 @@
 .swiperBtnWrapper {
   display: flex;
-  // gap: 16px;
   align-items: center;
   color: var(--primary-secondary, #1e1e2d);
   font-family: Poppins-Regular;
@@ -11,11 +10,17 @@
   text-transform: uppercase;
 }
 .swiperBtnWrapper p:first-of-type {
-  color: var(--primary-accent, #f9854e);
+  color: var(--primary-accent);
 }
 .btn {
   border: none;
   background: none;
-  margin-right: 16px;
-  margin-left: 16px;
+  padding: 0;
+}
+.btn .arrowSwiper_style {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.btn:hover .arrowSwiper_style {
+  color: var(--primary-accent);
+  transition: transform 0.3s ease, color 0.3s ease;
 }

@@ -44,7 +44,8 @@
     flex-grow: 1;
     height: 310px;
     padding: 24px;
-    gap: 160px;
+    // gap: 160px;
+    justify-content: space-between;
   }
 }
 .services_cardsContainer__cardH3 {

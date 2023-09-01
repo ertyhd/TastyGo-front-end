@@ -8,15 +8,32 @@
 }
 
 .swaprWrap .swiper-wrapper .swiper-slide.swiper-slide-active {
-  transform: scale(1);
-  transition: transform 0.4s ease;
+  @media screen and (max-width: 768px) {
+    transform: scale(1);
+    transition: transform 0.4s ease;
+  }
 }
 
 .swaprWrap .swiper-wrapper .swiper-slide,
 .swaprWrap .swiper-wrapper .swiper-slide {
-  transform: scale(0.5);
-  transition: transform 0.4s ease;
+  @media screen and (max-width: 768px) {
+    transform: scale(0.5);
+    transition: transform 0.4s ease;
+  }
 }
+
+// .swaprWrap .swiper-wrapper .swiper-slide.swiper-slide-active,
+// .swaprWrap .swiper-wrapper .swiper-slide.swiper-slide-prev,
+// .swaprWrap .swiper-wrapper .swiper-slide.swiper-slide-next {
+//   transform: scaleY(1);
+//   transition: transform 0.2s ease;
+// }
+
+// .swaprWrap .swiper-wrapper .swiper-slide.swiper-slide-prev,
+// .swaprWrap .swiper-wrapper .swiper-slide {
+//   transform: scaleY(0);
+//   transition: transform 0.2s ease;
+// }
 
 // .swiper-slide {
 //   text-align: center;

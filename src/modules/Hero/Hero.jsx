@@ -2,9 +2,9 @@ import styles from "./hero.module.scss";
 
 import { useState } from "react";
 
-import image512h from "../../assete/jpg/young-woman-eating-pasta-in-a-cafe-512h.jpg";
-import image4x from "../../assete/jpg/young-woman-eating-pasta-in-a-cafe-4x.jpg";
-import image2x from "../../assete/jpg/young-woman-eating-pasta-in-a-cafe-2x.jpg";
+import image512h from "../../assete/jpg/new-hero-compisition_4x.jpg";
+import image4x from "../../assete/jpg/new-hero-compisition_2x.jpg";
+import image2x from "../../assete/jpg/new-hero-compisition_1x.jpg";
 import { SvgSelector } from "../../shared/components/SvgSelector/SvgSelector";
 import { Link } from "react-router-dom";
 
@@ -49,7 +49,7 @@ const Hero = () => {
       <div className={styles.hero_container__content}>
         <img
           className={styles.hero_container__img}
-          alt="young woman eating pasta in a cafe "
+          alt="several dishes are on the table"
           src={image2x}
           srcSet={`${image2x} 480w, ${image4x} 800w, ${image512h} 1200w`}
         />
@@ -59,7 +59,7 @@ const Hero = () => {
             isBtnClicked ? styles.hero_container__btn_pressed : ""
           }`}
         >
-          <span className={styles.hero_container__btn_text}>Make an order</span>
+          <span className={styles.hero_container__btn_text}>see our menu</span>
           <SvgSelector
             id="arrowTopRight"
             styles={styles.arrowBtnSvg}

@@ -16,7 +16,22 @@ const Services = () => {
           </h3>
           <span className={styles.services_cardsContainer__cardTextWrapper}>
             <p className={styles.services_cardsContainer__cardText}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              Variety of delightful dishes for every meal
+            </p>
+            <div className={styles.services_cardsContainer__cardSvgWrapper}>
+              <SvgSelector
+                styles={styles.services_cardsContainer__cardSvg}
+                id="arrowTopRight"
+                viewBox={"0 0 46 46"}
+              />
+            </div>
+          </span>
+        </Link>
+        <Link className={styles.services_cardsContainer__card}>
+          <h3 className={styles.services_cardsContainer__cardH3}>Catering</h3>
+          <span className={styles.services_cardsContainer__cardTextWrapper}>
+            <p className={styles.services_cardsContainer__cardText}>
+              Elevate your events with our Catering services
             </p>
             <div className={styles.services_cardsContainer__cardSvgWrapper}>
               <SvgSelector
@@ -29,28 +44,11 @@ const Services = () => {
         </Link>
         <Link className={styles.services_cardsContainer__card}>
           <h3 className={styles.services_cardsContainer__cardH3}>
-            All-day dining
+            Nutritional Balance
           </h3>
           <span className={styles.services_cardsContainer__cardTextWrapper}>
             <p className={styles.services_cardsContainer__cardText}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
-            </p>
-            <div className={styles.services_cardsContainer__cardSvgWrapper}>
-              <SvgSelector
-                styles={styles.services_cardsContainer__cardSvg}
-                id="arrowTopRight"
-                viewBox={"0 0 46 46"}
-              />
-            </div>
-          </span>
-        </Link>
-        <Link className={styles.services_cardsContainer__card}>
-          <h3 className={styles.services_cardsContainer__cardH3}>
-            All-day dining
-          </h3>
-          <span className={styles.services_cardsContainer__cardTextWrapper}>
-            <p className={styles.services_cardsContainer__cardText}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              Wholesome meals designed to support your daily nutritional
             </p>
             <div className={styles.services_cardsContainer__cardSvgWrapper}>
               <SvgSelector

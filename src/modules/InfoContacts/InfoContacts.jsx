@@ -8,29 +8,35 @@ const InfoContacts = () => {
       <div className={styles.infoContacts_container__background}>
         <div className={styles.infoContacts_container__block}>
           <div className={styles.infoContacts_container__blockContacts}>
-            <span className={styles.infoContacts_container__headSpan}>
-              Contacts
-            </span>
+            <p className={styles.infoContacts_container__headSpan}>Contacts</p>
             <h2>
               You can find us
               <br />
               at the adress
             </h2>
-
-            <span className={styles.infoContacts_container__locSpan}>
-              <SvgSelector
-                id="location"
-                styles={styles.infoContacts_container__blockContactsSvg}
-              />
-              Kyiv, st.Shevchenka, 98
-            </span>
-            <span>
-              <SvgSelector
-                id="telephone"
-                styles={styles.infoContacts_container__blockContactsSvg}
-              />
-              +38 (098) 000-11-22
-            </span>
+            <div className={styles.infoContacts_container__locSpan}>
+              <span>
+                <SvgSelector
+                  id="location"
+                  styles={styles.infoContacts_container__blockContactsSvg}
+                />
+                Kyiv, st.Shevchenka, 98
+              </span>
+              <span>
+                <SvgSelector
+                  id="telephone"
+                  styles={styles.infoContacts_container__blockContactsSvg}
+                />
+                +38 (098) 000-11-22
+              </span>
+              <span>
+                <SvgSelector
+                  id="workingHours"
+                  styles={styles.infoContacts_container__blockContactsSvg}
+                />
+                sun-mon 10:00-22:00
+              </span>
+            </div>
           </div>
           <div className={styles.infoContacts_container__blockLinks}>
             <Link

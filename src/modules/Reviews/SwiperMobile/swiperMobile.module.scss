@@ -1,20 +1,35 @@
 .swipMobileCard {
   display: flex;
-  height: 414px;
+  height: 438px;
   //   max-width: 312px; // delete this width
   padding: 16px;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between;
   gap: 16px;
 
   border-radius: 20px;
   border: 1px solid var(--primary-secondary);
   background: var(--primary-primary);
-}
 
+  @media screen and (min-width: 768px) {
+    padding: 24px;
+    height: 473px;
+  }
+}
+.swipMobileCard_textPsition {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.swipMobileCard_userDatePsition {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 .swipMobileCard_userInfo {
   display: flex;
-  gap: 16px;
+  gap: 8px;
 }
 .swipMobileCard_userInfo__avatarWrapper {
   width: 48px;
@@ -32,13 +47,15 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  gap: 2px;
 }
 .swipMobileCard_userInfo__nameRaitDate__name {
   color: var(--primary-secondary);
-  font-family: Poppins-Regular;
+  font-family: Poppins-Medium;
+  color: var(--primary-dark-blue, #1e1e2d);
   font-size: 16px;
-  text-transform: uppercase;
+  font-style: normal;
+  line-height: 1.4;
 }
 .swipMobileCard_userInfo__starsWraper {
   display: flex;
@@ -56,14 +73,37 @@
 .swipMobileCard_header {
   color: var(--primary-secondary);
   font-family: Poppins-Medium;
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
+
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
 }
 .swipMobileCard_text {
   color: var(--primary-secondary);
   font-family: Poppins-Regular;
-  font-size: 14px;
-  //   overflow: auto;
+  font-size: 16px;
+  // overflow: auto;
+  max-height: 266px;
+
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 13;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    max-height: 283px;
+  }
 }
 
 // .swipMobileCard {

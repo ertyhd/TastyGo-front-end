@@ -152,7 +152,7 @@
 }
 .wrapperSlideItem {
   padding: 16px;
-  background-color: white;
+  background-color: var(--primary-primary);
   width: 313px;
 
   border: 1px solid black;
@@ -362,7 +362,3 @@
   margin-left: auto;
   margin-right: auto;
 }
-
-// .mySwiper .swiper-slide .swiper-slide-prev {
-//   width: 20px;
-// }

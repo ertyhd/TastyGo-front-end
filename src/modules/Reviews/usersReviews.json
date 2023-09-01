@@ -5,7 +5,7 @@
     "avatar": "testUser.jpg",
     "header": "it was a great experience!",
     "rating": "4.9",
-    "date": "15 March 2023",
+    "date": "15-03-2023",
     "text": "In these difficult times of power outages, Cook Drive is a lifesaver! The quality of the food is restaurant quality and the prices are reasonable. The management is very skillful. Yesterday we ordered something a little bit different (which I understand - the workload is very heavy). Half an hour later, we were already eating our order to our satisfaction! The ability to quickly correct mistakes is a great feature in times of crisis! So many thanks!"
   },
   {
@@ -14,7 +14,7 @@
     "avatar": "avatar-icon3.jpg",
     "header": "Had a great time at this restaurant.",
     "rating": "4.1",
-    "date": "28 July 2023",
+    "date": "28-08-2023",
     "text": "I liked the service here. Very pleasant waiters. And the prices are very reasonable. I recommend this establishment to everyone."
   },
   {
@@ -23,7 +23,7 @@
     "avatar": "avatar-icon2.jpg",
     "header": "Unfortunately, my experience was disappointing.",
     "rating": "2",
-    "date": "10 November 2023",
+    "date": "10-10-2023",
     "text": "This is a bad restaurant. The food was bland, and the service was slow."
   },
   {
@@ -32,7 +32,7 @@
     "avatar": "avatar-icon4.jpg",
     "header": "The restaurant had a wonderful atmosphere",
     "rating": "4.6",
-    "date": "2 May 2023",
+    "date": "2-04-2023",
     "text": "I had the pleasure of dining at this fantastic restaurant last night. From the moment I walked in, the ambiance was warm and inviting. The menu selection was impressive, offering a variety of dishes that catered to different palates. I opted for their signature dish, and it did not disappoint. The flavors were rich and perfectly balanced. The attentive staff added to the overall experience, ensuring that every detail was taken care of. If you're looking for a culinary adventure, I highly recommend giving this restaurant a try!"
   },
   {
@@ -41,7 +41,7 @@
     "avatar": "avatar-icon5.jpg",
     "header": "Had an amazing dining experience at this restaurant.",
     "rating": "3.9",
-    "date": "18 September 2023",
+    "date": "18-09-2023",
     "text": "What a gem of a restaurant! From the moment I stepped inside, I was greeted by a lovely atmosphere that combined elegance with comfort. The menu was a delightful journey through various cuisines, and making a choice was a delightful challenge. I eventually settled on a dish that came highly recommended, and it exceeded all expectations. The chef's attention to detail and passion for culinary art truly shone through."
   }
 ]

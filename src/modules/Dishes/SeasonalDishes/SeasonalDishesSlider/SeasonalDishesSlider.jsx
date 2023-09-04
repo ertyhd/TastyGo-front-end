@@ -34,11 +34,11 @@ const SeasonalDishesSlider = ({ item }) => {
   }, [isDisplay]);
   const swiperRef = React.useRef(null);
 
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-  const [lengthSlideIndex, setLengthSlideIndex] = useState(0);
+//   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+//   const [lengthSlideIndex, setLengthSlideIndex] = useState(0);
   const handleSlideChange = (swiper) => {
-    setActiveSlideIndex(swiper.realIndex);
-    setLengthSlideIndex(swiper.slides.length);
+    // setActiveSlideIndex(swiper.realIndex);
+    // setLengthSlideIndex(swiper.slides.length);
   };
   const handleClickPrev = () => swiperRef.current.swiper.slidePrev();
   const handleClickNext = () => swiperRef.current.swiper.slideNext();
@@ -69,8 +69,8 @@ const SeasonalDishesSlider = ({ item }) => {
           </Swiper>
           <div className={css.swiperNavigate}>
             <ButtonArrow prev={handleClickPrev} next={handleClickNext}>
-              <p>{String(activeSlideIndex + 1).padStart(2, "0")}</p>
-              <p>/{lengthSlideIndex}</p>
+              {/* <p>{String(activeSlideIndex + 1).padStart(2, "0")}</p>
+              <p>/{lengthSlideIndex}</p> */}
             </ButtonArrow>
           </div>
 

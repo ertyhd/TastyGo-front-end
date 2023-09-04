@@ -130,6 +130,7 @@
 //   gap: 20px;
 // }
 .titlePopularDish {
+  min-width: 150px;
   margin-bottom: 24px;
   padding-left: 17px;
   font-family: Poppins-Regular;
@@ -139,16 +140,29 @@
   line-height: 1.2; /* 19.2px */
   text-transform: uppercase;
   color: var(--primary-accent);
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
+    
     padding-left: 0;
+    min-width: 150px;
+    margin-right: 50px;
   }
 }
 .wrapperCategory {
   padding-left: 17px;
+  @media screen and (max-width: 1439px) {
+    
+    margin-bottom: 16px;
+  }
 }
 .categoryList {
   display: flex;
+  
   gap: 24px;
+  
+   @media screen and (min-width: 1440px) {
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 .wrapperSlideItem {
   padding: 16px;
@@ -173,17 +187,21 @@
   font-weight: 500;
   line-height: 120%; /* 38.4px */
   text-transform: uppercase;
-  margin-bottom: 24px;
+  // margin-bottom: 24px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
     font-size: 18px;
     font-weight: 400;
-    margin-bottom: 24px;
+   
   }
 }
-.wrapperCategoryItem {
-  width: 140px;
-}
+// .wrapperCategoryItem {
+//   width: 140px;
+//   // @media screen and (min-width: 1440px) {
+    
+//   //   margin-bottom: 24px;
+//   // }
+// }
 .countCategoryDish {
   position: absolute;
   color: var(--primary-secondary);
@@ -199,6 +217,32 @@
     font-weight: 400;
     margin-bottom: 24px;
   }
+}
+.wrapperNameCategoryDesktop{
+  display: flex;
+  justify-content: space-between;
+}
+.nameCounterCategory{
+  position: relative;
+  color: var(--primary-secondary);
+/* Heading desktop/Heading desktop 64 medium 64 */
+font-family: Poppins-Medium;
+font-size: 64px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 76.8px */
+text-transform: uppercase;
+}
+.counterCategoryDesktop{
+  position: absolute;
+  color: var(--primary-secondary);
+font-feature-settings: 'sups' on;
+font-family: Poppins-Medium;
+font-size: 32px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 76.8px */
+text-transform: uppercase;
 }
 .wrapperSwiper {
   margin-bottom: 25px;
@@ -318,10 +362,11 @@
   }
 }
 // ================== <link> =================
-.wrapperCategoryListLink {
+.wrapperCategoryList {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  margin-bottom: 32px;
 }
 .linkSection {
   display: flex;

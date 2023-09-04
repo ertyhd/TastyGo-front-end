@@ -68,14 +68,14 @@ const PopularDishes = () => {
           </SwiperSlide>
         )}
         {!isCenterMode && (
-          <div className={css.categorySlideItem} key={id}>
-            <div className={css.wrapperCategoryItem}>
+          
+            <div className={css.wrapperCategoryItem} key={id}>
               <p className={css.categorySlideItem}>
                 {name}
                 <span className={css.countCategoryDish}>10</span>
               </p>
             </div>
-          </div>
+          
         )}
       </li>
     );
@@ -83,17 +83,25 @@ const PopularDishes = () => {
   // console.log("elementCategory", elementCategory);
   return (
     <section className={`${css.section}  ${!isCenterMode && "container"}`}>
-      <h2 className={css.titlePopularDish}>popular dishes</h2>
       <div>
         {!isCenterMode && (
-          <div className={css.wrapperCategoryListLink}>
+          <div className={css.wrapperCategoryList}>
+            <h2 className={css.titlePopularDish}>popular dishes</h2>
             <ul className={css.categoryList}>{elementCategory}</ul>
-            <SectionLink>
-              <p>see ALL SALADS</p>
-            </SectionLink>
           </div>
         )}
       </div>
+      {!isCenterMode && (
+        <div className={css.wrapperNameCategoryDesktop}>
+          <p className={css.nameCounterCategory}>
+            тут буде бек 
+            <span className={css.counterCategoryDesktop}>10</span>
+          </p>
+          <SectionLink>
+            <p>see ALL SALADS</p>
+          </SectionLink>
+        </div>
+      )}
       {isCenterMode && (
         <SwiperPopularDishesCategorySlider elementCategory={elementCategory} />
       )}

@@ -1,4 +1,5 @@
 .wrapperHeder {
+  position: relative;
   padding-top: 16px;
   padding-bottom: 16px;
   background: #fff;
@@ -11,11 +12,31 @@
     padding-bottom: 40px;
   }
 }
-.menuList {
+.logoLink{
+  display: flex;
+  gap: 8px;
+}
+.logoText{
   display: none;
+   @media screen and (min-width: 1440px) {
+     color: var(--primary-secondary);
+font-family: Poppins-Bold;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 120%; /* 28.8px */
+text-transform: uppercase;
+  }
+ 
+
+}
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   @media screen and (min-width: 1440px) {
-    display: flex;
-    gap: 64px;
+    flex-direction: row;
+    gap: 32px;
     margin-left: auto;
     margin-right: 177px;
   }
@@ -40,7 +61,7 @@ color: var(--primary-secondary);
     margin-left: 0px;
     display: flex;
     gap: 32px;
-    margin-right: 179px;
+    // margin-right: 179px;
   }
 }
 .iconSearch {
@@ -87,11 +108,31 @@ stroke: #1E1E2D;
 }
 
 .wrapperBurgerMobil {
-  margin-right: 37px;
+  // position: relative;
+  // margin-right: 37px;
+  
   @media screen and (min-width: 1440px) {
     display: none;
   }
 }
 .wrapperBurgerMobil:hover .burgerMobil path {
   stroke: #f9854e;
+}
+.burgerMenu{
+  position: absolute;
+  padding: 44px 24px;
+  z-index: 100;
+  top: 45px;
+  right: 24px;
+  width: 249px;
+  height: 286px;
+  background-color: #fff;
+  // transform: translateX(-10%);
+  // transition: transform 250ms ease;
+  // transition-duration: 1000ms;
+}
+.buttonClose{
+  position: absolute;
+  top: 12px;
+  right: 12px;
 }

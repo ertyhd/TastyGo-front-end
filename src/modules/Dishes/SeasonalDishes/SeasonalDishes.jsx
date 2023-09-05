@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useEffect } from "react";
 import items from "./items";
 import { SwiperSlide } from "swiper/react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import SectionLink from "../../../shared/components/SectionLink/SectionLink";
 import css from './seasonalDishes.module.scss';
 import SeasonalDishesSlider from "./SeasonalDishesSlider/SeasonalDishesSlider";
+import SingleCard from "../../../shared/components/SingleCard/SingleCard";
 
 const SeasonalDishes = () => {
   const [isCenterMode, setIsCenterMode] = useState(false);
@@ -26,7 +27,13 @@ const SeasonalDishes = () => {
   const element = items.map(({ id, name, description, weight, price }) => {
     return (
       <SwiperSlide key={id}>
-        <div className={css.wrapperSlideItem}>
+        <SingleCard
+          name={name}
+          description={description}
+          weight={weight}
+          price={price}
+        />
+        {/* <div className={css.wrapperSlideItem}>
           <div className={css.wrapperContentDish}>
             <div className={css.wrapperImgDish}>
               <img
@@ -45,7 +52,7 @@ const SeasonalDishes = () => {
             <p className={css.priceDish}>{price}</p>
             <Link className={css.btnDishOrder}>to order</Link>
           </div>
-        </div>
+        </div> */}
       </SwiperSlide>
     );
   });

@@ -7,7 +7,7 @@
 
   border-radius: 20px;
   @media screen and (min-width: 768px) {
-    width: 402px;
+    width: 410px;
     padding: 24px;
   }
 }
@@ -39,8 +39,10 @@
 }
 .wrapperDescriptionDish {
   width: 185px;
+  margin-bottom: 16px;
   @media screen and (min-width: 768px) {
     width: 362px;
+    margin-bottom: 24px;
   }
 }
 .nameDish {
@@ -51,28 +53,28 @@
   text-transform: uppercase;
   color: var(--primary-secondary);
   @media screen and (min-width: 768px) {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     font-size: 18px;
   }
 }
 .descriptionDish {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   font-family: Poppins-Regular;
   font-size: 12px;
   line-height: 1.2em;
   color: var(--primary-grey);
   @media screen and (min-width: 768px) {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     font-size: 16px;
   }
 }
 .weightDish {
   font-family: Poppins-Regular;
-  font-size: 16px;
-  line-height: 1.2em;
-  color: var(--primary-grey);
+  font-size: 14px;
+  line-height: 120%;
+  color: var(--primary-secondary);
   @media screen and (min-width: 768px) {
-    font-size: 12px;
+    font-size: 18px;
   }
 }
 .boxDishFooter {

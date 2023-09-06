@@ -1,0 +1,90 @@
+.wrapperCategory {
+//   padding-left: 17px;
+  @media screen and (max-width: 1439px) {
+    padding-left: 0;
+    margin-bottom: 16px;
+  }
+}
+.wrapperCategoryItem{
+    @media screen and (min-width: 1440px) {
+        margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+   
+  }
+}
+.categorySlideItem {
+  position: relative;
+
+  // background-color: greenyellow;
+  font-family: Poppins-Medium;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 38.4px */
+  text-transform: uppercase;
+  // margin-bottom: 24px;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 18px;
+    font-weight: 400;
+   
+  }
+}
+.categorySlideItem {
+  position: relative;
+
+  // background-color: greenyellow;
+  font-family: Poppins-Medium;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 38.4px */
+  text-transform: uppercase;
+  // margin-bottom: 24px;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 18px;
+    font-weight: 400;
+   
+  }
+}
+.countCategoryDish {
+  position: absolute;
+  color: var(--primary-secondary);
+  font-feature-settings: "sups" on;
+  font-family: Poppins-Medium;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2; /* 38.4px */
+  text-transform: uppercase;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+}
+.nameCounterCategory{
+  position: relative;
+  margin-bottom: 32px;
+  color: var(--primary-secondary);
+/* Heading desktop/Heading desktop 64 medium 64 */
+font-family: Poppins-Medium;
+font-size: 64px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 76.8px */
+text-transform: uppercase;
+}
+.counterCategoryDesktop{
+  position: absolute;
+  color: var(--primary-secondary);
+font-feature-settings: 'sups' on;
+font-family: Poppins-Medium;
+font-size: 32px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 76.8px */
+text-transform: uppercase;
+}

@@ -55,6 +55,10 @@ color: var(--primary-secondary);
 .menuListLink:hover {
   text-decoration-line: underline;
 }
+.menuListLink:global(.active){
+  color: var(--primary-accent);
+  text-decoration-line: underline;
+}
 .wrapperIcon {
   margin-left: auto;
 

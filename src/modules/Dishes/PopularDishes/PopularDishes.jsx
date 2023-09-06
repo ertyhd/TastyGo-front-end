@@ -79,7 +79,7 @@ const PopularDishes = () => {
             <div className={css.wrapperCategoryItem} key={id}>
               <p className={css.categorySlideItem}>
                 {name}
-                <span className={css.countCategoryDish}>10</span>
+                {/* <span className={css.countCategoryDish}>10</span> */}
               </p>
             </div>
           

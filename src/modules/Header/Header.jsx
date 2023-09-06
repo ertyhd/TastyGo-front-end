@@ -14,7 +14,7 @@ const Header = () => {
 
    useEffect(() => {
      const handleResize = () => {
-       setIsCenterMode(window.innerWidth <= 1440);
+       setIsCenterMode(window.innerWidth <= 1439);
      };
 
      const handleClickOutside = (event) => {

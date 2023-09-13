@@ -1,2 +1,6 @@
 import axios from "axios";
-import { instance } from "./auth";
+
+const instance = axios.create({
+  baseURL: "https://localhost:3005/",
+});
+export default instance;

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const instance = axios.create({
   // take on .env це зміниться коли бекенд буде на сервері
-  baseURL: "https://connections-api.herokuapp.com",
+  baseURL: "https://localhost:3005/",
 });
 
 const setToken = (token) => {

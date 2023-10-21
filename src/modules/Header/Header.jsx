@@ -1,42 +1,54 @@
-import { Link, NavLink } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { Link, NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-import { SvgSelector } from '../../shared/components/SvgSelector/SvgSelector';
+import { SvgSelector } from "../../shared/components/SvgSelector/SvgSelector";
+import Modal from "../../shared/components/Modal/Modal";
+import RegistrationForm from "../../shared/components/Forms/authForms/RegistrationForm/RegistrationForm";
+import LoginForm from "../../shared/components/Forms/authForms/LoginForm/LoginForm";
 
-import css from './heder.module.scss'
+import css from "./heder.module.scss";
 import items from "./items";
 import logo from "../../assete/svg/Logo_TastyGo_Black_Desktop.svg";
 
 const Header = () => {
   const [isCenterMode, setIsCenterMode] = useState(false);
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
-   
+  const [isAuthModal, setAuthModal] = useState("reg");
 
-   useEffect(() => {
-     const handleResize = () => {
-       setIsCenterMode(window.innerWidth <= 1439);
-     };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsCenterMode(window.innerWidth <= 1439);
+    };
 
-     const handleClickOutside = (event) => {
-       if (burgerMenuOpen && !event.target.closest(".burgerMenu")) {
-        
-         setBurgerMenuOpen(false);
-       }
-     };
+    const handleClickOutside = (event) => {
+      if (burgerMenuOpen && !event.target.closest(".burgerMenu")) {
+        setBurgerMenuOpen(false);
+      }
+    };
 
-     document.addEventListener("click", handleClickOutside);
-     window.addEventListener("resize", handleResize);
-     handleResize();
+    document.addEventListener("click", handleClickOutside);
+    window.addEventListener("resize", handleResize);
+    handleResize();
 
-     return () => {
-       window.removeEventListener("resize", handleResize);
-       document.removeEventListener("click", handleClickOutside);
-     };
-   }, [burgerMenuOpen]);
-  
- const handleBurgerMenu = (bool) => {
-   setBurgerMenuOpen(bool);
- };
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [burgerMenuOpen]);
+
+  const handleBurgerMenu = (bool) => {
+    setBurgerMenuOpen(bool);
+  };
+
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsAuthModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsAuthModalOpen(false);
+  };
 
   const elements = items.map(({ id, text, link }) => (
     <li key={id}>
@@ -61,9 +73,9 @@ const Header = () => {
         <div className={css.iconSearch}>
           <SvgSelector styles={css.search} id="search" />
         </div>
-        <div className={css.iconUser}>
+        <button onClick={openModal} className={css.iconUser}>
           <SvgSelector styles={css.user} id="user" />
-        </div>
+        </button>
         <div className={css.wrapperBasket}>
           <SvgSelector styles={css.bas} id="shoppingBasket" />
           <span className={css.countBasket}>0</span>
@@ -75,17 +87,23 @@ const Header = () => {
         </Link>
       </div> */}
       <div className={css.wrapperBurgerMobil}>
-        <button type="button" onClick={(e) => {
-          e.stopPropagation();
-          handleBurgerMenu(true)
-        }}>
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleBurgerMenu(true);
+          }}
+        >
           <SvgSelector styles={css.burgerMobil} id="burgerMobil" />
         </button>
       </div>
       {burgerMenuOpen && (
-        <div className={css.burgerMenu} onClick={(e) => {
-          e.stopPropagation()
-        }}>
+        <div
+          className={css.burgerMenu}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
           <ul className={css.menuList}>{elements}</ul>
           <button
             className={css.buttonClose}
@@ -94,6 +112,16 @@ const Header = () => {
             <SvgSelector id="buttonClose" />
           </button>
         </div>
+      )}
+      {isAuthModalOpen && (
+        <Modal close={closeModal}>
+          {isAuthModal === "reg" && (
+            <RegistrationForm chngForm={setAuthModal} closeReg={closeModal} />
+          )}
+          {isAuthModal === "log" && (
+            <LoginForm chngForm={setAuthModal} closeReg={closeModal} />
+          )}
+        </Modal>
       )}
     </div>
   );

@@ -1,8 +1,10 @@
 import axios from "axios";
 
 const instance = axios.create({
-  // take on .env це зміниться коли бекенд буде на сервері
-  baseURL: "https://localhost:3005/",
+  // responseType: "data",
+  // responseType: "json",
+  baseURL: "http://localhost:3005/",
+  // baseURL: "https://tastygo-back-end.onrender.com/",
 });
 
 const setToken = (token) => {
@@ -13,20 +15,21 @@ const setToken = (token) => {
 };
 
 export const singup = async (data) => {
-  const result = await instance.post("/users/signup", data);
-  setToken(result.token);
+  const result = await instance.post("api/auth/register", data);
+  console.log("res", result);
+  setToken(result.data.token);
   return result;
 };
 
 export const login = async (data) => {
-  const { data: result } = await instance.post("/users/login", data);
+  const { data: result } = await instance.post("api/auth/login", data);
   return result;
 };
 
 export const getCurrent = async (token) => {
   try {
     setToken(token);
-    const { data } = await instance.get("users/current");
+    const { data } = await instance.get("api/auth/current-user");
     return data;
   } catch (error) {
     setToken();
@@ -35,7 +38,7 @@ export const getCurrent = async (token) => {
 };
 
 export const logout = async () => {
-  const { data } = await instance.post("/users/logout");
+  const { data } = await instance.post("api/auth/logout");
   setToken();
   return data;
 };

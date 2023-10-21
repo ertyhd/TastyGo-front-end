@@ -7,6 +7,7 @@ export const singup = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const result = await api.singup(data);
+
       return result;
     } catch ({ responce }) {
       return rejectWithValue(responce);
@@ -27,7 +28,7 @@ export const login = createAsyncThunk(
 );
 
 export const current = createAsyncThunk(
-  "auth/current",
+  "auth/current-user",
   async (_, { rejectWithValue, getState }) => {
     try {
       const { auth } = getState();

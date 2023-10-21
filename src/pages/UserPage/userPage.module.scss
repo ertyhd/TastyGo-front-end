@@ -1,0 +1,46 @@
+.userPage_container {
+  padding: 24px 80px;
+}
+.userPage_navPath {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+
+  color: var(--primary-dark-blue, #1e1e2d);
+
+  /* Body desktop/Body desktop 16 regular */
+  font-family: Poppins-Regular;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 19.2px */
+}
+.userPage_container h1 {
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 100px;
+
+  color: #000;
+
+  /* Heading desktop/Heading desktop 32 medium */
+  font-family: Poppins-Medium;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 38.4px */
+  text-transform: uppercase;
+}
+.userPage_navAndContentWrapper {
+  display: flex;
+}
+.userPage_navContainer {
+  display: inline-flex;
+  padding: 48px 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  border-radius: 10px;
+  background: #efefef;
+}

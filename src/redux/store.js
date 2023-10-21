@@ -17,6 +17,11 @@ export const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        ignoredActionPaths: [
+          "payload.config",
+          "payload.headers",
+          "payload.request",
+        ],
       },
     }),
 });

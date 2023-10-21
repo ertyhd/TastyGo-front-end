@@ -3,8 +3,8 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import authReducer from "./auth/auth-slice";
-import notiesReduser from "./noties/noties-slice";
-// import petsReduser from "./pets/pets-selector";
+import foodsReduser from "./foods/foods-slice";
+import categoryReduser from "./category/category-slice";
 
 const persistConfig = {
   key: "root",
@@ -13,13 +13,13 @@ const persistConfig = {
 };
 
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);
-const persistNotiesReducer = persistReducer(persistConfig, notiesReduser);
-// const persistPetsReduser = persistReducer(persistConfig, petsReduser);
+const persistFoodsReducer = persistReducer(persistConfig, foodsReduser);
+const persistCategoryReducer = persistReducer(persistConfig, categoryReduser);
 
 const rootReducer = combineReducers({
   auth: persistedAuthReducer,
-  noties: persistNotiesReducer,
-  // pets: persistPetsReduser,
+  foods: persistFoodsReducer,
+  category: persistCategoryReducer,
 });
 
 export default rootReducer;

@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {} from "./noties-operations";
+import {} from "./foods-operations";
 
 const initialState = {};
 
-const notiesSlice = createSlice({
-  name: "noties",
+const foodsSlice = createSlice({
+  name: "foods",
   initialState,
   extraReducers: (builder) => {},
 });
-export default notiesSlice.reducer;
+export default foodsSlice.reducer;

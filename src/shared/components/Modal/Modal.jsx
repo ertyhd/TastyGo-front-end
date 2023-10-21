@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { useEffect } from "react";
 
 import { createPortal } from "react-dom";
@@ -27,7 +27,7 @@ const Modal = ({ children, close }) => {
 
 export default Modal;
 
-Modal.propTypes = {
-  children: PropTypes.element,
-  close: PropTypes.func.isRequired,
-};
+// Modal.propTypes = {
+//   children: PropTypes.element,
+//   close: PropTypes.func.isRequired,
+// };

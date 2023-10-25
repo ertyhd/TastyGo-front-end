@@ -1,0 +1,9 @@
+.iconUser {
+  @media screen and (max-width: 1439px) {
+    display: none;
+  }
+}
+.iconUser:hover .user path,
+.iconUser:hover .user circle {
+  stroke: #f9854e;
+}

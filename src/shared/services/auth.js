@@ -23,6 +23,7 @@ export const singup = async (data) => {
 
 export const login = async (data) => {
   const { data: result } = await instance.post("api/auth/login", data);
+  setToken(result.data.token);
   return result;
 };
 

@@ -2,9 +2,10 @@ import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import { SvgSelector } from "../../shared/components/SvgSelector/SvgSelector";
-import Modal from "../../shared/components/Modal/Modal";
-import RegistrationForm from "../../shared/components/Forms/authForms/RegistrationForm/RegistrationForm";
-import LoginForm from "../../shared/components/Forms/authForms/LoginForm/LoginForm";
+// import Modal from "../../shared/components/Modal/Modal";
+// import RegistrationForm from "../../shared/components/Forms/authForms/RegistrationForm/RegistrationForm";
+// import LoginForm from "../../shared/components/Forms/authForms/LoginForm/LoginForm";
+import Navbar from "../../shared/components/NavBar/NavBar";
 
 import css from "./heder.module.scss";
 import items from "./items";
@@ -13,7 +14,7 @@ import logo from "../../assete/svg/Logo_TastyGo_Black_Desktop.svg";
 const Header = () => {
   const [isCenterMode, setIsCenterMode] = useState(false);
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
-  const [isAuthModal, setAuthModal] = useState("reg");
+  // const [isAuthModal, setAuthModal] = useState("reg");
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,15 +41,15 @@ const Header = () => {
     setBurgerMenuOpen(bool);
   };
 
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  // const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
-  const openModal = () => {
-    setIsAuthModalOpen(true);
-  };
+  // const openModal = () => {
+  //   setIsAuthModalOpen(true);
+  // };
 
-  const closeModal = () => {
-    setIsAuthModalOpen(false);
-  };
+  // const closeModal = () => {
+  //   setIsAuthModalOpen(false);
+  // };
 
   const elements = items.map(({ id, text, link }) => (
     <li key={id}>
@@ -73,9 +74,10 @@ const Header = () => {
         <div className={css.iconSearch}>
           <SvgSelector styles={css.search} id="search" />
         </div>
-        <button onClick={openModal} className={css.iconUser}>
+        {/* <button onClick={openModal} className={css.iconUser}>
           <SvgSelector styles={css.user} id="user" />
-        </button>
+        </button> */}
+        <Navbar />
         <div className={css.wrapperBasket}>
           <SvgSelector styles={css.bas} id="shoppingBasket" />
           <span className={css.countBasket}>0</span>
@@ -113,7 +115,7 @@ const Header = () => {
           </button>
         </div>
       )}
-      {isAuthModalOpen && (
+      {/* {isAuthModalOpen && (
         <Modal close={closeModal}>
           {isAuthModal === "reg" && (
             <RegistrationForm chngForm={setAuthModal} closeReg={closeModal} />
@@ -122,7 +124,7 @@ const Header = () => {
             <LoginForm chngForm={setAuthModal} closeReg={closeModal} />
           )}
         </Modal>
-      )}
+      )} */}
     </div>
   );
 };

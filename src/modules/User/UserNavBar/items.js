@@ -3,8 +3,8 @@ import { nanoid } from "nanoid";
 const items = [
   {
     id: nanoid(),
-    text: "personal information",
-    link: "/user/personal-info",
+    text: "personalInformation",
+    link: "/user/personalInformation",
 
     // private: false,
   },
@@ -12,30 +12,34 @@ const items = [
     id: nanoid(),
     text: "bonuses",
     link: "/user/bonuses",
+    component: "../../modules/User/Bonuses/Bonuses.jsx",
     // private: true,
   },
   {
     id: nanoid(),
     text: "favorite",
     link: "/user/favorite",
+    component: "../../modules/User/Favorite/Favorite.jsx",
     // private: true,
   },
   {
     id: nanoid(),
-    text: "order history",
-    link: "/user/history",
+    text: "orderHistory",
+    link: "/user/orderHistory",
+    component: "<OrderHistory/>",
     // private: true,
   },
   {
     id: nanoid(),
-    text: "saved addresses",
-    link: "/user/addresses",
+    text: "savedAddresses",
+    link: "/user/savedAddresses",
+    component: "<SavedAddresses/>",
     // private: true,
   },
   {
     id: nanoid(),
-    text: "ratings and reviews",
-    link: "/user/ratings-reviews",
+    text: "ratingsAndReviews",
+    link: "/user/ratingsAndReviews",
     // private: true,
   },
 ];

@@ -42,7 +42,7 @@ const LoginForm = ({ chngForm, closeReg }) => {
         email: values.email,
         password: values.password,
       };
-      console.log("data", data);
+
       dispatch(login(data)).then((response) => {
         if (!response.error) {
         } else {

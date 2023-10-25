@@ -19,7 +19,6 @@ const authSlice = createSlice({
         store.error = null;
       })
       .addCase(singup.fulfilled, (store, { payload }) => {
-        // console.log("payload", payload);
         if (!payload) {
           store.loading = false;
           return;
@@ -39,11 +38,11 @@ const authSlice = createSlice({
         store.error = null;
       })
       .addCase(login.fulfilled, (store, { payload }) => {
+        const { token } = payload.data;
         store.loading = false;
-        store.user = payload.user;
-        store.token = payload.token;
+        store.user = payload.data;
+        store.token = token;
         store.isLogin = true;
-        console.log("payload", payload);
       })
       .addCase(login.rejected, (store, { payload }) => {
         store.loading = false;

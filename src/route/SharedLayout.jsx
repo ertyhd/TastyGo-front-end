@@ -4,6 +4,9 @@ import { useDispatch } from "react-redux";
 
 import { current } from "../redux/auth/auth-operations";
 
+// const Breadcrumbs = lazy(() =>
+//   import("../shared/components/Breadcrumbs/Breadcrumbs")
+// );
 const Header = lazy(() => import("../modules/Header/Header"));
 const MainPage = lazy(() => import("../pages/MainPage/MainPage"));
 // const RegisterPage = lazy(() => import("../pages/RegisterPage/RegisterPage"));
@@ -13,7 +16,6 @@ const UserPage = lazy(() => import("../pages/UserPage/UserPage"));
 const MenuPage = lazy(() => import("../pages/MenuPage/MenuPage"));
 const ReviewsPage = lazy(() => import("../pages/ReviewsPage/ReviewsPage"));
 const Footer = lazy(() => import("../modules/Footer/Footer"));
-// const Map = lazy(() => import("../pages/Map/Map"));
 
 const SharedLayout = () => {
   const dispatch = useDispatch();
@@ -24,6 +26,7 @@ const SharedLayout = () => {
   return (
     <Suspense fallback={<p>...loading</p>}>
       <Header />
+      {/* {pathname !== "/" && <Breadcrumbs />} */}
       <Routes>
         <Route path="/" element={<MainPage />} />
         {/* <Route path="/register" element={<RegisterPage />} />
@@ -31,10 +34,7 @@ const SharedLayout = () => {
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/reviews" element={<ReviewsPage />} />
         <Route path="/noties/:categori" element={<NotiesPage />} />
-        <Route
-          path="/user"
-          element={<Navigate to="/user/personalInformation" />}
-        />
+        <Route path="/user" element={<Navigate to="/user/personal-info" />} />
         <Route path="/user/:id" element={<UserPage />} />
 
         {/* <Route path="/map" element={<Map />} /> */}

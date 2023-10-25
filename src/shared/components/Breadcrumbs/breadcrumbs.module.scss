@@ -1,0 +1,23 @@
+.crambsContainer {
+  display: flex;
+  gap: 16px;
+}
+.crambsContainer a {
+  color: var(--primary-dark-blue, #1e1e2d);
+
+  /* Body desktop/Body desktop 16 regular */
+  font-family: Poppins-Regular;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 19.2px */
+  text-transform: capitalize;
+}
+.crambsContainer li:not(:first-child)::before {
+  content: "/";
+  margin-right: 16px;
+}
+.crambsContainer :last-child a {
+  color: var(--system-disabled, #b7b7b7);
+  pointer-events: none;
+}

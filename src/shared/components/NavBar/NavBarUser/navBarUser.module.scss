@@ -1,0 +1,16 @@
+.iconUser {
+  @media screen and (max-width: 1439px) {
+    display: none;
+  }
+  position: relative;
+}
+.iconUser:hover .user path,
+.iconUser:hover .user circle {
+  stroke: #f9854e;
+}
+.modalPosition {
+  position: absolute;
+  top: 70px;
+  right: 80px;
+  z-index: 100;
+}

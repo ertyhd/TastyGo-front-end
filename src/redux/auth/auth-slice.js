@@ -43,6 +43,7 @@ const authSlice = createSlice({
         store.user = payload.user;
         store.token = payload.token;
         store.isLogin = true;
+        console.log("payload", payload);
       })
       .addCase(login.rejected, (store, { payload }) => {
         store.loading = false;

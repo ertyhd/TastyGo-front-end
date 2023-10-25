@@ -31,12 +31,12 @@ const items = [
     link: "/contacts",
     // private: true,
   },
-  {
-    id: nanoid(),
-    text: "user",
-    link: "/user",
-    // private: true,
-  },
+  // {
+  //   id: nanoid(),
+  //   text: "user",
+  //   link: "/user",
+  //   // private: true,
+  // },
 ];
 
 export default items;

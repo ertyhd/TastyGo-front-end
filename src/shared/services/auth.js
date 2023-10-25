@@ -16,14 +16,15 @@ const setToken = (token) => {
 
 export const singup = async (data) => {
   const result = await instance.post("api/auth/register", data);
-  console.log("res", result);
+
   setToken(result.data.token);
   return result;
 };
 
 export const login = async (data) => {
-  const { data: result } = await instance.post("api/auth/login", data);
+  const result = await instance.post("api/auth/login", data);
   setToken(result.data.token);
+
   return result;
 };
 
@@ -41,6 +42,7 @@ export const getCurrent = async (token) => {
 export const logout = async () => {
   const { data } = await instance.post("api/auth/logout");
   setToken();
+
   return data;
 };
 

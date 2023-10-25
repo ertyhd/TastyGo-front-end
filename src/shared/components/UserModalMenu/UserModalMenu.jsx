@@ -8,7 +8,7 @@ import items from "../../../pages/UserPage/items";
 import { logout } from "../../../redux/auth/auth-operations";
 import { getUser } from "../../../redux/auth/auth-selector";
 
-const UserModalMenu = (linkClick) => {
+const UserModalMenu = ({ linkClick }) => {
   const { name } = useSelector(getUser);
   const disputch = useDispatch();
 
@@ -18,12 +18,7 @@ const UserModalMenu = (linkClick) => {
   console.log(name);
   const elements = items.map(({ id, text, link }) => (
     <li key={id}>
-      <NavLink
-        onClick={() => {
-          linkClick();
-        }}
-        to={link}
-      >
+      <NavLink onClick={linkClick} to={link}>
         {text}
       </NavLink>
     </li>

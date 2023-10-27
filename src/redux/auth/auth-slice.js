@@ -25,7 +25,7 @@ const authSlice = createSlice({
         }
         const { token } = payload.data;
         store.loading = false;
-        store.user = payload.data;
+        store.user = payload.data.user;
         store.token = token;
         store.isLogin = true;
       })
@@ -40,7 +40,7 @@ const authSlice = createSlice({
       .addCase(login.fulfilled, (store, { payload }) => {
         const { token } = payload.data;
         store.loading = false;
-        store.user = payload.data;
+        store.user = payload.data.user;
         store.token = token;
         store.isLogin = true;
       })
@@ -53,10 +53,9 @@ const authSlice = createSlice({
         store.error = null;
       })
       .addCase(current.fulfilled, (store, { payload }) => {
-        const { name, email } = payload;
         store.loading = false;
-        store.user.name = name;
-        store.user.email = email;
+        store.user = payload.user;
+
         store.isLogin = true;
       })
       .addCase(current.rejected, (store, { payload }) => {

@@ -1,8 +1,6 @@
 import axios from "axios";
 
 const instance = axios.create({
-  // responseType: "data",
-  // responseType: "json",
   baseURL: "http://localhost:3005/",
   // baseURL: "https://tastygo-back-end.onrender.com/",
 });
@@ -32,6 +30,17 @@ export const getCurrent = async (token) => {
   try {
     setToken(token);
     const { data } = await instance.get("api/auth/current-user");
+    return data;
+  } catch (error) {
+    setToken();
+    throw error;
+  }
+};
+
+export const updateUser = async (token) => {
+  try {
+    setToken(token);
+    const { data } = await instance.patch("api/auth/update-user");
     return data;
   } catch (error) {
     setToken();

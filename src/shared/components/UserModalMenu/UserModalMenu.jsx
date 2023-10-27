@@ -15,7 +15,6 @@ const UserModalMenu = ({ linkClick }) => {
   const onLogout = () => {
     disputch(logout());
   };
-  console.log(name);
   const elements = items.map(({ id, text, link }) => (
     <li key={id}>
       <NavLink onClick={linkClick} to={link}>

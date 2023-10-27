@@ -60,7 +60,6 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
         phone: values.phone,
         subscribtion: values.subscribtion,
       };
-      console.log("data", data);
       dispatch(singup(data)).then((response) => {
         if (!response.error) {
         } else {

@@ -4,12 +4,7 @@ import AccountForm from "../../../shared/components/Forms/AccountForm/AccountFor
 const PersonalInformation = () => {
   return (
     <div>
-      <div>
-        <p>My personal information</p>
-      </div>
-      <div>
-        <AccountForm />
-      </div>
+      <AccountForm />
     </div>
   );
 };

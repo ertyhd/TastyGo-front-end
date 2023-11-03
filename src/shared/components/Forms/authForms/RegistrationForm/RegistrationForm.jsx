@@ -54,10 +54,10 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
     setIsFormSubmitting(false);
     try {
       const data = {
-        name: values.name,
+        firstName: values.name,
         email: values.email,
         password: values.password,
-        phone: values.phone,
+        phoneFirst: values.phone,
         subscribtion: values.subscribtion,
       };
       dispatch(singup(data)).then((response) => {

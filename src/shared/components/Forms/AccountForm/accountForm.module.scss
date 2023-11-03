@@ -1,0 +1,196 @@
+.formikContainer {
+  // border: 1px solid teal;
+}
+
+.formikSwitcherButtons {
+  margin-bottom: 48px;
+}
+.formikSwitcherButtons button {
+  color: #000;
+  font-family: DM-Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+}
+
+.formikSwitcherButtons {
+  display: flex;
+  gap: 16px;
+}
+.formikSwitcherButtons button {
+  display: flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  border: 1px solid var(--primary-dark-blue, #1e1e2d);
+  background: var(--Background, #fff);
+}
+
+.formikContainer_form {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+}
+.formikContainer_fieldsBloks {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.formikContainer_fieldsBloks label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.formikContainer_fieldsBloks input {
+  display: flex;
+  width: 430px;
+  height: 49px;
+  padding: 16px 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 30px;
+  border: 1px solid var(--primary-dark-blue, #1e1e2d);
+  background: var(--Background, #fff);
+
+  color: var(--primary-dark-blue, #1e1e2d);
+  font-family: DM-Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 19.2px */
+}
+.formikContainer_dateBlock {
+  // width: 100%;
+  display: flex;
+  gap: 8px;
+}
+.formikContainer_day,
+.formikContainer_month,
+.formikContainer_year {
+  display: flex;
+
+  height: 49px;
+  padding: 14px 24px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  border: 1px solid var(--primary-dark-blue, #1e1e2d);
+  background: var(--Background, #fff);
+
+  color: var(--primary-dark-blue, #1e1e2d);
+  font-family: DM-Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 19.2px */
+}
+.formikContainer_day,
+.formikContainer_year {
+  width: 120px;
+}
+.formikContainer_month {
+  width: 170px;
+}
+
+.formikContainer_fieldsBloks span {
+  margin-bottom: 12px;
+  color: #000;
+  font-family: DM-Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 21.6px */
+}
+.formikContainer_nameLabel_forms {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.formikContainer_buttonsBloks {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.formikContainer_buttonsBloks button {
+  // display: flex;
+  // width: 430px;
+  // height: 49px;
+  // padding: 10px;
+  // justify-content: center;
+  // align-items: center;
+  // gap: 10px;
+  // border-radius: 30px;
+  // border: 1px solid #000;
+  // background: var(--Background, #fff);
+  display: flex;
+  width: 430px;
+  height: 49px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  border: 1px solid #000;
+
+  font-family: DM-Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 19.2px */
+}
+.formikContainer_buttonCancel {
+  background: var(--Background, #fff);
+  color: #000;
+}
+.formikContainer_buttonSave {
+  background: #152f23;
+  color: var(--primary-white, #fffdfa);
+}
+.phoneButton {
+  margin-top: 12px;
+  color: #000;
+  font-family: DM-Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 21.6px */
+  text-decoration-line: underline;
+}
+.formikMetaBlock {
+  display: flex;
+  gap: 123px;
+}
+.formikMetaBlockAvatar span {
+  color: #000;
+  font-family: DM-Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 21.6px */
+}
+.formikMetaBlockAvatarWrapper_imgWrapper {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: teal;
+  overflow: hidden;
+
+  margin-top: 12px;
+}
+.formikMetaBlockAvatarButtons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 16px;
+}

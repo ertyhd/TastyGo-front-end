@@ -1,10 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { singup, login, current, logout } from "./auth-operations";
+import {
+  singup,
+  login,
+  current,
+  updateUser,
+  logout,
+  updateUserAvatar,
+  deleteUserAvatar,
+} from "./auth-operations";
 
 const initialState = {
   user: {},
   token: "",
   loading: false,
+  avatarLoading: false,
   isLogin: false,
   error: null,
 };
@@ -60,6 +69,42 @@ const authSlice = createSlice({
       })
       .addCase(current.rejected, (store, { payload }) => {
         store.loading = false;
+        store.error = payload;
+      })
+      .addCase(updateUser.pending, (store) => {
+        store.loading = true;
+        store.error = null;
+      })
+      .addCase(updateUser.fulfilled, (store, { payload }) => {
+        store.loading = false;
+        store.user = payload.user;
+      })
+      .addCase(updateUser.rejected, (store, { payload }) => {
+        store.loading = false;
+        store.error = payload;
+      })
+      .addCase(updateUserAvatar.pending, (store) => {
+        store.avatarLoading = true;
+        store.error = null;
+      })
+      .addCase(updateUserAvatar.fulfilled, (store, { payload }) => {
+        store.avatarLoading = false;
+        store.user.avatarURL = payload;
+      })
+      .addCase(updateUserAvatar.rejected, (store, { payload }) => {
+        store.avatarLoading = false;
+        store.error = payload;
+      })
+      .addCase(deleteUserAvatar.pending, (store) => {
+        store.avatarLoading = true;
+        store.error = null;
+      })
+      .addCase(deleteUserAvatar.fulfilled, (store, { payload }) => {
+        store.avatarLoading = false;
+        store.user.avatarURL = payload;
+      })
+      .addCase(deleteUserAvatar.rejected, (store, { payload }) => {
+        store.avatarLoading = false;
         store.error = payload;
       })
       .addCase(logout.pending, (store) => {

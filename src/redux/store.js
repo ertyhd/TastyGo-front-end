@@ -21,6 +21,7 @@ export const store = configureStore({
           "payload.config",
           "payload.headers",
           "payload.request",
+          "meta.arg",
         ],
       },
     }),

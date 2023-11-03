@@ -9,9 +9,8 @@ import { logout } from "../../../redux/auth/auth-operations";
 import { getUser } from "../../../redux/auth/auth-selector";
 
 const UserModalMenu = ({ linkClick }) => {
-  const { name } = useSelector(getUser);
+  const { firstName } = useSelector(getUser);
   const disputch = useDispatch();
-
   const onLogout = () => {
     disputch(logout());
   };
@@ -25,7 +24,7 @@ const UserModalMenu = ({ linkClick }) => {
   return (
     <div className={styles.userModalMenuContainer}>
       <div className={styles.userModalMenuContainer_meta}>
-        <p>Hello {name} </p>
+        <p>Hello {firstName} </p>
         <button onClick={onLogout}>Sign Out</button>
       </div>
       <ul className={styles.userModalMenuContainer_links}>{elements}</ul>

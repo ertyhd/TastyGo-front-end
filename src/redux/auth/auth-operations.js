@@ -54,7 +54,31 @@ export const updateUser = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const result = await api.updateUser(data);
-      return result;
+      return result.data;
+    } catch ({ responce }) {
+      return rejectWithValue(responce);
+    }
+  }
+);
+
+export const updateUserAvatar = createAsyncThunk(
+  "auth/avatars",
+  async (data, { rejectWithValue }) => {
+    try {
+      const result = await api.updateUserAvatar(data);
+      return result.data;
+    } catch ({ responce }) {
+      return rejectWithValue(responce);
+    }
+  }
+);
+
+export const deleteUserAvatar = createAsyncThunk(
+  "auth/delete-avatar",
+  async (_, { rejectWithValue }) => {
+    try {
+      const result = await api.deleteAvatar();
+      return result.data;
     } catch ({ responce }) {
       return rejectWithValue(responce);
     }

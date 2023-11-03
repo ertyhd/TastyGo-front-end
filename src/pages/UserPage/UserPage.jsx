@@ -1,6 +1,9 @@
 import styles from "./userPage.module.scss";
 
 import { NavLink, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { getUser } from "../../redux/auth/auth-selector";
+import { SvgSelector } from "../../shared/components/SvgSelector/SvgSelector";
 
 // import UserNavBar from "../../modules/User/UserNavBar/UserNavBar";
 import Breadcrumbs from "../../shared/components/Breadcrumbs/Breadcrumbs";
@@ -16,22 +19,34 @@ import items from "./items";
 
 const UserPage = () => {
   const { id } = useParams();
-
+  const user = useSelector(getUser);
+  // console.log(user);
   const elements = items.map(({ id, text, link }) => (
     <li key={id}>
       <NavLink to={link}>{text}</NavLink>
     </li>
   ));
   return (
-    <section className={styles.userPage_container}>
+    <section className={`${styles.userPageContainer} container`}>
       <div className={styles.userPage_navPath}>
         <Breadcrumbs />
       </div>
-      <h1>My account</h1>
-      <div className={styles.userPage_navAndContentWrapper}>
-        <div className={styles.userPage_navContainer}>
+      <div className={styles.userPageBlock}>
+        <div>
+          <div className={styles.userPageBlock_userInfo}>
+            <div className={styles.userPageBlock_avatar}>
+              {/* <SvgSelector id="blackCircle" /> */}
+              <img src={user.avatarURL} alt="User avatar" />
+            </div>
+            <div className={styles.userPageBlock_user}>
+              <span className={styles.userPageBlock_name}>
+                {user.firstName}
+              </span>
+              <span className={styles.userPageBlock__email}>{user.email}</span>
+            </div>
+          </div>
           <nav>
-            <ul>{elements}</ul>
+            <ul className={styles.userPageBlock_navContainer}>{elements}</ul>
           </nav>
         </div>
         <div>

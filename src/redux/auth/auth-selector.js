@@ -3,4 +3,5 @@ export const getAuth = ({ auth }) => {
   return { isLogin, token };
 };
 export const isUserLogin = ({ auth }) => auth.isLogin;
-export const getUser = ({ auth }) => auth.user;
+export const getUser = (state) => state.auth.user;
+export const isAvatarLoading = ({ auth }) => auth.avatarLoading;

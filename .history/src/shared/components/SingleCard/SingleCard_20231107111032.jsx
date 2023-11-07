@@ -1,16 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import css from "./singleCard.module.scss";
-import { SvgSelector } from "../SvgSelector/SvgSelector";
+import css from './singleCard.module.scss'
 
 const SingleCard = ({ name, description, weight, price }) => {
   return (
     <div className={css.wrapperSlideItem}>
       <div className={css.wrapperContentDish}>
-        <button className={css.btnHeart} type="button">
-          <SvgSelector styles={css.iconHeart} id="iconHeart" />
-        </button>
-
         <div className={css.wrapperImgDish}>
           <img
             className={css.imgDish}

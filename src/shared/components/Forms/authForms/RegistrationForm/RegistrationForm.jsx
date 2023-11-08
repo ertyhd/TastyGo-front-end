@@ -32,14 +32,14 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
       case values.name.length > 26:
         errors.name = "Please, enter a shorter name";
         break;
-      case !values.email:
-        errors.email = "This field is mandatory";
-        break;
-      case (values.email = !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
-        values.email
-      )):
-        errors.email = "Invalid email address";
-        break;
+      // case !values.email:
+      //   errors.email = "This field is mandatory";
+      //   break;
+      // case (values.email = !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
+      //   values.email
+      // )):
+      //   errors.email = "Invalid email address";
+      //   break;
       case !values.password:
         errors.password = "This field is mandatory";
         break;

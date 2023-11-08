@@ -30,6 +30,7 @@ export const getCurrent = async (token) => {
   try {
     setToken(token);
     const { data } = await instance.get("api/auth/current-user");
+
     return data;
   } catch (error) {
     throw error;

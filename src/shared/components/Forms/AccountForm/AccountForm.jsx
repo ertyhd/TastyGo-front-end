@@ -10,7 +10,11 @@ import {
 
 import * as imageConversion from "image-conversion";
 
-import { getUser, isAvatarLoading } from "../../../../redux/auth/auth-selector";
+import {
+  isUserLogin,
+  getUser,
+  isAvatarLoading,
+} from "../../../../redux/auth/auth-selector";
 import { SvgSelector } from "../../SvgSelector/SvgSelector";
 
 const AccountForm = () => {
@@ -101,16 +105,15 @@ const AccountForm = () => {
       if (file) {
         try {
           const options = {
-            quality: 0.6,
-            maxWidth: 200,
-            maxHeight: 200,
+            // quality: 0.6,
+            // width: 250,
+            // height: 250,
+            // accuracy: 0.9,
           };
           const result = await imageConversion.compress(file, options);
-          // const imageUrl = URL.createObjectURL(result);
-          // setAvatarUrl(imageUrl);
           updateAvatar(result);
         } catch (error) {
-          console.error("Ошибка при оптимизации изображения:", error);
+          console.error(error);
         }
       }
     } catch (error) {

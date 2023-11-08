@@ -9,6 +9,8 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
   const [isFormSubmitting, setIsFormSubmitting] = useState(true);
   const [isError, setIsError] = useState(false);
   const [isCheckbox, setCheckbox] = useState(false);
+  const [isPasswordShow, setPasswordShow] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   const changeForm = () => {
     return chngForm("log");
@@ -25,24 +27,27 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
     const errors = {};
     switch (true) {
       case !values.name:
-        errors.name = "Name is required";
+        errors.name = "This field is mandatory";
         break;
       case values.name.length > 26:
         errors.name = "Please, enter a shorter name";
         break;
       case !values.email:
-        errors.email = "Email is required";
+        errors.email = "This field is mandatory";
         break;
-      //   case (values.email = !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
-      //     values.email
-      //   )):
-      //     errors.email = "Invalid email address";
-      //     break;
+      case (values.email = !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
+        values.email
+      )):
+        errors.email = "Invalid email address";
+        break;
       case !values.password:
-        errors.password = "Password is required";
+        errors.password = "This field is mandatory";
         break;
       case !values.phone:
-        errors.phone = "Phone is required";
+        errors.phone = "This field is mandatory";
+        break;
+      case (values.phone = /^(\+38)\d{10}$/.test(values.phone)):
+        errors.phone = "Invalid phone number";
         break;
       default:
         break;
@@ -75,13 +80,13 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.formikContainer}>
       <div className={styles.closeButtonContainer}>
         <button onClick={closeReg}>
           <SvgSelector id="ModalButtonClose" />
         </button>
       </div>
-      <h2 className={styles.header}>Sign UP</h2>
+      <h2 className={styles.headerH2}>Sign UP</h2>
       <Formik
         initialValues={{
           name: "",
@@ -99,15 +104,17 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
           touched,
           handleChange,
           handleBlur,
+
           //   handleSubmit,
           //   isSubmitting,
           setFieldValue,
         }) => (
-          <Form className={styles.formikContainer}>
+          <Form>
             <div className={styles.formikContainer_elements}>
               <div className={styles.formikContainer_fields}>
                 <label>
                   <Field
+                    style={{ borderColor: errors.name ? "#ff2e00" : "" }}
                     className={styles.formikContainer_field}
                     type="text"
                     name="name"
@@ -118,14 +125,12 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
                     placeholder="First Name"
                   />
                   {errors.name && touched.name && (
-                    <div className={styles.error}>
-                      <SvgSelector id="error" />
-                      {errors.name}
-                    </div>
+                    <div className={styles.error}>{errors.name}</div>
                   )}
                 </label>
                 <label>
                   <Field
+                    style={{ borderColor: errors.email ? "#ff2e00" : "" }}
                     className={styles.formikContainer_field}
                     type="email"
                     name="email"
@@ -136,45 +141,64 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
                     placeholder="Your Email"
                   />
                   {errors.email && touched.email && (
-                    <div className={styles.error}>
-                      <SvgSelector id="error" />
-                      {errors.email}
-                    </div>
+                    <div className={styles.error}>{errors.email}</div>
                   )}
                 </label>
                 <label>
-                  <Field
-                    className={styles.formikContainer_field}
-                    type="password"
-                    name="password"
-                    id="password"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.password}
-                    placeholder="Password"
-                  />
+                  <div className={styles.formikContainer_field_relative}>
+                    <Field
+                      style={{ borderColor: errors.password ? "#ff2e00" : "" }}
+                      className={`${styles.formikContainer_field} ${styles.formikContainer_fieldPass}`}
+                      type={isPasswordShow ? "text" : "password"}
+                      name="password"
+                      id="password"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.password}
+                      placeholder="Password"
+                    />
+                    <button
+                      onClick={() => setPasswordShow(!isPasswordShow)}
+                      type="button"
+                      className={styles.formikContainer_fieldSvgPass}
+                    >
+                      <SvgSelector id="eye" />
+                    </button>
+                  </div>
+
                   {errors.password && touched.password && (
-                    <div className={styles.error}>
-                      <SvgSelector id="error" />
-                      {errors.password}
-                    </div>
+                    <div className={styles.error}>{errors.password}</div>
                   )}
                 </label>
                 <label>
-                  <Field
-                    className={styles.formikContainer_field}
-                    type="text"
-                    name="phone"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.phone}
-                    placeholder="Phone"
-                  />
-                  {errors.phone && touched.phone && (
-                    <div className={styles.error}>
-                      <SvgSelector id="error" />
-                      {errors.phone}
+                  <div className={styles.formikContainer_field_relative}>
+                    <Field
+                      style={{
+                        borderColor: errors.phone ? "#ff2e00" : "",
+                      }}
+                      className={`${styles.formikContainer_field} ${styles.formikContainer_fieldFlag}`}
+                      type="text"
+                      name="phone"
+                      onChange={(e) => {
+                        const inputValue = e.target.value;
+                        const numericValue = inputValue.replace(/[^+0-9]/g, "");
+                        if (numericValue.length <= 13) {
+                          setFieldValue("phone", numericValue);
+                        }
+                      }}
+                      onBlur={() => setIsFocused(!isFocused)}
+                      onFocus={() => setFieldValue("phone", "+38 ")}
+                      value={values.phone}
+                      placeholder="+38 000 000 00 00"
+                      maxLength="13"
+                    />
+                    <div className={styles.formikContainer_fieldSvgFlag}>
+                      <SvgSelector id="flag" />
                     </div>
+                  </div>
+
+                  {errors.phone && touched.phone && (
+                    <div className={styles.error}>{errors.phone}</div>
                   )}
                 </label>
               </div>
@@ -208,22 +232,22 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
                 SIGN UP
               </button>
               <div className={styles.formikContainer_GAbuttonWrapper}>
-                <p className={styles.formikContainer_p}>or Join In via</p>
+                <p className={styles.formikContainer_p}>or Sign Up via</p>
                 <div className={styles.formikContainer_GAbuttonFlex}>
                   <button>
                     <SvgSelector id="appleLogo" />
-                    Continue with Apple
+                    Apple
                   </button>
                   <button>
                     <SvgSelector id="googleLogo" />
-                    Continue with Google
+                    Google
                   </button>
                 </div>
               </div>
               <div className={styles.formikContainer_chAuthForm}>
                 <p>Already have an account?</p>
                 <button type="button" onClick={changeForm}>
-                  LoG IN
+                  Sign In.
                 </button>
               </div>
             </div>

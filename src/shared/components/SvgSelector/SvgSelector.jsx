@@ -438,7 +438,7 @@ export const SvgSelector = ({ color, id, styles, viewBox }) => {
             width="21"
             height="21"
             rx="1.5"
-            stroke="#F9854E"
+            stroke="#666666"
           />
         </svg>
       );
@@ -457,7 +457,7 @@ export const SvgSelector = ({ color, id, styles, viewBox }) => {
             width="21"
             height="21"
             rx="1.5"
-            fill="#F9854E"
+            fill="#666666"
             stroke="#F9854E"
           />
           <path d="M5 10.9376L9.38913 16.5293L18 6.5293" stroke="#FFFDFA" />
@@ -467,7 +467,7 @@ export const SvgSelector = ({ color, id, styles, viewBox }) => {
             width="21"
             height="21"
             rx="1.5"
-            stroke="#F9854E"
+            stroke="#666666"
           />
         </svg>
       );
@@ -599,6 +599,50 @@ export const SvgSelector = ({ color, id, styles, viewBox }) => {
             stroke="black"
             strokeLinecap="round"
             strokeLinejoin="round"
+          />
+        </svg>
+      );
+    case "eye":
+      return (
+        <svg
+          width="20"
+          height="14"
+          viewBox="0 0 20 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 9C10.5304 9 11.0391 8.78929 11.4142 8.41421C11.7893 8.03914 12 7.53043 12 7C12 6.46957 11.7893 5.96086 11.4142 5.58579C11.0391 5.21071 10.5304 5 10 5C9.46957 5 8.96086 5.21071 8.58579 5.58579C8.21071 5.96086 8 6.46957 8 7C8 7.53043 8.21071 8.03914 8.58579 8.41421C8.96086 8.78929 9.46957 9 10 9Z"
+            stroke="#1E1E2D"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M19 7C17.111 9.991 13.718 13 10 13C6.282 13 2.889 9.991 1 7C3.299 4.158 5.992 1 10 1C14.008 1 16.701 4.158 19 7Z"
+            stroke="#1E1E2D"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
+    case "flag":
+      return (
+        <svg
+          width="30"
+          height="21"
+          viewBox="0 0 30 21"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M29.4355 0.876953H0.564148V20.1241H29.4355V0.876953Z"
+            fill="#FFDA44"
+          />
+          <path
+            d="M29.4355 0.876953H0.564148V10.5005H29.4355V0.876953Z"
+            fill="#338AF3"
           />
         </svg>
       );

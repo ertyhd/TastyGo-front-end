@@ -64,7 +64,6 @@ const authSlice = createSlice({
       .addCase(current.fulfilled, (store, { payload }) => {
         store.loading = false;
         store.user = payload.user;
-
         store.isLogin = true;
       })
       .addCase(current.rejected, (store, { payload }) => {

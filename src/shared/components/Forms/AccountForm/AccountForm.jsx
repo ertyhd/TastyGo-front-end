@@ -11,7 +11,7 @@ import {
 import * as imageConversion from "image-conversion";
 
 import {
-  isUserLogin,
+  // isUserLogin,
   getUser,
   isAvatarLoading,
 } from "../../../../redux/auth/auth-selector";
@@ -52,25 +52,25 @@ const AccountForm = () => {
     (_, index) => startYear + index
   );
 
-  const fieldCheck = (values) => {
-    const errors = {};
-    switch (true) {
-      case !values.phone:
-        errors.phone = "phone is required";
-        break;
-      //   case (values.email = !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
-      //     values.email
-      //   )):
-      //     errors.email = "Invalid email address";
-      //     break;
-      case !values.name:
-        errors.name = "name is required";
-        break;
-      default:
-        break;
-    }
-    return errors;
-  };
+  // const fieldCheck = (values) => {
+  //   const errors = {};
+  //   switch (true) {
+  //     case !values.phone:
+  //       errors.phone = "phone is required";
+  //       break;
+  //     //   case (values.email = !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
+  //     //     values.email
+  //     //   )):
+  //     //     errors.email = "Invalid email address";
+  //     //     break;
+  //     case !values.name:
+  //       errors.name = "name is required";
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  //   return errors;
+  // };
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
@@ -82,8 +82,7 @@ const AccountForm = () => {
         phoneFirst: values.phoneFirst,
         phoneSecond: values.phoneSecond,
 
-        birth:
-          `${values.day}` + "-" + `${values.month}` + "-" + `${values.year}`,
+        birth: `${values.day} - ${values.month} - ${values.year}`,
       };
 
       dispatch(updateUser(data)).then((response) => {
@@ -164,7 +163,7 @@ const AccountForm = () => {
             handleBlur,
             // handleSubmit,
             //   isSubmitting,
-            setFieldValue,
+            // setFieldValue,
             resetForm,
           }) => (
             <Form className={styles.formikContainer_form}>

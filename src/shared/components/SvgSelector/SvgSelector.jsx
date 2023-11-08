@@ -602,6 +602,7 @@ export const SvgSelector = ({ color, id, styles, viewBox }) => {
           />
         </svg>
       );
+
     case "eye":
       return (
         <svg

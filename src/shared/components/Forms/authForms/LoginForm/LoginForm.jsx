@@ -4,10 +4,13 @@ import { SvgSelector } from "../../../SvgSelector/SvgSelector";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../../../../redux/auth/auth-operations";
+import { Link } from "react-router-dom";
 
 const LoginForm = ({ chngForm, closeReg }) => {
   const [isFormSubmitting, setIsFormSubmitting] = useState(true);
   const [isError, setIsError] = useState(false);
+  const [isFieldError, setFieldError] = useState(false);
+  const [isPasswordShow, setPasswordShow] = useState(false);
 
   const changeForm = () => {
     return chngForm("reg");
@@ -19,15 +22,15 @@ const LoginForm = ({ chngForm, closeReg }) => {
     const errors = {};
     switch (true) {
       case !values.email:
-        errors.email = "Email is required";
+        errors.email = "This field is mandatory";
         break;
-      //   case (values.email = !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
-      //     values.email
-      //   )):
-      //     errors.email = "Invalid email address";
-      //     break;
+      case (values.email = !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
+        values.email
+      )):
+        errors.email = "Invalid email address";
+        break;
       case !values.password:
-        errors.password = "Password is required";
+        errors.password = "This field is mandatory";
         break;
       default:
         break;
@@ -58,13 +61,13 @@ const LoginForm = ({ chngForm, closeReg }) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.formikContainer}>
       <div className={styles.closeButtonContainer}>
         <button onClick={closeReg}>
           <SvgSelector id="ModalButtonClose" />
         </button>
       </div>
-      <h2 className={styles.header}>LOG IN</h2>
+      <h2 className={styles.headerH2}>Log in</h2>
       <Formik
         initialValues={{
           email: "",
@@ -83,11 +86,12 @@ const LoginForm = ({ chngForm, closeReg }) => {
           //   isSubmitting,
           setFieldValue,
         }) => (
-          <Form className={styles.formikContainer}>
+          <Form>
             <div className={styles.formikContainer_elements}>
               <div className={styles.formikContainer_fields}>
                 <label>
                   <Field
+                    style={{ borderColor: errors.email ? "#ff2e00" : "" }}
                     className={styles.formikContainer_field}
                     type="email"
                     name="email"
@@ -97,23 +101,40 @@ const LoginForm = ({ chngForm, closeReg }) => {
                     value={values.email}
                     placeholder="Your Email"
                   />
-                  {errors.email && touched.email && errors.email}
+                  {errors.email && touched.email && (
+                    <div className={styles.error}>{errors.email}</div>
+                  )}
                 </label>
                 <label>
-                  <Field
-                    className={styles.formikContainer_field}
-                    type="password"
-                    name="password"
-                    id="password"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.password}
-                    placeholder="Password"
-                  />
-                  {errors.password && touched.password && errors.password}
+                  <div className={styles.formikContainer_field_relative}>
+                    <Field
+                      style={{ borderColor: errors.password ? "#ff2e00" : "" }}
+                      className={`${styles.formikContainer_field} ${styles.formikContainer_fieldPass}`}
+                      type={isPasswordShow ? "text" : "password"}
+                      name="password"
+                      id="password"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.password}
+                      placeholder="Password"
+                    />
+                    <button
+                      onClick={() => setPasswordShow(!isPasswordShow)}
+                      type="button"
+                      className={styles.formikContainer_fieldSvgPass}
+                    >
+                      <SvgSelector id="eye" />
+                    </button>
+                  </div>
+
+                  {errors.password && touched.password && (
+                    <div className={styles.error}>{errors.password}</div>
+                  )}
                 </label>
               </div>
-
+              <Link className={styles.formikContainer_link} to="/">
+                Forgot Password?
+              </Link>
               <button
                 className={styles.formikContainer_button}
                 type="submit"
@@ -126,18 +147,18 @@ const LoginForm = ({ chngForm, closeReg }) => {
                 <div className={styles.formikContainer_GAbuttonFlex}>
                   <button>
                     <SvgSelector id="appleLogo" />
-                    Continue with Apple
+                    Apple
                   </button>
                   <button>
                     <SvgSelector id="googleLogo" />
-                    Continue with Google
+                    Google
                   </button>
                 </div>
               </div>
               <div className={styles.formikContainer_chAuthForm}>
                 <p>Don't have an account?</p>
                 <button type="button" onClick={changeForm}>
-                  SIGN UP
+                  Sign Up.
                 </button>
               </div>
             </div>

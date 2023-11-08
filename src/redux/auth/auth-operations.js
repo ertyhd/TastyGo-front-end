@@ -19,7 +19,6 @@ export const login = createAsyncThunk(
   "auth/login",
   async (data, { rejectWithValue }) => {
     try {
-      console.log(data);
       const result = await api.login(data);
       return result;
     } catch ({ responce }) {

@@ -5,3 +5,4 @@ export const getAuth = ({ auth }) => {
 export const isUserLogin = ({ auth }) => auth.isLogin;
 export const getUser = (state) => state.auth.user;
 export const isAvatarLoading = ({ auth }) => auth.avatarLoading;
+export const isCongrats = ({ auth }) => auth.congrats;

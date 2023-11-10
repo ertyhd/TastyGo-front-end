@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { login } from "../../../../../redux/auth/auth-operations";
 import { Link } from "react-router-dom";
 
+import ButtonDark from "../../../Button/ButtonDark/ButtonDark";
+
 const LoginForm = ({ chngForm, closeReg }) => {
   const [isFormSubmitting, setIsFormSubmitting] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -21,17 +23,16 @@ const LoginForm = ({ chngForm, closeReg }) => {
   const fieldCheck = (values) => {
     const errors = {};
     switch (true) {
-      // case !values.email:
-      //   errors.email = "This field is mandatory";
-      //   break;
-      // case (values.email = !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
-      //   values.email
-      // )):
-      //   errors.email = "Invalid email address";
-      //   break;
+      case !values.email:
+        errors.email = "This field is mandatory";
+        break;
+      case !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email):
+        errors.email = "Invalid email address";
+        break;
       case !values.password:
         errors.password = "This field is mandatory";
         break;
+
       default:
         break;
     }
@@ -93,11 +94,11 @@ const LoginForm = ({ chngForm, closeReg }) => {
                   <Field
                     style={{ borderColor: errors.email ? "#ff2e00" : "" }}
                     className={styles.formikContainer_field}
-                    type="email"
+                    type="text"
                     name="email"
                     id="email"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
+                    // onChange={handleChange}
+                    // onBlur={handleBlur}
                     value={values.email}
                     placeholder="Your Email"
                   />
@@ -135,13 +136,14 @@ const LoginForm = ({ chngForm, closeReg }) => {
               <Link className={styles.formikContainer_link} to="/">
                 Forgot Password?
               </Link>
-              <button
+              {/* <button
                 className={styles.formikContainer_button}
                 type="submit"
                 // disabled={isSubmitting}
               >
                 Log in
-              </button>
+              </button> */}
+              <ButtonDark type="submit">Log in</ButtonDark>
               <div className={styles.formikContainer_GAbuttonWrapper}>
                 <p className={styles.formikContainer_p}>or Sign In via</p>
                 <div className={styles.formikContainer_GAbuttonFlex}>

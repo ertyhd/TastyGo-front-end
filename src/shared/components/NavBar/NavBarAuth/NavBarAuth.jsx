@@ -7,6 +7,7 @@ import { SvgSelector } from "../../SvgSelector/SvgSelector";
 import Modal from "../../Modal/Modal";
 import RegistrationForm from "../../Forms/authForms/RegistrationForm/RegistrationForm";
 import LoginForm from "../../Forms/authForms/LoginForm/LoginForm";
+// import ModalCongrats from "../../../../modules/ModalCongrats/ModalCongrats";
 
 const NavBarAuth = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);

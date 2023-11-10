@@ -1,11 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { isCongrats } from "../../redux/auth/auth-selector";
 
 import { SvgSelector } from "../../shared/components/SvgSelector/SvgSelector";
-// import Modal from "../../shared/components/Modal/Modal";
-// import RegistrationForm from "../../shared/components/Forms/authForms/RegistrationForm/RegistrationForm";
-// import LoginForm from "../../shared/components/Forms/authForms/LoginForm/LoginForm";
 import Navbar from "../../shared/components/NavBar/NavBar";
+import ModalCongrats from "../ModalCongrats/ModalCongrats";
 
 import css from "./heder.module.scss";
 import items from "./items";
@@ -15,6 +15,8 @@ const Header = () => {
   const [isCenterMode, setIsCenterMode] = useState(false);
   const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
   // const [isAuthModal, setAuthModal] = useState("reg");
+
+  const congrats = useSelector(isCongrats);
 
   useEffect(() => {
     const handleResize = () => {
@@ -78,6 +80,7 @@ const Header = () => {
           <SvgSelector styles={css.user} id="user" />
         </button> */}
         <Navbar />
+        {congrats && <ModalCongrats />}
         <div className={css.wrapperBasket}>
           <SvgSelector styles={css.bas} id="shoppingBasket" />
           <span className={css.countBasket}>0</span>
@@ -115,16 +118,6 @@ const Header = () => {
           </button>
         </div>
       )}
-      {/* {isAuthModalOpen && (
-        <Modal close={closeModal}>
-          {isAuthModal === "reg" && (
-            <RegistrationForm chngForm={setAuthModal} closeReg={closeModal} />
-          )}
-          {isAuthModal === "log" && (
-            <LoginForm chngForm={setAuthModal} closeReg={closeModal} />
-          )}
-        </Modal>
-      )} */}
     </div>
   );
 };

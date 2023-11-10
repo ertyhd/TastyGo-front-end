@@ -5,12 +5,19 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { singup } from "../../../../../redux/auth/auth-operations";
 
+import PhoneInput from "react-phone-input-2";
+
+import * as yup from "yup";
+
+import ButtonDark from "../../../Button/ButtonDark/ButtonDark";
+
 const RegistrationForm = ({ chngForm, closeReg }) => {
   const [isFormSubmitting, setIsFormSubmitting] = useState(true);
   const [isError, setIsError] = useState(false);
   const [isCheckbox, setCheckbox] = useState(false);
   const [isPasswordShow, setPasswordShow] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
+  const [isPhoneInput, setPhoneInput] = useState(true);
 
   const changeForm = () => {
     return chngForm("log");
@@ -32,21 +39,23 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
       case values.name.length > 26:
         errors.name = "Please, enter a shorter name";
         break;
-      // case !values.email:
-      //   errors.email = "This field is mandatory";
-      //   break;
-      // case (values.email = !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
-      //   values.email
-      // )):
-      //   errors.email = "Invalid email address";
-      //   break;
+      case !values.email:
+        errors.email = "This field is mandatory";
+        break;
+      case !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email):
+        errors.email = "Invalid email address";
+        break;
       case !values.password:
         errors.password = "This field is mandatory";
         break;
+
       case !values.phone:
         errors.phone = "This field is mandatory";
         break;
-      case (values.phone = /^(\+38)\d{10}$/.test(values.phone)):
+      case !/^380\d{9}/.test(values.phone):
+        errors.phone = "Invalid phone number";
+        break;
+      case values.phone.length < 12:
         errors.phone = "Invalid phone number";
         break;
       default:
@@ -55,14 +64,28 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
     return errors;
   };
 
+  const passwordSchema = yup.object().shape({
+    password: yup
+      .string()
+      .min(8, "Password must be 8 characters long")
+      .matches(/[0-9]/, "Password requires a number")
+      .matches(/[a-z]/, "Password requires a lowercase letter")
+      .matches(/[A-Z]/, "Password requires an uppercase letter")
+      .matches(/[^\w]/, "Password requires a symbol"),
+    // confirm: yup
+    //   .string()
+    //   .oneOf([yup.ref("pass"), null], 'Must match "password" field value'),
+  });
+
   const handleSubmit = async (values, { setSubmitting }) => {
     setIsFormSubmitting(false);
+
     try {
       const data = {
         firstName: values.name,
         email: values.email,
         password: values.password,
-        phoneFirst: values.phone,
+        phoneFirst: "+" + values.phone,
         subscribtion: values.subscribtion,
       };
       dispatch(singup(data)).then((response) => {
@@ -95,6 +118,7 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
           phone: "",
           subscribtion: false,
         }}
+        // validationSchema={passwordSchema}
         validate={fieldCheck}
         onSubmit={handleSubmit}
       >
@@ -172,26 +196,39 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
                 </label>
                 <label>
                   <div className={styles.formikContainer_field_relative}>
-                    <Field
-                      style={{
-                        borderColor: errors.phone ? "#ff2e00" : "",
-                      }}
-                      className={`${styles.formikContainer_field} ${styles.formikContainer_fieldFlag}`}
-                      type="text"
-                      name="phone"
-                      onChange={(e) => {
-                        const inputValue = e.target.value;
-                        const numericValue = inputValue.replace(/[^+0-9]/g, "");
-                        if (numericValue.length <= 13) {
-                          setFieldValue("phone", numericValue);
-                        }
-                      }}
-                      onBlur={() => setIsFocused(!isFocused)}
-                      onFocus={() => setFieldValue("phone", "+38 ")}
-                      value={values.phone}
-                      placeholder="+38 000 000 00 00"
-                      maxLength="13"
-                    />
+                    {isPhoneInput && (
+                      <PhoneInput
+                        className={styles.phoneInput}
+                        country="ua"
+                        placeholder="+380 00 000 00 00"
+                        specialLabel=""
+                        onFocus={() => setPhoneInput(false)}
+                        disableCountryCode={true}
+                      />
+                    )}
+                    {!isPhoneInput && (
+                      <PhoneInput
+                        inputStyle={{
+                          borderColor: errors.phone ? "#ff2e00" : "",
+                        }}
+                        className={styles.phoneInput}
+                        country="ua"
+                        value={values.phone}
+                        onChange={(phone) => setFieldValue("phone", phone)}
+                        defaultMask=".. ... .. .."
+                        alwaysDefaultMask={true}
+                        placeholder="+380 00 000 00 00"
+                        specialLabel=""
+                        countryCodeEditable={false}
+                        onFocus={() => setPhoneInput(false)}
+                        // onBlur={() => setPhoneInput(true)}
+                        disableCountryCode={false}
+                        inputProps={{
+                          autoFocus: true,
+                        }}
+                      />
+                    )}
+
                     <div className={styles.formikContainer_fieldSvgFlag}>
                       <SvgSelector id="flag" />
                     </div>
@@ -224,13 +261,7 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
                   promos
                 </p>
               </label>
-              <button
-                className={styles.formikContainer_button}
-                type="submit"
-                // disabled={isSubmitting}
-              >
-                SIGN UP
-              </button>
+              <ButtonDark type="submit">SIGN UP</ButtonDark>
               <div className={styles.formikContainer_GAbuttonWrapper}>
                 <p className={styles.formikContainer_p}>or Sign Up via</p>
                 <div className={styles.formikContainer_GAbuttonFlex}>

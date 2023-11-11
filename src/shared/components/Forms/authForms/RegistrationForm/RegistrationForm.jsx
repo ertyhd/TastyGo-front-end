@@ -10,14 +10,15 @@ import PhoneInput from "react-phone-input-2";
 import * as yup from "yup";
 
 import ButtonDark from "../../../Button/ButtonDark/ButtonDark";
+import PhoneField from "../../PhoneField/PhoneField";
 
 const RegistrationForm = ({ chngForm, closeReg }) => {
   const [isFormSubmitting, setIsFormSubmitting] = useState(true);
   const [isError, setIsError] = useState(false);
   const [isCheckbox, setCheckbox] = useState(false);
   const [isPasswordShow, setPasswordShow] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
-  const [isPhoneInput, setPhoneInput] = useState(true);
+  // const [isFocused, setIsFocused] = useState(false);
+  // const [isPhoneInput, setPhoneInput] = useState(true);
 
   const changeForm = () => {
     return chngForm("log");
@@ -195,8 +196,15 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
                   )}
                 </label>
                 <label>
-                  <div className={styles.formikContainer_field_relative}>
-                    {isPhoneInput && (
+                  {/* <div className={styles.formikContainer_field_relative}> */}
+                  <PhoneField
+                    errors={errors}
+                    values={values.phoneFirst}
+                    setFieldValue={setFieldValue}
+                    fieldName="phoneFirst"
+                    autoFocus={false}
+                  />
+                  {/* {isPhoneInput && (
                       <PhoneInput
                         className={styles.phoneInput}
                         country="ua"
@@ -227,12 +235,12 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
                           autoFocus: true,
                         }}
                       />
-                    )}
+                    )} */}
 
-                    <div className={styles.formikContainer_fieldSvgFlag}>
+                  {/* <div className={styles.formikContainer_fieldSvgFlag}>
                       <SvgSelector id="flag" />
-                    </div>
-                  </div>
+                    </div> */}
+                  {/* </div> */}
 
                   {errors.phone && touched.phone && (
                     <div className={styles.error}>{errors.phone}</div>

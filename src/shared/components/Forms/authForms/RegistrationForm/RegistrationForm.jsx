@@ -203,6 +203,7 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
                     setFieldValue={setFieldValue}
                     fieldName="phoneFirst"
                     autoFocus={false}
+                    countryCodeEditable={false}
                   />
                   {/* {isPhoneInput && (
                       <PhoneInput

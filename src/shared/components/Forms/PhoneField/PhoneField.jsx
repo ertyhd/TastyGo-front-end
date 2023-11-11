@@ -13,12 +13,12 @@ const PhoneField = ({
 }) => {
   const [isPhoneInput, setPhoneInput] = useState(values ? false : true);
   const [isPhoneClick, setPhoneClick] = useState(false);
-  const [isCCode, setCCode] = useState(false);
+  // const [isCCode, setCCode] = useState(false);
   // setCCode(countryCodeEditable);
-  const f = () => {
-    return setCCode(countryCodeEditable);
-  };
-  console.log(isPhoneClick);
+  // const f = () => {
+  //   return setCCode(countryCodeEditable);
+  // };
+  // console.log(isCCode);
   return (
     <div className={styles.formikContainer_field_relative}>
       {isPhoneInput && (
@@ -47,7 +47,7 @@ const PhoneField = ({
           alwaysDefaultMask={true}
           placeholder="+380 00 000 00 00"
           specialLabel=""
-          countryCodeEditable={f}
+          countryCodeEditable={countryCodeEditable}
           onFocus={() => setPhoneInput(false)}
           // onBlur={() => setPhoneInput(true)}
           disableCountryCode={false}

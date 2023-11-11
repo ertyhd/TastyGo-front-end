@@ -16,6 +16,7 @@ import {
   isAvatarLoading,
 } from "../../../../redux/auth/auth-selector";
 import { SvgSelector } from "../../SvgSelector/SvgSelector";
+import PhoneField from "../PhoneField/PhoneField";
 
 const AccountForm = () => {
   const user = useSelector(getUser);
@@ -142,249 +143,262 @@ const AccountForm = () => {
   };
 
   return (
-    <div className={styles.formikContainer}>
-      <div className={styles.formikSwitcherButtons}>
-        <button type="button">My personal information</button>
-        <button type="button">Password</button>
-      </div>
-      <div className={styles.formikMetaBlock}>
-        <Formik
-          initialValues={{
-            ...user,
-          }}
-          // validate={fieldCheck}
-          onSubmit={handleSubmit}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            // handleSubmit,
-            //   isSubmitting,
-            // setFieldValue,
-            resetForm,
-          }) => (
-            <Form className={styles.formikContainer_form}>
-              <div className={styles.formikContainer_fieldsBloks}>
-                <label className={styles.formikContainer_nameLabel}>
-                  <span>Name</span>
-                  <div className={styles.formikContainer_nameLabel_forms}>
-                    <Field
-                      className={styles.formikContainer_field}
-                      type="firstName"
-                      name="firstName"
-                      id="firstName"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.firstName}
-                      placeholder="First Name"
-                    />
-                    {errors.firstName && touched.firstName && errors.firstName}
-                    <Field
-                      className={styles.formikContainer_field}
-                      type="lastName"
-                      name="lastName"
-                      id="lastName"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.lastName}
-                      placeholder="Last Name"
-                    />
-                    {errors.lastName && touched.lastName && errors.lastName}
-                  </div>
-                </label>
-
-                <label>
-                  <span>Phone</span>
-                  <div className={styles.formikContainer_nameLabel_forms}>
-                    <Field
-                      className={styles.formikContainer_field}
-                      type="phoneFirst"
-                      name="phoneFirst"
-                      id="phoneFirst"
-                      // onChange={handleChange}
-                      // onBlur={handleBlur}
-                      value={values.phoneFirst}
-                      // placeholder="Phone"
-                    />
-                    {errors.phoneFirst &&
-                      touched.phoneFirst &&
-                      errors.phoneFirst}
-                    {isAddPhone === true && (
-                      <>
-                        <Field
-                          className={styles.formikContainer_field}
-                          type="phoneSecond"
-                          name="phoneSecond"
-                          id="phoneSecond"
-                          // onChange={handleChange}
-                          // onBlur={handleBlur}
-                          value={values.phoneSecond}
-                          placeholder="Second phone"
-                        />
-                        {errors.phoneSecond &&
-                          touched.phoneSecond &&
-                          errors.phoneSecond}
-                      </>
-                    )}
-                  </div>
-                  {isAddPhone === false && (
-                    <button
-                      onClick={() => {
-                        setAddPhone(true);
-                      }}
-                      className={styles.phoneButton}
-                      type="button"
-                    >
-                      Add another phone
-                    </button>
-                  )}
-                </label>
-                <label>
-                  <span>Email</span>
+    <div className={styles.formikMetaBlock}>
+      <Formik
+        initialValues={{
+          ...user,
+        }}
+        // validate={fieldCheck}
+        onSubmit={handleSubmit}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          // handleSubmit,
+          //   isSubmitting,
+          setFieldValue,
+          resetForm,
+        }) => (
+          <Form className={styles.formikContainer_form}>
+            <div className={styles.formikContainer_fieldsBloks}>
+              <label className={styles.formikContainer_nameLabel}>
+                <span>Name</span>
+                <div className={styles.formikContainer_nameLabel_forms}>
                   <Field
                     className={styles.formikContainer_field}
-                    type="email"
-                    name="email"
-                    id="email"
+                    type="firstName"
+                    name="firstName"
+                    id="firstName"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.email}
-                    placeholder="Address"
+                    value={values.firstName}
+                    placeholder="First Name"
                   />
-                  {errors.email && touched.email && errors.email}
-                </label>
-                <label>
-                  <span>Date of birth</span>
+                  {errors.firstName && touched.firstName && errors.firstName}
+                  <Field
+                    className={styles.formikContainer_field}
+                    type="lastName"
+                    name="lastName"
+                    id="lastName"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.lastName}
+                    placeholder="Last Name"
+                  />
+                  {errors.lastName && touched.lastName && errors.lastName}
+                </div>
+              </label>
 
-                  <div className={styles.formikContainer_dateBlock}>
-                    <Field
-                      // style={{ display: "none" }}
-                      className={styles.formikContainer_day}
-                      as="select"
-                      id="day"
-                      name="day"
-                    >
-                      {day.map((day) => (
-                        <option key={day} value={day}>
-                          {day}
-                        </option>
-                      ))}
-                    </Field>
-                    {/* <div className={styles.formikContainer_day} htmlFor="day">
+              <div>
+                <label>
+                  <span>Phone</span>
+                </label>
+
+                <div className={styles.formikContainer_nameLabel_forms}>
+                  <PhoneField
+                    errors={errors}
+                    values={values.phoneFirst}
+                    setFieldValue={setFieldValue}
+                    fieldName="phoneFirst"
+                  />
+                  {/* <Field
+                    className={styles.formikContainer_field}
+                    type="phoneFirst"
+                    name="phoneFirst"
+                    id="phoneFirst"
+                    // onChange={handleChange}
+                    // onBlur={handleBlur}
+                    value={values.phoneFirst}
+                    // placeholder="Phone"
+                  /> */}
+                  {errors.phoneFirst && touched.phoneFirst && errors.phoneFirst}
+                  {isAddPhone === true && (
+                    <>
+                      <PhoneField
+                        errors={errors}
+                        values={values.phoneSecond}
+                        setFieldValue={setFieldValue}
+                        fieldName="phoneSecond"
+                        countryCodeEditable={true}
+                      />
+                      {/* <Field
+                        className={styles.formikContainer_field}
+                        type="phoneSecond"
+                        name="phoneSecond"
+                        id="phoneSecond"
+                        // onChange={handleChange}
+                        // onBlur={handleBlur}
+                        value={values.phoneSecond}
+                        placeholder="Second phone"
+                      /> */}
+                      {errors.phoneSecond &&
+                        touched.phoneSecond &&
+                        errors.phoneSecond}
+                    </>
+                  )}
+                </div>
+                {isAddPhone === false && (
+                  <button
+                    onClick={() => {
+                      setAddPhone(true);
+                    }}
+                    className={styles.phoneButton}
+                    type="button"
+                  >
+                    Add another phone
+                  </button>
+                )}
+              </div>
+              <label>
+                <span>Email</span>
+                <Field
+                  className={styles.formikContainer_field}
+                  type="email"
+                  name="email"
+                  id="email"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
+                  placeholder="Address"
+                />
+                {errors.email && touched.email && errors.email}
+              </label>
+              <label>
+                <span>Date of birth</span>
+
+                <div className={styles.formikContainer_dateBlock}>
+                  <Field
+                    // style={{ display: "none" }}
+                    className={styles.formikContainer_day}
+                    as="select"
+                    id="day"
+                    name="day"
+                  >
+                    {day.map((day) => (
+                      <option key={day} value={day}>
+                        {day}
+                      </option>
+                    ))}
+                  </Field>
+                  {/* <div className={styles.formikContainer_day} htmlFor="day">
                       <SvgSelector id="arrowDown" />
                     </div> */}
-                    {errors.birth && touched.birth && errors.birth}
-                    <Field
-                      className={styles.formikContainer_month}
-                      as="select"
-                      id="month"
-                      name="month"
-                    >
-                      {months.map((month) => (
-                        <option key={month} value={month}>
-                          {month}
-                        </option>
-                      ))}
-                    </Field>
-                    {errors.birth && touched.birth && errors.birth}
-                    <Field
-                      className={styles.formikContainer_year}
-                      as="select"
-                      id="year"
-                      name="year"
-                    >
-                      {year.map((year) => (
-                        <option key={year} value={year}>
-                          {year}
-                        </option>
-                      ))}
-                    </Field>
-                    {errors.birth && touched.birth && errors.birth}
-                  </div>
-                </label>
+                  {errors.birth && touched.birth && errors.birth}
+                  <Field
+                    className={styles.formikContainer_month}
+                    as="select"
+                    id="month"
+                    name="month"
+                  >
+                    {months.map((month) => (
+                      <option key={month} value={month}>
+                        {month}
+                      </option>
+                    ))}
+                  </Field>
+                  {errors.birth && touched.birth && errors.birth}
+                  <Field
+                    className={styles.formikContainer_year}
+                    as="select"
+                    id="year"
+                    name="year"
+                  >
+                    {year.map((year) => (
+                      <option key={year} value={year}>
+                        {year}
+                      </option>
+                    ))}
+                  </Field>
+                  {errors.birth && touched.birth && errors.birth}
+                </div>
+              </label>
+            </div>
+            <div className={styles.formikContainer_buttonsBloks}>
+              <button
+                className={styles.formikContainer_buttonSave}
+                type="submit"
+                // disabled={isSubmitting}
+              >
+                Save changes
+              </button>
+              <button
+                className={styles.formikContainer_buttonCancel}
+                type="button"
+                // disabled={isSubmitting}
+                onClick={() => resetForm({ ...user })}
+              >
+                Cancel
+              </button>
+            </div>
+          </Form>
+        )}
+      </Formik>
+
+      <div className={styles.formikMetaBlockAvatar}>
+        <Formik
+          initialValues={{
+            avatarURL: user.avatarURL,
+          }}
+        >
+          {({ values, errors, touched }) => (
+            <Form>
+              <label
+                htmlFor="avatar"
+                className={styles.formikMetaBlockAvatarWrapper_label}
+              >
+                <span>Photo</span>
+                <div
+                  style={{
+                    filter: loading || isAvLiading ? "blur(3px)" : "",
+                  }}
+                  className={styles.formikMetaBlockAvatarWrapper_imgWrapper}
+                >
+                  {!user.avatarURL && (
+                    <div className={styles.formikMetaBlockAvatarWrapper_defImg}>
+                      {user.firstName ? user.firstName[0] : ""}
+                    </div>
+                  )}
+                  {user.avatarURL && (
+                    <img
+                      className={styles.formikMetaBlockAvatarWrapper_img}
+                      src={user.avatarURL}
+                      alt=""
+                    />
+                  )}
+                </div>
+              </label>
+              <input
+                type="file"
+                id="avatar"
+                name="avatar"
+                accept="image/*"
+                onChange={handleAvatarChange}
+                style={{ display: "none" }}
+                ref={inputRef}
+              />
+              <div
+                style={{ padding: 0, textAlign: "center" }}
+                className={styles.error}
+              >
+                {/* {isBtnSubmit && errors.avatar && <div>{errors.avatar}</div>} */}
               </div>
-              <div className={styles.formikContainer_buttonsBloks}>
-                <button
-                  className={styles.formikContainer_buttonSave}
-                  type="submit"
-                  // disabled={isSubmitting}
-                >
-                  Save changes
+              <div className={styles.formikMetaBlockAvatarButtons}>
+                <button type="button" onClick={() => inputRef.current.click()}>
+                  <SvgSelector id="editAvatar" />
                 </button>
-                <button
-                  className={styles.formikContainer_buttonCancel}
-                  type="button"
-                  // disabled={isSubmitting}
-                  onClick={() => resetForm({ ...user })}
-                >
-                  Cancel
+                <button type="button" onClick={handleAvatarDelete}>
+                  <SvgSelector id="deleteAvatar" />
                 </button>
               </div>
             </Form>
           )}
         </Formik>
-
-        <div className={styles.formikMetaBlockAvatar}>
-          <Formik
-            initialValues={{
-              avatarURL: user.avatarURL,
-            }}
-          >
-            {({ values, errors, touched }) => (
-              <Form>
-                <label
-                  htmlFor="avatar"
-                  className={styles.formikMetaBlockAvatarWrapper_label}
-                >
-                  <span>Photo</span>
-                  <div
-                    style={{
-                      filter: loading || isAvLiading ? "blur(3px)" : "",
-                    }}
-                    className={styles.formikMetaBlockAvatarWrapper_imgWrapper}
-                  >
-                    <img
-                      className={styles.formikMetaBlockAvatarWrapper_img}
-                      src={user.avatarURL}
-                      alt="avatar"
-                    />
-                  </div>
-                </label>
-                <input
-                  type="file"
-                  id="avatar"
-                  name="avatar"
-                  accept="image/*"
-                  onChange={handleAvatarChange}
-                  style={{ display: "none" }}
-                  ref={inputRef}
-                />
-                <div
-                  style={{ padding: 0, textAlign: "center" }}
-                  className={styles.error}
-                >
-                  {/* {isBtnSubmit && errors.avatar && <div>{errors.avatar}</div>} */}
-                </div>
-                <div className={styles.formikMetaBlockAvatarButtons}>
-                  <button
-                    type="button"
-                    onClick={() => inputRef.current.click()}
-                  >
-                    <SvgSelector id="editAvatar" />
-                  </button>
-                  <button type="button" onClick={handleAvatarDelete}>
-                    <SvgSelector id="deleteAvatar" />
-                  </button>
-                </div>
-              </Form>
-            )}
-          </Formik>
-        </div>
       </div>
     </div>
+    // </div>
   );
 };
 

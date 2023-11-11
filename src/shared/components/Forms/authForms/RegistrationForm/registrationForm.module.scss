@@ -32,11 +32,11 @@
   align-items: flex-start;
   gap: 16px;
 }
-.formikContainer_field_relative {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
+// .formikContainer_field_relative {
+//   display: flex;
+//   align-items: center;
+//   position: relative;
+// }
 .formikContainer_fieldSvgPass {
   display: flex;
   align-items: flex-end;
@@ -44,12 +44,12 @@
   right: 10px;
 }
 
-.formikContainer_fieldSvgFlag {
-  display: flex;
-  align-items: flex-end;
-  position: absolute;
-  left: 20px;
-}
+// .formikContainer_fieldSvgFlag {
+//   display: flex;
+//   align-items: flex-end;
+//   position: absolute;
+//   left: 20px;
+// }
 .formikContainer_elements {
   display: flex;
   flex-direction: column;
@@ -210,22 +210,22 @@
   font-weight: 400;
   line-height: 120%; /* 19.2px */
 }
-.phoneInput input {
-  display: flex;
-  width: 430px;
-  height: 49px;
-  padding: 10px 10px 10px 70px;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 20px;
+// .phoneInput input {
+//   display: flex;
+//   width: 430px;
+//   height: 49px;
+//   padding: 10px 10px 10px 70px;
+//   justify-content: flex-start;
+//   align-items: center;
+//   gap: 20px;
 
-  border-radius: 30px;
-  border: 1px solid #6b6b6b;
+//   border-radius: 30px;
+//   border: 1px solid #6b6b6b;
 
-  color: #2c2c2c;
-  font-family: DM-Sans;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%; /* 19.2px */
-}
+//   color: #2c2c2c;
+//   font-family: DM-Sans;
+//   font-size: 16px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 120%; /* 19.2px */
+// }

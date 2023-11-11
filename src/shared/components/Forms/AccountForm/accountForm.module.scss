@@ -2,33 +2,6 @@
   // border: 1px solid teal;
 }
 
-.formikSwitcherButtons {
-  margin-bottom: 48px;
-}
-.formikSwitcherButtons button {
-  color: #000;
-  font-family: DM-Sans;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 120%;
-}
-
-.formikSwitcherButtons {
-  display: flex;
-  gap: 16px;
-}
-.formikSwitcherButtons button {
-  display: flex;
-  padding: 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 30px;
-  border: 1px solid var(--primary-dark-blue, #1e1e2d);
-  background: var(--Background, #fff);
-}
-
 .formikContainer_form {
   display: inline-flex;
   flex-direction: column;
@@ -46,7 +19,7 @@
   flex-direction: column;
   align-items: flex-start;
 }
-.formikContainer_fieldsBloks input {
+.formikContainer_fieldsBloks .formikContainer_field {
   display: flex;
   width: 430px;
   height: 49px;
@@ -183,7 +156,7 @@
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background-color: teal;
+  // background-color: teal;
   overflow: hidden;
 
   margin-top: 12px;
@@ -193,4 +166,20 @@
   gap: 16px;
   justify-content: center;
   margin-top: 16px;
+}
+
+.formikMetaBlockAvatarWrapper_defImg {
+  width: 100%;
+  height: 100%;
+  background-color: #152f23;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+  font-family: Poppins-Regular;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 57.6px */
 }

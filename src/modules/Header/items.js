@@ -10,7 +10,7 @@ const items = [
   {
     id: nanoid(),
     text: "menu",
-    link: "/menu",
+    link: "/menu/salads",
     // private: true,
   },
   {

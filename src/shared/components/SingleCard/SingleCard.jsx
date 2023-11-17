@@ -21,11 +21,11 @@ const SingleCard = ({ name, description, weight, price }) => {
         <div className={css.wrapperDescriptionDish}>
           <p className={css.nameDish}>{name}</p>
           <p className={css.descriptionDish}>{description}</p>
-          <p className={css.weightDish}>{weight}</p>
+          <p className={css.weightDish}>{weight}g.</p>
         </div>
       </div>
       <div className={css.boxDishFooter}>
-        <p className={css.priceDish}>{price}</p>
+        <p className={css.priceDish}>${price}</p>
         <Link className={css.btnDishOrder}>to order</Link>
       </div>
     </div>

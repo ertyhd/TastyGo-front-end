@@ -18,6 +18,8 @@ import {
 import { SvgSelector } from "../../SvgSelector/SvgSelector";
 import PhoneField from "../PhoneField/PhoneField";
 
+import DateFields from "../DateFields/DateFields";
+
 const AccountForm = () => {
   const user = useSelector(getUser);
   const loading = useSelector(isAvatarLoading);
@@ -53,27 +55,45 @@ const AccountForm = () => {
     (_, index) => startYear + index
   );
 
-  // const fieldCheck = (values) => {
-  //   const errors = {};
-  //   switch (true) {
-  //     case !values.phone:
-  //       errors.phone = "phone is required";
-  //       break;
-  //     //   case (values.email = !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
-  //     //     values.email
-  //     //   )):
-  //     //     errors.email = "Invalid email address";
-  //     //     break;
-  //     case !values.name:
-  //       errors.name = "name is required";
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  //   return errors;
-  // };
+  const fieldCheck = (values) => {
+    const errors = {};
+    switch (true) {
+      case !values.firstName:
+        errors.firstName = "This field is mandatory";
+        break;
+      case values.firstName.length > 26:
+        errors.firstName = "Please, enter a shorter name";
+        break;
+      case !values.email:
+        errors.email = "This field is mandatory";
+        break;
+      case !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email):
+        errors.email = "Invalid email address";
+        break;
+
+      case !values.phoneFirst:
+        errors.phoneFirst = "This field is mandatory";
+        break;
+      case !/^380\d{9}/.test(values.phoneFirst):
+        errors.phoneFirst = "Invalid phone number";
+        break;
+      case values.phoneFirst.length < 12:
+        errors.phoneFirst = "Invalid phone number";
+        break;
+      case values.phoneSecond.length > 0 && values.phoneSecond.length < 12:
+        errors.phoneSecond = "Invalid phone number";
+        break;
+      case !/^(380\d{9})?$/.test(values.phoneSecond):
+        errors.phoneSecond = "Invalid phone number";
+        break;
+      default:
+        break;
+    }
+    return errors;
+  };
 
   const handleSubmit = async (values, { setSubmitting }) => {
+    console.log(values);
     try {
       const data = {
         email: values.email,
@@ -148,7 +168,7 @@ const AccountForm = () => {
         initialValues={{
           ...user,
         }}
-        // validate={fieldCheck}
+        validate={fieldCheck}
         onSubmit={handleSubmit}
       >
         {({
@@ -168,6 +188,7 @@ const AccountForm = () => {
                 <span>Name</span>
                 <div className={styles.formikContainer_nameLabel_forms}>
                   <Field
+                    style={{ borderColor: errors.firstName ? "#ff2e00" : "" }}
                     className={styles.formikContainer_field}
                     type="firstName"
                     name="firstName"
@@ -177,9 +198,11 @@ const AccountForm = () => {
                     value={values.firstName}
                     placeholder="First Name"
                   />
-                  {errors.firstName && touched.firstName && errors.firstName}
+                  {errors.firstName && touched.firstName && (
+                    <div className={styles.error}>{errors.firstName}</div>
+                  )}
                   <Field
-                    className={styles.formikContainer_field}
+                    className={styles.formikContainer_field__lastName}
                     type="lastName"
                     name="lastName"
                     id="lastName"
@@ -188,7 +211,9 @@ const AccountForm = () => {
                     value={values.lastName}
                     placeholder="Last Name"
                   />
-                  {errors.lastName && touched.lastName && errors.lastName}
+                  {errors.lastName && touched.lastName && (
+                    <div className={styles.error}>{errors.lastName}</div>
+                  )}
                 </div>
               </label>
 
@@ -199,6 +224,7 @@ const AccountForm = () => {
 
                 <div className={styles.formikContainer_nameLabel_forms}>
                   <PhoneField
+                    style={{ borderColor: errors.firstName ? "#ff2e00" : "" }}
                     errors={errors}
                     values={values.phoneFirst}
                     setFieldValue={setFieldValue}
@@ -214,9 +240,11 @@ const AccountForm = () => {
                     value={values.phoneFirst}
                     // placeholder="Phone"
                   /> */}
-                  {errors.phoneFirst && touched.phoneFirst && errors.phoneFirst}
+                  {errors.phoneFirst && touched.phoneFirst && (
+                    <div className={styles.error}>{errors.phoneFirst}</div>
+                  )}
                   {isAddPhone === true && (
-                    <>
+                    <div className={styles.formikContainer_phoneSecond}>
                       <PhoneField
                         errors={errors}
                         values={values.phoneSecond}
@@ -234,10 +262,10 @@ const AccountForm = () => {
                         value={values.phoneSecond}
                         placeholder="Second phone"
                       /> */}
-                      {errors.phoneSecond &&
-                        touched.phoneSecond &&
-                        errors.phoneSecond}
-                    </>
+                      {errors.phoneSecond && touched.phoneSecond && (
+                        <div className={styles.error}>{errors.phoneSecond}</div>
+                      )}
+                    </div>
                   )}
                 </div>
                 {isAddPhone === false && (
@@ -262,20 +290,23 @@ const AccountForm = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
-                  placeholder="Address"
+                  placeholder="Email"
                 />
                 {errors.email && touched.email && errors.email}
               </label>
+              {/* <DateFields /> */}
               <label>
                 <span>Date of birth</span>
 
                 <div className={styles.formikContainer_dateBlock}>
-                  <Field
-                    // style={{ display: "none" }}
+                  <DateFields />
+                  {/* <Field
                     className={styles.formikContainer_day}
                     as="select"
                     id="day"
                     name="day"
+                    value={values.day || ""} // Set the selected value
+                    onChange={handleChange} // Required to update Formik state
                   >
                     {day.map((day) => (
                       <option key={day} value={day}>
@@ -283,11 +314,16 @@ const AccountForm = () => {
                       </option>
                     ))}
                   </Field>
-                  {/* <div className={styles.formikContainer_day} htmlFor="day">
-                      <SvgSelector id="arrowDown" />
-                    </div> */}
-                  {errors.birth && touched.birth && errors.birth}
                   <Field
+                    type="text"
+                    name="day" // Should match the 'name' prop in the Field component
+                    value={values.day || ""}
+                    onChange={handleChange} // Update the Formik state on input change
+                  /> */}
+                  {/* <DatePicker label={'"day"'} views={["day"]} /> */}
+                  {/* {errors.birth && touched.birth && errors.birth} */}
+
+                  {/* <Field
                     className={styles.formikContainer_month}
                     as="select"
                     id="month"
@@ -311,7 +347,7 @@ const AccountForm = () => {
                         {year}
                       </option>
                     ))}
-                  </Field>
+                  </Field> */}
                   {errors.birth && touched.birth && errors.birth}
                 </div>
               </label>
@@ -336,7 +372,6 @@ const AccountForm = () => {
           </Form>
         )}
       </Formik>
-
       <div className={styles.formikMetaBlockAvatar}>
         <Formik
           initialValues={{

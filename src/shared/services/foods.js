@@ -21,7 +21,7 @@ export const getFoodsByCategory = async ({
   totalPages = 1,
 }) => {
   const { data } = await instance.get(
-    `api/food/category/salads?page=${totalPages}&limit=${totalFoods}`
+    `api/food/category/${category}?page=${totalPages}&limit=${totalFoods}`
   );
   console.log("data", data);
   return data;

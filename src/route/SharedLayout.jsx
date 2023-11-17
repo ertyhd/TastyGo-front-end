@@ -31,7 +31,8 @@ const SharedLayout = () => {
         <Route path="/" element={<MainPage />} />
         {/* <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} /> */}
-        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/menu" element={<Navigate to="/menu/salads" />} />
+        <Route path="/menu/:category" element={<MenuPage />} />
         <Route path="/reviews" element={<ReviewsPage />} />
         <Route path="/noties/:categori" element={<NotiesPage />} />
         <Route path="/user" element={<Navigate to="/user/personal-info" />} />

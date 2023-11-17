@@ -1,37 +1,46 @@
-import SingleCard from "../../../shared/components/SingleCard/SingleCard";
-import MenuCategorySlider from "./MenuCategoriSlider/MenuCategoriSlider";
-import items from "./items";
-import css from './allMenu.module.scss'
-const AllMenu = () => {
-    const element = items.map(({ id, name, description, weight, price }) => {
-        return (
-            <li key={id}>
-                <SingleCard
-                    name={name}
-                    description={description}
-                    weight={weight}
-                    price={price}
-                />
-        
-            </li>
-    
-        )
-    })
-    return (
-      <div className="container">
-        <ul className={css.pathList}>
-          <li className={css.pathListItem}>Home</li>
-          <li className={css.pathListItem}>/</li>
-          <li className={css.pathListItem}>Menu</li>
-          <li className={css.pathListItem}>/</li>
-          <li className={css.pathListItem}>Salads</li>
-        </ul>
-        {/* <ul className={css.wrapperCategoryItem}> */}
-          <MenuCategorySlider />
-        {/* </ul> */}
+import { useState } from "react";
 
-        <ul className={css.dishesList}>{element}</ul>
+import MenuCategorySlider from "./MenuCategoriSlider/MenuCategoriSlider";
+
+import MenuList from "./MenuList/MenuList";
+import MenuBoardSlider from "./MenuBoardSlider/MenuBoardSlider";
+import Breadcrumbs from "../../../shared/components/Breadcrumbs/Breadcrumbs";
+import { useSelector } from "react-redux";
+import { getLoading } from "../../../redux/foods/foods-selector";
+import css from './allMenu.module.scss'
+
+
+const AllMenu = () => {
+
+  const [stateTitle, setStateTitle] = useState("salads");
+  const isLoading = useSelector(getLoading);
+  
+  const handleNameCategory = (title) => {
+    
+    setStateTitle(title);
+    if (title) {
+      setStateTitle(title);
+    } else {
+      setStateTitle('salads');
+    }
+    
+  }
+
+  return (
+    
+      <div className={`${css.wrapperMenu} ${"container"}`}>
+        <MenuBoardSlider nameCategory={stateTitle} />
+        <Breadcrumbs/>
+      
+        <MenuCategorySlider
+          nameCategory={stateTitle}
+          handleNameCategory={handleNameCategory}
+        />
+      
+        {isLoading&& <p>irejoghiieohr</p>}
+        <MenuList nameCategory={stateTitle} />
       </div>
+
     );
 };
 export default AllMenu

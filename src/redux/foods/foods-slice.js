@@ -3,8 +3,12 @@ import { fetchAllFoods, fetchFoodsByCategory } from "./foods-operations";
 // console.log("fetchAllFoods", fetchAllFoods());
 const initialState = {
   items: [],
+  totalFoods: null,
+  totalPages:1,
+
   loading: false,
   error: null,
+
 };
 const handlePending = (store) => {
   store.loading = true;
@@ -38,6 +42,8 @@ const foodsSlice = createSlice({
         console.log("payload", payload);
         store.loading = false;
         store.items = payload.foods;
+        store.totalFoods = payload.totalFoods;
+        store.totalPages = payload.totalPages;
       })
       .addCase(fetchFoodsByCategory.rejected, (store, action) => {
         handleReject(store, action);

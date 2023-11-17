@@ -36,7 +36,12 @@ const UserPage = () => {
           <div className={styles.userPageBlock_userInfo}>
             <div className={styles.userPageBlock_avatar}>
               {/* <SvgSelector id="blackCircle" /> */}
-              <img src={user.avatarURL} alt="User avatar" />
+              {!user.avatarURL && (
+                <div className={styles.userPageBlock_defAvatar}>
+                  {user.firstName ? user.firstName[0] : ""}
+                </div>
+              )}
+              {user.avatarURL && <img src={user.avatarURL} alt="" />}
             </div>
             <div className={styles.userPageBlock_user}>
               <span className={styles.userPageBlock_name}>

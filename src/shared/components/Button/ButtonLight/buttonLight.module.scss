@@ -1,0 +1,26 @@
+.btn {
+  display: flex;
+  width: 430px;
+  height: 48px;
+  padding: 20px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 30px;
+  border: 1px solid var(--primary-black, #010101);
+  color: var(--primary-black, #010101);
+  font-family: Poppins-Medium;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 19.2px */
+
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  border: 1px solid var(--primary-middle-green, #536524);
+}
+.btn:active {
+  background: var(--primary-light-green, #dcded0);
+  border: none;
+}

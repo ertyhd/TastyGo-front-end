@@ -1,0 +1,103 @@
+.modalContainer {
+  display: inline-flex;
+  height: 380px;
+  padding: 48px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+  border-radius: 24px;
+  background: #fff;
+}
+.modalContainer_svg {
+  display: flex;
+  width: 430px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+.modalContainer span {
+  color: var(--primary-black, #010101);
+  /* Heading/H6 32 medium */
+  font-family: DM-Sans;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 38.4px */
+}
+.modalContainer_p {
+  display: flex;
+  width: 430px;
+  height: 38px;
+  flex-direction: column;
+  justify-content: center;
+}
+.modalContainer_p p {
+  color: var(--primary-black, #010101);
+
+  /* Body/B2 16 regular */
+  font-family: DM-Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.modalContainer_linksWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.modalContainer_linksWrapper_accaunt {
+  display: flex;
+  width: 430px;
+  height: 48px;
+  padding: 20px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  border-radius: 30px;
+  background: var(--primary-deep-green, #152f23);
+
+  color: var(--primary-white, #fff);
+  font-family: Poppins-Medium;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 19.2px */
+  transition: background-color 0.3s ease;
+}
+.modalContainer_linksWrapper_accaunt:hover {
+  background: var(--primary-middle-green, #536524);
+}
+.modalContainer_linksWrapper_accaunt:active {
+  background: var(--primary-deep-green, #152f23);
+}
+.modalContainer_linksWrapper_home {
+  display: flex;
+  width: 430px;
+  height: 48px;
+  padding: 20px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  border-radius: 30px;
+  border: 1px solid var(--primary-black, #010101);
+
+  color: var(--primary-black, #010101);
+  font-family: Poppins-Medium;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 19.2px */
+  transition: background-color 0.3s ease;
+}
+.modalContainer_linksWrapper_home:hover {
+  border: 1px solid var(--primary-middle-green, #536524);
+}
+.modalContainer_linksWrapper_home:active {
+  background: var(--primary-light-green, #dcded0);
+  border: none;
+}

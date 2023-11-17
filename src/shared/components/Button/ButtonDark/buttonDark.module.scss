@@ -1,0 +1,31 @@
+.btn {
+  display: flex;
+  width: 430px;
+  height: 48px;
+  padding: 20px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+
+  border-radius: 30px;
+  background: #152f23;
+
+  color: var(--primary-white, #fffdfa);
+
+  /* Body desktop/S upper desktop */
+  color: #fffdfa;
+  font-family: Poppins-Medium;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 19.2px */
+
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  background: var(--primary-middle-green, #536524);
+}
+.btn:active {
+  background: var(--primary-deep-green, #152f23);
+}

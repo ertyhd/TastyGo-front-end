@@ -15,12 +15,18 @@ const initialState = {
   loading: false,
   avatarLoading: false,
   isLogin: false,
+  congrats: false,
   error: null,
 };
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
+  reducers: {
+    setCongrats: (state, { payload }) => {
+      state.congrats = payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(singup.pending, (store) => {
@@ -37,6 +43,7 @@ const authSlice = createSlice({
         store.user = payload.data.user;
         store.token = token;
         store.isLogin = true;
+        store.congrats = true;
       })
       .addCase(singup.rejected, (store, { payload }) => {
         store.loading = false;
@@ -64,7 +71,6 @@ const authSlice = createSlice({
       .addCase(current.fulfilled, (store, { payload }) => {
         store.loading = false;
         store.user = payload.user;
-
         store.isLogin = true;
       })
       .addCase(current.rejected, (store, { payload }) => {
@@ -116,6 +122,7 @@ const authSlice = createSlice({
         store.user = {};
         store.token = "";
         store.isLogin = false;
+        store.congrats = false;
       })
       .addCase(logout.rejected, (store, { payload }) => {
         store.loading = false;
@@ -123,4 +130,6 @@ const authSlice = createSlice({
       });
   },
 });
+
+export const { setCongrats } = authSlice.actions;
 export default authSlice.reducer;

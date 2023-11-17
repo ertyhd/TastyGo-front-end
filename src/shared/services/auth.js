@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const instance = axios.create({
- // baseURL: "http://localhost:3005/",
- baseURL: "https://tastygo-back-end.onrender.com/",
+  baseURL: "http://localhost:3005/",
+  //  baseURL: "https://tastygo-back-end.onrender.com/",
 });
 
 const setToken = (token) => {
@@ -30,6 +30,7 @@ export const getCurrent = async (token) => {
   try {
     setToken(token);
     const { data } = await instance.get("api/auth/current-user");
+
     return data;
   } catch (error) {
     throw error;

@@ -199,9 +199,9 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
                   {/* <div className={styles.formikContainer_field_relative}> */}
                   <PhoneField
                     errors={errors}
-                    values={values.phoneFirst}
+                    values={values.phone}
                     setFieldValue={setFieldValue}
-                    fieldName="phoneFirst"
+                    fieldName="phone"
                     autoFocus={false}
                     countryCodeEditable={false}
                   />

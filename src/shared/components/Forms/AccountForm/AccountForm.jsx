@@ -16,6 +16,9 @@ import {
   isAvatarLoading,
 } from "../../../../redux/auth/auth-selector";
 import { SvgSelector } from "../../SvgSelector/SvgSelector";
+import ButtonDark from "../../Button/ButtonDark/ButtonDark";
+import ButtonLight from "../../Button/ButtonLight/ButtonLight";
+
 import PhoneField from "../PhoneField/PhoneField";
 
 import DateFields from "../DateFields/DateFields";
@@ -32,28 +35,7 @@ const AccountForm = () => {
   // const [isAvatarUrl, setAvatarUrl] = useState("");
   // const [isAvatarFile, setAvatarFile] = useState(null);
   const [isAvLiading, setAvLoading] = useState(false);
-
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const day = Array.from({ length: 31 }, (_, index) => index + 1);
-  const startYear = 1923;
-  const endYear = 2023;
-  const year = Array.from(
-    { length: endYear - startYear + 1 },
-    (_, index) => startYear + index
-  );
+  const [isGetDate, setGetDate] = useState("");
 
   const fieldCheck = (values) => {
     const errors = {};
@@ -93,7 +75,7 @@ const AccountForm = () => {
   };
 
   const handleSubmit = async (values, { setSubmitting }) => {
-    console.log(values);
+    console.log(user);
     try {
       const data = {
         email: values.email,
@@ -102,8 +84,7 @@ const AccountForm = () => {
         lastName: values.lastName,
         phoneFirst: values.phoneFirst,
         phoneSecond: values.phoneSecond,
-
-        birth: `${values.day} - ${values.month} - ${values.year}`,
+        birth: isGetDate,
       };
 
       dispatch(updateUser(data)).then((response) => {
@@ -160,6 +141,11 @@ const AccountForm = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleGetDate = (date) => {
+    setGetDate(date);
+    // console.log(date);
   };
 
   return (
@@ -299,75 +285,21 @@ const AccountForm = () => {
                 <span>Date of birth</span>
 
                 <div className={styles.formikContainer_dateBlock}>
-                  <DateFields />
-                  {/* <Field
-                    className={styles.formikContainer_day}
-                    as="select"
-                    id="day"
-                    name="day"
-                    value={values.day || ""} // Set the selected value
-                    onChange={handleChange} // Required to update Formik state
-                  >
-                    {day.map((day) => (
-                      <option key={day} value={day}>
-                        {day}
-                      </option>
-                    ))}
-                  </Field>
-                  <Field
-                    type="text"
-                    name="day" // Should match the 'name' prop in the Field component
-                    value={values.day || ""}
-                    onChange={handleChange} // Update the Formik state on input change
-                  /> */}
-                  {/* <DatePicker label={'"day"'} views={["day"]} /> */}
-                  {/* {errors.birth && touched.birth && errors.birth} */}
-
-                  {/* <Field
-                    className={styles.formikContainer_month}
-                    as="select"
-                    id="month"
-                    name="month"
-                  >
-                    {months.map((month) => (
-                      <option key={month} value={month}>
-                        {month}
-                      </option>
-                    ))}
-                  </Field>
-                  {errors.birth && touched.birth && errors.birth}
-                  <Field
-                    className={styles.formikContainer_year}
-                    as="select"
-                    id="year"
-                    name="year"
-                  >
-                    {year.map((year) => (
-                      <option key={year} value={year}>
-                        {year}
-                      </option>
-                    ))}
-                  </Field> */}
+                  <DateFields onDateChange={handleGetDate} />
                   {errors.birth && touched.birth && errors.birth}
                 </div>
               </label>
             </div>
             <div className={styles.formikContainer_buttonsBloks}>
-              <button
-                className={styles.formikContainer_buttonSave}
+              <ButtonDark
                 type="submit"
                 // disabled={isSubmitting}
               >
                 Save changes
-              </button>
-              <button
-                className={styles.formikContainer_buttonCancel}
-                type="button"
-                // disabled={isSubmitting}
-                onClick={() => resetForm({ ...user })}
-              >
+              </ButtonDark>
+              <ButtonLight type="button" onClick={() => resetForm({ ...user })}>
                 Cancel
-              </button>
+              </ButtonLight>
             </div>
           </Form>
         )}

@@ -86,9 +86,11 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
         firstName: values.name,
         email: values.email,
         password: values.password,
-        phoneFirst: "+" + values.phone,
+        // phoneFirst: "+" + values.phone,
+        phoneFirst: values.phone,
         subscribtion: values.subscribtion,
       };
+      console.log(values.phone);
       dispatch(singup(data)).then((response) => {
         if (!response.error) {
         } else {

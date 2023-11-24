@@ -1,19 +1,30 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getItemsFoodsByCategory } from "../../../../redux/foods/foods-selector";
-import { fetchFoodsByCategory } from "../../../../redux/foods/foods-operations";
+import {
+  getItemsFoodsByCategory,
+  getAllItemsFoods,
+  getItemsSeason,
+} from "../../../../redux/foods/foods-selector";
+import { fetchFoodsByCategory, fetchAllFoods, fetchFoodsSeasonal } from "../../../../redux/foods/foods-operations";
+
 import DishesList from "../../../../shared/components/DishesList/DishesList";
 
-import SingleCard from "../../../../shared/components/SingleCard/SingleCard";
+// import SingleCard from "../../../../shared/components/SingleCard/SingleCard";
 import css from "./menuList.module.scss";
 
 const MenuList = ({ nameCategory }) => {
-  
+  console.log("nameCategory", nameCategory);
   const dispatch = useDispatch();
   const ItemsFoodsByCategory = useSelector(getItemsFoodsByCategory);
-
+  const ItemsSeasonFoods = useSelector(getItemsSeason);
+console.log("ItemsSeasonFoods", ItemsSeasonFoods);
   useEffect(() => {
-    dispatch(fetchFoodsByCategory({ category: `${nameCategory}`, page: 1 }));
+    if (nameCategory === "Seasonal menu") {
+      dispatch(fetchFoodsSeasonal({ page: 1 }));
+    } else {
+      dispatch(fetchFoodsByCategory({ category: `${nameCategory}`, page: 1 }));
+    }
+    
   }, [dispatch, nameCategory]);
   // const element = ItemsFoodsByCategory.map(
   //   ({ _id, title, description, weight, price }) => {

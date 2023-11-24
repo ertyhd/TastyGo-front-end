@@ -2,7 +2,7 @@ import axios from "axios";
 
 const instance = axios.create({
   // baseURL: "http://localhost:3005/",
-  baseURL: "https://tastygo-back-end.onrender.com/",
+   baseURL: "https://tastygo-back-end.onrender.com/",
 });
 
 const setToken = (token) => {

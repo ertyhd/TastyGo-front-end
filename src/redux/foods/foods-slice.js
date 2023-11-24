@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAllFoods, fetchFoodsByCategory } from "./foods-operations";
+import { fetchAllFoods, fetchFoodsByCategory, fetchFoodsSeasonal } from "./foods-operations";
 // console.log("fetchAllFoods", fetchAllFoods());
 const initialState = {
   items: [],
@@ -28,7 +28,6 @@ const foodsSlice = createSlice({
       //   handlePending(store);
       // })
       // .addCase(fetchAllFoods.fulfilled, (store, { payload }) => {
-      //   console.log('payload', payload);
       //   store.loading = false;
       //   store.items = payload.foods;
       // })
@@ -39,13 +38,25 @@ const foodsSlice = createSlice({
         handlePending(store);
       })
       .addCase(fetchFoodsByCategory.fulfilled, (store, { payload }) => {
-        console.log("payload", payload);
         store.loading = false;
         store.items = payload.foods;
         store.totalFoods = payload.totalFoods;
         store.totalPages = payload.totalPages;
       })
       .addCase(fetchFoodsByCategory.rejected, (store, action) => {
+        handleReject(store, action);
+      })
+      .addCase(fetchFoodsSeasonal.pending, (store) => {
+        handlePending(store);
+      })
+      .addCase(fetchFoodsSeasonal.fulfilled, (store, { payload }) => {
+        console.log("payload", payload);
+        store.loading = false;
+        store.items = payload;
+        store.totalFoods = payload.totalFoods;
+        store.totalPages = payload.totalPages;
+      })
+      .addCase(fetchFoodsSeasonal.rejected, (store, action) => {
         handleReject(store, action);
       });
   },

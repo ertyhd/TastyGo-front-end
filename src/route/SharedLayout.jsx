@@ -41,7 +41,7 @@ const SharedLayout = () => {
         {/* <Route path="/map" element={<Map />} /> */}
         <Route path="*" element={<div>Not Found page</div>} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </Suspense>
   );
 };

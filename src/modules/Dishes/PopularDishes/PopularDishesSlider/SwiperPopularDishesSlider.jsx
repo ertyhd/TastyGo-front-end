@@ -11,21 +11,21 @@ import css from "../popularDishes.module.scss";
 // import "swiper/css";
 // import "swiper/css/pagination";
 
-const SwiperPopularDishesSlider = ({ item }) => {
-  const [isCenterMode, setIsCenterMode] = useState(false);
+const SwiperPopularDishesSlider = ({ item, sizeWindow }) => {
+  // const [isCenterMode, setIsCenterMode] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsCenterMode(window.innerWidth <= 767);
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsCenterMode(window.innerWidth <= 767);
+  //   };
 
-    window.addEventListener("resize", handleResize);
-    handleResize();
+  //   window.addEventListener("resize", handleResize);
+  //   handleResize();
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
   // const sliderRef = useRef(null);
 
@@ -36,12 +36,14 @@ const SwiperPopularDishesSlider = ({ item }) => {
   // const previous = useCallback(() => {
   //   sliderRef.current.slickPrev();
   // }, []);
-  const [isDisplay, setDisplay] = useState(1);
+  const [isDisplay, setDisplay] = useState(0);
+  console.log("isDisplay", isDisplay);
   useEffect(() => {
-    let displayWidth = window.innerWidth;
-    let k = 1.08 + ((2.7 - 1.08) * (displayWidth - 360)) / 440;
+    // let displayWidth = window.innerWidth;
+    // console.log("displayWidth", displayWidth);
+    let k = (sizeWindow - 360) * 0.0031 + 1.15;
     setDisplay(k);
-  }, [isDisplay]);
+  }, [sizeWindow]);
   const swiperRef = React.useRef(null);
 
   // const [activeSlideIndex, setActiveSlideIndex] = useState(0);
@@ -54,7 +56,7 @@ const SwiperPopularDishesSlider = ({ item }) => {
   const handleClickNext = () => swiperRef.current.swiper.slideNext();
   return (
     <div className={css.wrapperSwiper}>
-      {!isCenterMode ? (
+      {sizeWindow > 1440 && (
         <>
           <Swiper
             ref={swiperRef}
@@ -93,10 +95,11 @@ const SwiperPopularDishesSlider = ({ item }) => {
             <SvgSelector id="arrowRightPopularDishDesc" />
           </button> */}
         </>
-      ) : (
+      )}
+      {sizeWindow < 768 && (
         <Swiper
           slidesPerView={isDisplay}
-          spaceBetween={-60}
+          spaceBetween={8}
           centeredSlides={true}
           loop={true}
           className="mySwiperMobil"

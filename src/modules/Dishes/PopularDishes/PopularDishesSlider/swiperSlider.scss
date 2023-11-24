@@ -26,12 +26,12 @@
   height: 100%;
 }
 .mySwiperMobil .swiper-wrapper .swiper-slide.swiper-slide-active {
-  transform: scale(1);
+  // transform: scale(1);
   transition: transform 0.5s ease;
 }
 .mySwiperMobil .swiper-wrapper .swiper-slide,
 .mySwiperMobil .swiper-wrapper .swiper-slide {
-  transform: scale(0.5);
+  // transform: scale(0.5);
   transition: transform 0.5s ease;
 }
 .mySwiperMobil .swiper-slide-active {
@@ -53,4 +53,7 @@
 .mySwiper .swiper-wrapper .swiper-slide {
   transform: scaleY(0);
   transition: transform 0.4s ease;
+}
+.myMenuSwiperCategory .swiper-slide{
+  // width: auto;
 }

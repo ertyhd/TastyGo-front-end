@@ -1,53 +1,101 @@
 .wrapperCategory {
+  margin-bottom: 16px;
+  margin-top: 24px;
 //   padding-left: 17px;
-  @media screen and (max-width: 1439px) {
+  @media screen and (min-width: 1440px) {
     padding-left: 0;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
+  margin-top: 32px;
+  }
+}
+.categoryList{
+  display: block;
+  // width: 100%;
+  // padding: 12px 16px;
+  border-radius: 30px;
+border: 1px solid var(--primary-black);
+text-align: center;
+width: 90px;
+// min-width: min-content;
+// max-width: 130px;
+white-space: nowrap;
+
+padding: 12px 16px;
+//  margin-bottom: 24px;
+  font-family: DM-Sans;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+  text-transform: capitalize;
+  // margin-bottom: 24px;
+color: var(--primary-black);
+
+@media screen and (min-width: 768px) {
+  width: 140px;
+       min-width: min-content;
+   
+  }
+  @media screen and (min-width: 1440px) {
+       width: auto;
+   
+  }
+}
+
+.categoryList:hover{
+  background-color: var(--primary-middle-green);
+}
+.categoryList:global(.active){
+  background-color: var(--primary-deep-green);
+color: var(--primary-white);
+}
+.wrapperSlider{
+  margin-bottom: 24px;
+   @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+   
   }
 }
 .wrapperCategoryItem{
     @media screen and (min-width: 1440px) {
         margin-bottom: 32px;
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
+    // justify-content: space-between;
    
   }
 }
-.categorySlideItem {
-  position: relative;
+// .categorySlideItem {
+//   margin-bottom: 24px;
 
-  // background-color: greenyellow;
-  font-family: Poppins-Medium;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 120%; /* 38.4px */
-  text-transform: uppercase;
-  // margin-bottom: 24px;
 
-  @media screen and (min-width: 1440px) {
-    font-size: 18px;
-    font-weight: 400;
+//   @media screen and (min-width: 768px) {
+//     margin-bottom: 32px;
    
-  }
-}
-.categorySlideItem {
-  position: relative;
-
-  // background-color: greenyellow;
-  font-family: Poppins-Medium;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 120%; /* 38.4px */
-  text-transform: uppercase;
-  // margin-bottom: 24px;
-
-  @media screen and (min-width: 1440px) {
-    font-size: 18px;
-    font-weight: 400;
+//   }
+// }
+// .categorySlideItem {
+//   position: relative;
+// padding: 12px 16px;
+// //  margin-bottom: 24px;
+//   font-family: DM-Sans;
+// font-size: 16px;
+// font-style: normal;
+// font-weight: 400;
+// line-height: normal;
+//   text-transform: capitalize;
+//   // margin-bottom: 24px;
+// color: var(--primary-black);
+//   // @media screen and (min-width: 1440px) {
+//   //   margin-bottom: 32px;
    
-  }
+//   // }
+// }
+
+.wrapperCounter{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 .countCategoryDish {
   position: absolute;
@@ -67,24 +115,49 @@
 }
 .nameCounterCategory{
   position: relative;
-  margin-bottom: 32px;
-  color: var(--primary-secondary);
+  // margin-bottom: 32px;
+  color: var(--primary-black);
 /* Heading desktop/Heading desktop 64 medium 64 */
-font-family: Poppins-Medium;
-font-size: 64px;
+font-family: DM-Sans;
+font-size: 32px;
 font-style: normal;
 font-weight: 500;
-line-height: 120%; /* 76.8px */
-text-transform: uppercase;
+line-height: 120%;
+text-transform: capitalize;
+@media screen and (min-width: 768px) {
+    font-size: 64px;
+    line-height: 110%;
+  }
 }
 .counterCategoryDesktop{
   position: absolute;
   color: var(--primary-secondary);
 font-feature-settings: 'sups' on;
 font-family: Poppins-Medium;
-font-size: 32px;
+font-size: 16px;
 font-style: normal;
 font-weight: 500;
 line-height: 120%; /* 76.8px */
 text-transform: uppercase;
+@media screen and (min-width: 768px) {
+    font-size: 32px;
+    
+  }
+}
+.items{
+  align-items: flex-end;
+  color: var(--primary-black);
+  font-family: DM-Sans;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.2px;
+@media screen and (min-width: 768px) {
+    font-size: 24px;
+    
+  }
+}
+.counterItems{
+  margin-right: 8px;
 }

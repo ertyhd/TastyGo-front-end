@@ -8,28 +8,28 @@ import css from './seasonalDishes.module.scss';
 import SeasonalDishesSlider from "./SeasonalDishesSlider/SeasonalDishesSlider";
 import SingleCard from "../../../shared/components/SingleCard/SingleCard";
 
-const SeasonalDishes = () => {
+const SeasonalDishes = ({windowWidth}) => {
   const [isCenterMode, setIsCenterMode] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsCenterMode(window.innerWidth <= 767);
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsCenterMode(window.innerWidth <= 767);
+  //   };
 
-    window.addEventListener("resize", handleResize);
-    handleResize();
+  //   window.addEventListener("resize", handleResize);
+  //   handleResize();
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
-  const element = items.map(({ id, name, description, weight, price }) => {
+  const element = items.map(({ id, name, weight, price }) => {
     return (
       <SwiperSlide key={id}>
         <SingleCard
           name={name}
-          description={description}
+          // description={description}
           weight={weight}
           price={price}
         />
@@ -57,29 +57,31 @@ const SeasonalDishes = () => {
     );
   });
 
-    return (
-      <section className={`${css.section}  ${!isCenterMode && "container"}`}>
-        <h2 className={css.titlePopularDish}>SEASONal MENU</h2>
-        <div className={css.wrapperDescriptionSectionLink}>
-          <p className={css.descriptionSection}>
-            try dishes from our seasonal menu
-          </p>
-          {!isCenterMode && (
-            <SectionLink>
-              <p>see ALL SALADS</p>
-            </SectionLink>
-          )}
-        </div>
-        {/* <PopularDishesCategorySlider item={elementCategory} /> */}
-        {/* <PopularDishesSlider item={element} /> */}
-        <SeasonalDishesSlider item={element} />
-        {isCenterMode && (
+  return (
+    <section className={`${css.section}  `}>
+      <section
+        className={`${css.section}  ${!isCenterMode && "container"}`}
+      ></section>
+      <h2 className={css.titlePopularDish}>SEASONal MENU</h2>
+      <div className={css.wrapperDescriptionSectionLink}>
+        <p className={css.descriptionSection}>
+          try dishes from our seasonal menu
+        </p>
+        {!isCenterMode && (
           <SectionLink>
             <p>see ALL SALADS</p>
           </SectionLink>
         )}
-      </section>
-    );
- 
+      </div>
+      {/* <PopularDishesCategorySlider item={elementCategory} /> */}
+      {/* <PopularDishesSlider item={element} /> */}
+      <SeasonalDishesSlider item={element} sizeWindow={windowWidth} />
+      {isCenterMode && (
+        <SectionLink>
+          <p>see ALL SALADS</p>
+        </SectionLink>
+      )}
+    </section>
+  );
 };
 export default SeasonalDishes;

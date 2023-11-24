@@ -7,13 +7,13 @@
 
 import instance from "./auth";
 
-// export const getAllFoods = async (totalFoods = 12, totalPages=1) => {
-//   const { data } = await instance.get(
-//     `api/food?page=${totalPages}&limit=${totalFoods}`
-//   );
+export const getAllFoods = async (totalFoods = 12, totalPages=1) => {
+  const { data } = await instance.get(
+    `api/food?page=${totalPages}&limit=${totalFoods}`
+  );
 
-//   return data;
-// };
+  return data;
+};
 
 export const getFoodsByCategory = async ({
   category = "salads",
@@ -23,6 +23,17 @@ export const getFoodsByCategory = async ({
   const { data } = await instance.get(
     `api/food/category/${category}?page=${totalPages}&limit=${totalFoods}`
   );
+  
+  return data;
+};
+export const getFoodsSeasonal = async ({
+  totalFoods = 12,
+  totalPages = 1,
+}) => {
+  const { data } = await instance.get(
+    `api/food/seasonal?page=${totalPages}&limit=${totalFoods}`
+  );
   console.log("data", data);
   return data;
 };
+// console.log("getFoodsSeasonal", getFoodsSeasonal());

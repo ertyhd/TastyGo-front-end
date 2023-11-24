@@ -134,13 +134,12 @@ img {
   margin-right: auto;
 
   @media screen and (min-width: 768px) {
-    max-width: 1440px;
-    padding: 64px 80px;
+    max-width: 1439px;
+    padding: 64px 20px;
   }
 
   @media screen and (min-width: 1440px) {
-    // padding-left: 80px;
-    // padding-right: 80px;
-    // width: 1440px;
+    max-width: 1440px;
+    padding: 64px 80px;
   }
 }

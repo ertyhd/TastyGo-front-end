@@ -18,4 +18,11 @@
   --primary-orange: #f9854e;
   --secondary-orange-light: #f3b99d;
   --secondary-grey: #b7b7b7;
+  --linear-linear-first-screen: linear-gradient(
+    12deg,
+    rgba(21, 47, 35, 0.3) 8.16%,
+    rgba(21, 47, 35, 0.3) 39.58%,
+    rgba(21, 47, 35, 0) 61.29%,
+    rgba(21, 47, 35, 0) 90.91%
+  );
 }

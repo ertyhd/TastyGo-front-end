@@ -64,15 +64,18 @@ const SwiperMobile = ({ items, viewPort, refference }) => {
   return (
     <>
       <Swiper
-        ref={refference}
-        slidesPerView={viewPort ? isDisplay : 2}
-        spaceBetween={viewPort ? -75 : 28}
-        centeredSlides={viewPort ? true : false}
+        // ref={refference}
+        slidesPerView={2}
+        spaceBetween={8}
+        // centeredSlides={true}
         loop={true}
         className="swaprWrap"
-        autoplay={{
-          delay: 5000,
+        pagination={{
+          dynamicBullets: true,
         }}
+        // autoplay={{
+        //   delay: 5000,
+        // }}
         modules={[Autoplay, Pagination]}
       >
         {elements}

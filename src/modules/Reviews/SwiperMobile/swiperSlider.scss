@@ -9,17 +9,20 @@
 
 .swaprWrap .swiper-wrapper .swiper-slide.swiper-slide-active {
   @media screen and (max-width: 768px) {
-    transform: scale(1);
-    transition: transform 0.4s ease;
+    // transform: scale(1);
+    // transition: transform 0.4s ease;
   }
 }
 
 .swaprWrap .swiper-wrapper .swiper-slide,
 .swaprWrap .swiper-wrapper .swiper-slide {
   @media screen and (max-width: 768px) {
-    transform: scale(0.5);
-    transition: transform 0.4s ease;
+    // transform: scale(0.5);
+    // transition: transform 0.4s ease;
   }
+}
+.swaprWrap .swiper-pagination {
+  bottom: 30px;
 }
 
 // .swaprWrap .swiper-wrapper .swiper-slide.swiper-slide-active,

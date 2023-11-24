@@ -68,9 +68,12 @@ const SwiperMobile = ({ items }) => {
         centeredSlides={true}
         loop={true}
         className="swaprWrap"
-        autoplay={{
-          delay: 5000,
-          // disableOnInteraction: false,
+        // autoplay={{
+        //   delay: 5000,
+        //   // disableOnInteraction: false,
+        // }}
+        pagination={{
+          dynamicBullets: true,
         }}
         modules={[Autoplay]}
       >

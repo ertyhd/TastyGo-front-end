@@ -10,32 +10,53 @@ import "../../PopularDishes/PopularDishesSlider/swiperSlider.scss";
 import css from './seasonalDishesSlider.module.scss';
 
 
-const SeasonalDishesSlider = ({ item }) => {
-  const [isCenterMode, setIsCenterMode] = useState(false);
+const SeasonalDishesSlider = ({ item, sizeWindow }) => {
+  // const [isCenterMode, setIsCenterMode] = useState(false);
+  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  console.log("sizeWindow", sizeWindow);
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsCenterMode(window.innerWidth <= 767);
+  //   };
+
+  //   window.addEventListener("resize", handleResize);
+  //   handleResize();
+
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
+  // const handleResize = () => {
+  //   setWindowWidth(window.innerWidth);
+  // };
+
+  // useEffect(() => {
+  //   // Додаємо слухача подій resize при монтажі компонента
+  //   window.addEventListener("resize", handleResize);
+
+  //   // Викликаємо handleResize при завантаженні компонента
+  //   handleResize();
+
+  //   // Прибираємо слухача подій при розмонтажі компонента
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
+
+  const [isDisplay, setDisplay] = useState(0);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsCenterMode(window.innerWidth <= 767);
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const [isDisplay, setDisplay] = useState(1);
-  useEffect(() => {
-    let displayWidth = window.innerWidth;
-    let k = 1.08 + ((2.7 - 1.08) * (displayWidth - 360)) / 440;
+    // let displayWidth = window.innerWidth;
+    // console.log("displayWidth", displayWidth);
+    // console.log("displayWidth", displayWidth);
+    // let k = 1.08 + ((2.7 - 1.08) * (displayWidth - 360)) / 440;
+    let k = (sizeWindow - 360) * 0.0031 + 1.15;
     setDisplay(k);
-  }, [isDisplay]);
+  }, [sizeWindow]);
   const swiperRef = React.useRef(null);
 
-//   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-//   const [lengthSlideIndex, setLengthSlideIndex] = useState(0);
+  //   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  //   const [lengthSlideIndex, setLengthSlideIndex] = useState(0);
   const handleSlideChange = (swiper) => {
     // setActiveSlideIndex(swiper.realIndex);
     // setLengthSlideIndex(swiper.slides.length);
@@ -44,7 +65,7 @@ const SeasonalDishesSlider = ({ item }) => {
   const handleClickNext = () => swiperRef.current.swiper.slideNext();
   return (
     <div className={css.wrapperSwiper}>
-      {!isCenterMode ? (
+      {sizeWindow > 1440 && (
         <>
           <Swiper
             ref={swiperRef}
@@ -83,18 +104,19 @@ const SeasonalDishesSlider = ({ item }) => {
             <SvgSelector id="arrowRightPopularDishDesc" />
           </button> */}
         </>
-      ) : (
+      )}
+      {sizeWindow < 768 && (
         <Swiper
-          slidesPerView={isDisplay}
-          spaceBetween={-60}
           centeredSlides={true}
+          slidesPerView={isDisplay}
+          spaceBetween={8}
           loop={true}
           className="mySwiperMobil"
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          modules={[Autoplay]}
+          // autoplay={{
+          //   delay: 5000,
+          //   disableOnInteraction: false,
+          // }}
+          // modules={[Autoplay]}
         >
           {item}
         </Swiper>

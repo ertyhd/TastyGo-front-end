@@ -12,73 +12,74 @@ import itemsCategory from "./itemsCategory";
 import css from "./menuCategoriSlider.module.scss";
 import "../../PopularDishes/PopularDishesSlider/swiperSlider.scss";
 
-const MenuCategorySlider = ({ handleNameCategory, nameCategory }) => {
-  // const [isCenterMode, setIsCenterMode] = useState(false);
-   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+const MenuCategorySlider = ({
+  handleNameCategory,
+  nameCategory,
+  sizeWindow,
+}) => {
+  
 
   const dispatch = useDispatch();
   const ItemsFoodsByCategory = useSelector(getItemsCategory);
   const itemsLenght = useSelector(getItemsLenght);
 
-   const sortedItems = [...ItemsFoodsByCategory].sort(
-     (a, b) => a.sequenceNumber - b.sequenceNumber
-   );
+  const sortedItems = [...ItemsFoodsByCategory].sort(
+    (a, b) => a.sequenceNumber - b.sequenceNumber
+  );
 
   useEffect(() => {
     dispatch(fetchCategory());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setIsCenterMode(window.innerWidth <= 1440);
-  //   };
 
-  //   window.addEventListener("resize", handleResize);
-  //   handleResize();
+  const [isDisplay, setDisplay] = useState(1);
+  console.log("isDisplay", isDisplay);
+  useEffect(() => {
+//     let displayWidth = window.innerWidth;
 
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, [handleNameCategory]);
+//     {
+//       sizeWindow > 768 && let k = sizeWindow - (sizeWindow + (215 + (displayWidth - 360 + 1)));
+//     };
+//      {
+//       sizeWindow <768 && let k = sizeWindow - (sizeWindow + (215 + (displayWidth - 768 + 1)));
+// };
+//     setDisplay(k);
 
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    useEffect(() => {
-      // Додаємо слухача подій resize при монтажі компонента
-      window.addEventListener("resize", handleResize);
-
-      // Викликаємо handleResize при завантаженні компонента
-      handleResize();
-
-      // Прибираємо слухача подій при розмонтажі компонента
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }, []);
+    setDisplay(
+      sizeWindow > 768
+        ? sizeWindow - (sizeWindow + (560 + (sizeWindow - 768 + 1)))
+          // ? -570
+          : sizeWindow < 768
+            ? sizeWindow - (sizeWindow + (215 + (sizeWindow - 360 + 1)))
+            : 1
+     );
+  }, [sizeWindow]);
   const elementCategory = sortedItems.map(({ _id, title }) => {
     return (
       <li
-        className={css.wrapperCategoryItem}
+        // className={css.categoryList}
         key={_id}
         onClick={() => handleNameCategory(title)}
       >
-        {windowWidth < 1440 && (
+        {sizeWindow < 1440 && (
           <SwiperSlide className={css.categorySlideItem} key={_id}>
-            <div className={css.wrapperCategoryItem}>
-              <p className={css.categorySlideItem}>
-                {title}
-                <span className={css.countCategoryDish}>{itemsLenght}</span>
-              </p>
-            </div>
+            {/* <div className={css.categoryList}> */}
+            <NavLink to={`/menu/${title}`} className={css.categoryList}>
+              {/* <p className={(css.categorySlideItem)}> */}
+              {title}
+              {/* <span className={css.countCategoryDish}>{itemsLenght}</span> */}
+              {/* </p> */}
+            </NavLink>
+            {/* </div> */}
           </SwiperSlide>
         )}
-        {windowWidth > 1440 && (
+        {sizeWindow > 1440 && (
           // <div key={id}>
-          <NavLink to={`/menu/${title}`} className={css.categorySlideItem}>
-            {title}
-            {/* <span className={css.countCategoryDish}>10</span> */}
+          <NavLink to={`/menu/${title}`} className={css.categoryList}>
+            {/* <button className={css.categorySlideItem}> */}
+              {title}
+              {/* <span className={css.countCategoryDish}>10</span> */}
+            {/* </button> */}
           </NavLink>
           // </div>
         )}
@@ -87,27 +88,36 @@ const MenuCategorySlider = ({ handleNameCategory, nameCategory }) => {
   });
   return (
     <div className={css.wrapperCategory}>
-      {windowWidth < 1440 && (
-        <Swiper
-          slidesPerView={2}
-          spaceBetween={-60}
-          loop={true}
-          className="mySwiperCategory"
-          // className={styles.swaprWrap}
-          //
-        >
-          {elementCategory}
-        </Swiper>
-      )}
-      {windowWidth > 1440 && (
+      <div className={css.wrapperSlider}>
+        {sizeWindow < 1440 && (
+          <Swiper
+            // slidesPerView={isDisplay}
+            slidesPerView={"auto"}
+            spaceBetween={isDisplay}
+            loop={true}
+            className="myMenuSwiperCategory"
+            // className={styles.swaprWrap}
+            //
+          >
+            {elementCategory}
+          </Swiper>
+        )}
+      </div>
+      {sizeWindow > 1440 && (
         <ul className={css.wrapperCategoryItem}>{elementCategory}</ul>
       )}
-      {windowWidth > 1440 && (
+
+      <div className={css.wrapperCounter}>
         <p className={css.nameCounterCategory}>
           {nameCategory}
           <span className={css.counterCategoryDesktop}>{itemsLenght}</span>
         </p>
-      )}
+        <p className={css.items}>
+          
+          <span className={css.counterItems}>{itemsLenght}</span>
+          items
+        </p>
+      </div>
     </div>
   );
 };

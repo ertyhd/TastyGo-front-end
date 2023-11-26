@@ -71,7 +71,7 @@ const AccountForm = () => {
       default:
         break;
     }
-    console.log(values.phoneFirst);
+
     return errors;
   };
 

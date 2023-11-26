@@ -90,7 +90,7 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
         phoneFirst: values.phone,
         subscribtion: values.subscribtion,
       };
-      console.log(values.phone);
+
       dispatch(singup(data)).then((response) => {
         if (!response.error) {
         } else {
@@ -207,44 +207,6 @@ const RegistrationForm = ({ chngForm, closeReg }) => {
                     autoFocus={false}
                     countryCodeEditable={false}
                   />
-                  {/* {isPhoneInput && (
-                      <PhoneInput
-                        className={styles.phoneInput}
-                        country="ua"
-                        placeholder="+380 00 000 00 00"
-                        specialLabel=""
-                        onFocus={() => setPhoneInput(false)}
-                        disableCountryCode={true}
-                      />
-                    )}
-                    {!isPhoneInput && (
-                      <PhoneInput
-                        inputStyle={{
-                          borderColor: errors.phone ? "#ff2e00" : "",
-                        }}
-                        className={styles.phoneInput}
-                        country="ua"
-                        value={values.phone}
-                        onChange={(phone) => setFieldValue("phone", phone)}
-                        defaultMask=".. ... .. .."
-                        alwaysDefaultMask={true}
-                        placeholder="+380 00 000 00 00"
-                        specialLabel=""
-                        countryCodeEditable={false}
-                        onFocus={() => setPhoneInput(false)}
-                        // onBlur={() => setPhoneInput(true)}
-                        disableCountryCode={false}
-                        inputProps={{
-                          autoFocus: true,
-                        }}
-                      />
-                    )} */}
-
-                  {/* <div className={styles.formikContainer_fieldSvgFlag}>
-                      <SvgSelector id="flag" />
-                    </div> */}
-                  {/* </div> */}
-
                   {errors.phone && touched.phone && (
                     <div className={styles.error}>{errors.phone}</div>
                   )}

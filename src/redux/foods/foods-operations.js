@@ -39,3 +39,16 @@ export const fetchFoodsByCategory = createAsyncThunk(
     }
   }
 );
+export const fetchFoodsSeasonal = createAsyncThunk(
+  "foods/FoodsSeason",
+  async (data, { rejectWithValue }) => {
+    console.log("data", data);
+    try {
+      const result = await api.getFoodsSeasonal(data);
+      console.log("result", result);
+      return result;
+    } catch ({ response }) {
+      return rejectWithValue(response);
+    }
+  }
+);

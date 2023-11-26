@@ -87,7 +87,7 @@ const MenuBoardSlider = ({ nameCategory }) => {
     
     console.log("imageItems", imageItems);
     return (
-      <>
+      <section className={css.wrapperBoard}>
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
@@ -98,7 +98,7 @@ const MenuBoardSlider = ({ nameCategory }) => {
         >
           {imageItems}
         </Swiper>
-      </>
+      </section>
     );
 };
 export default MenuBoardSlider;

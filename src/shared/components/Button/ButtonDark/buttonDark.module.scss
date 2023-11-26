@@ -21,7 +21,7 @@
   font-weight: 500;
   line-height: 120%; /* 19.2px */
 
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 .btn:hover {
   background: var(--primary-middle-green, #536524);

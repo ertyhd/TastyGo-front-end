@@ -1,0 +1,86 @@
+.wrapperHeder {
+  margin-top: 24px;
+  @media screen and (min-width: 768px) {
+    margin-top: 32px;
+  }
+}
+
+.breadcrumbsWrapper {
+  padding: 24px 0;
+}
+.cardsSection {
+  margin-bottom: 32px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 64px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 80px;
+  }
+}
+.reviewsH1 {
+  color: var(--primary-black, #010101);
+
+  /* Heading/H1 64 medium */
+  font-family: DM-Sans;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%; /* 70.4px */
+}
+.fieldsSection {
+  margin-top: 32px;
+  display: flex;
+  // width: 1279px;
+  justify-content: space-between;
+  align-items: flex-start;
+  @media screen and (min-width: 768px) {
+    margin-top: 64px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-top: 80px;
+  }
+}
+.fieldsSection_titleBlock {
+  display: flex;
+  height: 231px;
+  width: 518px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  @media screen and (min-width: 768px) {
+    // margin-top: 64px;
+  }
+  @media screen and (min-width: 1440px) {
+    // margin-top: 80px;
+  }
+}
+.fieldsSection_titleBlock h1 {
+  color: var(--primary-black, #010101);
+
+  font-family: DM-Sans;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%; /* 70.4px */
+  @media screen and (min-width: 768px) {
+    // margin-top: 64px;
+  }
+  @media screen and (min-width: 1440px) {
+    // margin-top: 80px;
+  }
+}
+.fieldsSection_titleBlock p {
+  color: var(--primary-black, #010101);
+
+  font-family: DM-Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  @media screen and (min-width: 768px) {
+    // margin-top: 64px;
+  }
+  @media screen and (min-width: 1440px) {
+    // margin-top: 80px;
+  }
+}

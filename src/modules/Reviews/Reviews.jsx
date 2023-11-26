@@ -1,105 +1,47 @@
-import React from "react";
-
-import styles from "./reviews.module.scss";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import styles from "./reviewsDesk.module.scss";
 
-import { SvgSelector } from "../../shared/components/SvgSelector/SvgSelector";
-import ButtonArrow from "../../shared/components/Button/ButtonArrow/ButtonArrow";
-
-import SwiperMobileWrapper from "./SwiperMobile/SwiperMobile";
-
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getItemsReviews } from "../../redux/reviews/reviews-selector";
+import { getReviews } from "../../redux/reviews/reviews-operation";
 import usersRevJ from "./usersReviews.json";
+import deskPaginPNG from "../../assete/png/pagination.png";
+import SwiperDesktopTab from "./SwiperDesktopTab/SwiperDesktopTab";
+import SingleRevieweCard from "../../shared/components/SingleRevieweCard/SingleRevieweCard";
 
 const Reviews = () => {
-  const userRevRandom = usersRevJ.sort(() => Math.random() - 0.5);
-  const userRevThree = userRevRandom.slice(0, 3);
-
-  const [isUserRev] = useState(userRevThree);
-  const [counter, setCounter] = useState(0);
-
-  const [isMobile, setIsMobile] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    setIsMobile(mediaQuery.matches);
+    dispatch(getReviews());
+  }, [dispatch]);
 
-    // Don`t forget. If need to checking media query in real time then switch addListaner
+  const items = useSelector(getItemsReviews);
 
-    const handleMediaChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    handleMediaChange(mediaQuery);
-
-    mediaQuery.addListener(handleMediaChange);
-    return () => {
-      mediaQuery.removeListener(handleMediaChange);
-    };
-  }, []);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCounter((prevCounter) => (prevCounter + 1) % 3);
-    }, 5000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [counter, isUserRev]);
-
-  const reviewsSwiperRef = React.useRef(null);
-
-  const handleClickPrev = () => reviewsSwiperRef.current.swiper.slidePrev();
-  const handleClickNext = () => reviewsSwiperRef.current.swiper.slideNext();
-
+  console.log("items", items);
   return (
-    <section
-      className={`${styles.reviews_container} ${isMobile ? "" : "container"}`}
-    >
-      <div className={styles.reviews_container__header}>
-        <div className={styles.reviews_container__headerWrapper}>
-          <p className={styles.reviews_container__headerWrapper__p}>reviews</p>
-        </div>
-
-        {isMobile && (
-          <div className={styles.swiperComponent}>
-            <h2>Our clients have a ton to say</h2>
-            <SwiperMobileWrapper items={usersRevJ} viewPort={isMobile} />
-          </div>
-        )}
-        <Link className={styles.reviews_container__header__link}>
-          <div className={styles.reviews_container__header__linkCont}>
-            <p>VIew all reviews</p>
-            <SvgSelector
-              styles={styles.arrowBtnSvg}
-              id="arrowTopRight"
-              viewBox={isMobile ? "8 8 32 32" : "7 7 32 32"}
-            />
-          </div>
+    <section className={styles.reviewsContainer}>
+      <div className={styles.reviews_headerBlock}>
+        <span className={styles.reviews_headerBlock__title}>reviews</span>
+        <Link className={styles.reviews_headerBlock__link} to="/reviews">
+          View all reviews
         </Link>
       </div>
-
-      {!isMobile && (
-        <div className={styles.reviews_container__cardList}>
-          <div className={styles.reviews_container__cardList__headerBlock}>
-            <div>
-              <h2>Our clients have a ton to say</h2>
-              <Link>Leave a Review</Link>
-            </div>
-            <div className={styles.arrowWrapper}>
-              <ButtonArrow prev={handleClickPrev} next={handleClickNext} />
-            </div>
-          </div>
-          <div className={styles.reviews_container__cardList__swiper}>
-            <SwiperMobileWrapper
-              items={usersRevJ}
-              viewPort={isMobile}
-              refference={reviewsSwiperRef}
-            />
+      <div className={styles.reviews_sliderBlock}>
+        <div className={styles.reviews_sliderBlock__description}>
+          <h1>Our clients have a ton to say</h1>
+          <p>*Only registered users can leave reviews</p>
+          <button>Add review</button>
+          <div>
+            <img width={166} alt="" src={deskPaginPNG} />
           </div>
         </div>
-      )}
+        <div className={styles.reviews_sliderBlock__slider}>
+          <SwiperDesktopTab items={items} />
+          {/* <SingleRevieweCard item={items[0]} /> */}
+        </div>
+      </div>
     </section>
   );
 };

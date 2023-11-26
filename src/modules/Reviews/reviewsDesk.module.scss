@@ -1,0 +1,101 @@
+.reviewsContainer {
+  max-width: 1440px;
+  padding: 80px 80px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  width: 1280px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 32px;
+}
+.reviews_headerBlock {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.reviews_headerBlock__title {
+  color: var(--primary-orange, #f9854e);
+  text-align: center;
+
+  font-family: DM-Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 21.6px */
+  text-transform: uppercase;
+}
+.reviews_headerBlock__link {
+  color: var(--primary-middle-green, #536524);
+  font-family: DM-Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.2px;
+  border-bottom: 1px solid var(--primary-middle-green, #536524);
+}
+.reviews_sliderBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+.reviews_sliderBlock__description {
+  display: flex;
+  width: 407px;
+  height: 473px;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 30px;
+}
+.reviews_sliderBlock__description h1 {
+  font-family: DM-Sans;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%; /* 70.4px */
+
+  margin-bottom: 16px;
+}
+.reviews_sliderBlock__description p {
+  color: #1e1e2d;
+  font-family: Poppins-Regular;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 21.6px */
+
+  margin-bottom: 24px;
+}
+.reviews_sliderBlock__description button {
+  display: flex;
+  width: 362px;
+  height: 60px;
+  padding: 20px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  border-radius: 30px;
+  background: var(--primary-deep-green, #152f23);
+
+  color: var(--primary-white, #fff);
+
+  /* Body/B1 16 medium */
+  font-family: DM-Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 19.2px */
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-bottom: auto;
+}
+.reviews_sliderBlock__description button:hover {
+  color: var(--primary-black, #010101);
+  border: 1px solid var(--primary-deep-green, #152f23);
+  background-color: #fff;
+}

@@ -57,25 +57,26 @@ const AccountForm = () => {
         errors.phoneFirst = "This field is mandatory";
         break;
       case !/^380\d{9}/.test(values.phoneFirst):
-        errors.phoneFirst = "Invalid phone number";
+        errors.phoneFirst = "Invalid phone number f1";
         break;
       case values.phoneFirst.length < 12:
-        errors.phoneFirst = "Invalid phone number";
+        errors.phoneFirst = "Invalid phone number f2";
         break;
       case values.phoneSecond.length > 0 && values.phoneSecond.length < 12:
-        errors.phoneSecond = "Invalid phone number";
+        errors.phoneSecond = "Invalid phone number s1";
         break;
       case !/^(380\d{9})?$/.test(values.phoneSecond):
-        errors.phoneSecond = "Invalid phone number";
+        errors.phoneSecond = "Invalid phone number s2";
         break;
       default:
         break;
     }
+
     return errors;
   };
 
   const handleSubmit = async (values, { setSubmitting }) => {
-    console.log(user);
+    // console.log(user);
     try {
       const data = {
         email: values.email,
@@ -285,7 +286,7 @@ const AccountForm = () => {
                 <span>Date of birth</span>
 
                 <div className={styles.formikContainer_dateBlock}>
-                  <DateFields onDateChange={handleGetDate} />
+                  <DateFields onDateChange={handleGetDate} value={user.birth} />
                   {errors.birth && touched.birth && errors.birth}
                 </div>
               </label>

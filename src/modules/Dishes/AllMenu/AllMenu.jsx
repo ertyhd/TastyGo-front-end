@@ -7,12 +7,11 @@ import MenuBoardSlider from "./MenuBoardSlider/MenuBoardSlider";
 import Breadcrumbs from "../../../shared/components/Breadcrumbs/Breadcrumbs";
 import { useSelector } from "react-redux";
 import { getLoading } from "../../../redux/foods/foods-selector";
-import css from './allMenu.module.scss'
+import css from "./allMenu.module.scss";
 
 import desktopImage from "../../../assete/jpg/menuBoard/monika-grabkowska-i14VzlCp-Eo-unsplash-descktop.jpg";
 import tabletImage from "../../../assete/jpg/menuBoard/monika-grabkowska-i14VzlCp-Eo-unsplash-tablet.jpg";
 import mobileImage from "../../../assete/jpg/menuBoard/monika-grabkowska-i14VzlCp-Eo-unsplash-mobil.jpg";
-
 
 const AllMenu = ({ windowWidth }) => {
   console.log("windowWidth", windowWidth);
@@ -43,7 +42,7 @@ const AllMenu = ({ windowWidth }) => {
   useEffect(() => {
     const sizeImg = currentSizeImg();
     setUrlImage(sizeImg);
-}, [windowWidth]);
+  }, [windowWidth]);
   return (
     <div className={css.wrapperMenu}>
       {/* <MenuBoardSlider nameCategory={stateTitle} /> */}
@@ -90,4 +89,4 @@ const AllMenu = ({ windowWidth }) => {
     </div>
   );
 };
-export default AllMenu
+export default AllMenu;

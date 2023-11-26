@@ -2,52 +2,28 @@
   outline: 1px solid;
 }
 .services_p {
-  color: var(--primary-orange, #f9854e);
-  //   text-align: center;
-  font-family: DM-Sans;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%; /* 21.6px */
+  color: var(--primary-accent);
+  font-family: Poppins-Regular;
+  font-size: 16px;
+  line-height: 1.2;
   text-transform: uppercase;
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
 }
 .services_h2 {
-  margin-top: 12px;
-  color: var(--primary-black, #010101);
-
-  /* Heading/H1 64 medium */
-  font-family: DM-Sans;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 110%; /* 70.4px */
+  margin-top: 16px;
+  color: var(--primary-secondary);
   text-transform: uppercase;
-  width: 312px;
-  @media screen and (min-width: 768px) {
-    width: 724px;
-    margin-top: 16px;
-    font-size: 40px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 1280px;
-    font-size: 64px;
-  }
 }
 .services_cardsContainer {
-  margin-top: 16px;
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
   @media screen and (min-width: 768px) {
     margin-top: 32px;
-
-    gap: 20px;
-  }
-  @media screen and (min-width: 1440px) {
     flex-direction: row;
     gap: 25px;
   }
@@ -56,7 +32,7 @@
   width: 312px;
   height: auto;
   border-radius: 20px;
-  background: var(--primary-deep-green, #152f23);
+  background: var(--primary-accent);
 
   display: flex;
   padding: 16px;
@@ -64,31 +40,17 @@
   align-items: flex-start;
   gap: 24px;
   @media screen and (min-width: 768px) {
-    width: 100%;
-    // flex-grow: 1;
-    // height: 310px;
+    max-width: 410px;
+    flex-grow: 1;
+    height: 310px;
     padding: 24px;
-    gap: 48px;
-    // justify-content: space-between;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 410px;
-    height: 203px;
-    gap: 64px;
+    // gap: 160px;
+    justify-content: space-between;
   }
 }
 .services_cardsContainer__cardH3 {
-  color: var(--primary-white, #fff);
-
-  font-family: DM-Sans;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 120%; /* 28.8px */
+  color: var(--primary-secondary);
   text-transform: uppercase;
-  @media screen and (min-width: 768px) {
-    font-size: 24px;
-  }
 }
 .services_cardsContainer__cardTextWrapper {
   width: 100%;
@@ -101,15 +63,13 @@
 }
 .services_cardsContainer__cardText {
   width: 213px;
-  color: var(--primary-white, #fff);
-  font-family: DM-Sans;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%; /* 16.8px */
+  color: var(--primary-secondary);
+  font-family: Poppins-Regular;
+  font-size: 12px;
+  line-height: 1.2;
   @media screen and (min-width: 768px) {
     width: 298px;
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 .services_cardsContainer__cardSvgWrapper {
@@ -126,7 +86,7 @@
   //   top: 8px;
   width: 32px;
   height: 32px;
-  color: #fff;
+  color: var(--primary-secondary);
   transition: transform 0.3s ease;
   @media screen and (min-width: 768px) {
     position: absolute;

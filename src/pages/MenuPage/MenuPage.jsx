@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const MenuPage = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   console.log("windowWidth", windowWidth);
-  // const size = window.innerWidth;
+ 
   const handleResize = () => {
     // setWindowWidth(window.innerWidth);
     setWindowWidth(window.innerWidth);
@@ -13,13 +13,13 @@ const MenuPage = () => {
   // };
 
   useEffect(() => {
-    // Додаємо слухача подій resize при монтажі компонента
+   
     window.addEventListener("resize", handleResize);
     //  console.log("slushatel", window.addEventListener("resize"))
-    // Викликаємо handleResize при завантаженні компонента
+    
     handleResize();
 
-    // Прибираємо слухача подій при розмонтажі компонента
+    
     return () => {
       window.removeEventListener("resize", handleResize);
       // handleResetResize();

@@ -1,6 +1,7 @@
 @import "swiper/css";
 @import "swiper/css/free-mode";
 @import "swiper/css/pagination";
+@import "swiper/css/navigation";
 
 .swaprWrap .swiper {
   // width: 100%;
@@ -21,10 +22,79 @@
     // transition: transform 0.4s ease;
   }
 }
-.swaprWrap .swiper-pagination {
-  bottom: 30px;
-}
+// .swiper-button-next {
+//   right: 340px;
+//   top: auto;
+//   bottom: 23px;
+//   width: 24px;
+//   height: 24px;
+//   transform: scale(0.28);
+//   color: var(--primary-deep-green, #152f23);
+// }
+// .swiper-button-prev {
+//   left: 340px;
+//   top: auto;
+//   bottom: 23px;
+//   width: 24px;
+//   height: 24px;
+//   transform: scale(0.28);
+//   color: var(--primary-deep-green, #152f23);
+// }
 
+.swaprWrap .swiper-pagination {
+  // width: 150px !important;
+  // bottom: 30px;
+  // left: 24px;
+  // transform: translateX(50%);
+}
+.swiper {
+  position: static;
+}
+.swiper-horizontal
+  > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  left: 24px;
+  transform: translateX(0);
+  // bottom: 10px;
+}
+// .swiper-horizontal
+//   > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+// .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+//   left: 0;
+//   transform: translateX(0);
+//   bottom: 0;
+// }
+.swiper-pagination-bullet {
+  opacity: 1;
+  background: #fff;
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--primary-deep-green, #152f23);
+  border-radius: 50%;
+  transform: scale(1);
+}
+.swiper-pagination-bullet-active {
+  width: 32px;
+  height: 10px;
+  border-radius: 24px;
+  background: var(--primary-orange, #f9854e);
+  border: none;
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {
+  transform: scale(1);
+  margin: 0;
+  // transform: scale(0.33);
+  // background: var(--primary-deep-green, #152f23);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev {
+  transform: scale(1);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next {
+  transform: scale(1);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {
+  transform: scale(1);
+}
 // .swaprWrap .swiper-wrapper .swiper-slide.swiper-slide-active,
 // .swaprWrap .swiper-wrapper .swiper-slide.swiper-slide-prev,
 // .swaprWrap .swiper-wrapper .swiper-slide.swiper-slide-next {

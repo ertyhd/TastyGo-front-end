@@ -8,7 +8,7 @@ import "./swiperSlider.scss";
 
 import SingleRevieweCard from "../../../shared/components/SingleRevieweCard/SingleRevieweCard";
 
-const SwiperDesktopTab = ({ items }) => {
+const SwiperDesktopTab = ({ items, refference }) => {
   // const [isDisplay, setDisplay] = useState(1);
   // useEffect(() => {
   //   let displayWidth = window.innerWidth;
@@ -27,6 +27,7 @@ const SwiperDesktopTab = ({ items }) => {
   return (
     <div className={styles.swiperDeskWrapper}>
       <Swiper
+        ref={refference}
         slidesPerView={2}
         spaceBetween={30}
         centeredSlides={false}
@@ -37,8 +38,10 @@ const SwiperDesktopTab = ({ items }) => {
         //   // disableOnInteraction: false,
         // }}
         pagination={{
-          dynamicBullets: true,
+          el: ".swiperPaginationCustom",
+          // clickable: true,
         }}
+        // navigation={true}
         modules={[Autoplay, Pagination]}
       >
         {elements}

@@ -8,30 +8,25 @@ import { useState, useEffect } from "react";
 
 const MainPage = () => {
   const [windowWidth, setWindowWidth] = useState();
-  // console.log("windowWidth", windowWidth);
-  const size = window.innerWidth;
+  console.log("windowWidth", windowWidth);
   const handleResize = () => {
-    // setWindowWidth(window.innerWidth);
     setWindowWidth(window.innerWidth);
-  };
-  const handleResetResize = () => {
-    setWindowWidth(0);
   };
 
   useEffect(() => {
+    window.addEventListener("resize", handleResize);
     handleResize();
     return () => {
       window.removeEventListener("resize", handleResize);
-      handleResetResize();
     };
-  }, [size]);
+  }, [windowWidth]);
   return (
     <>
       <Hero />
       <PopularDishes windowWidth={windowWidth} />
       <Services />
       <SeasonalDishes windowWidth={windowWidth} />
-      <Reviews />
+      {/* <Reviews /> */}
       <InfoContacts />
     </>
   );

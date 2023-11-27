@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 import styles from "./reviewsDesk.module.scss";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getItemsReviews } from "../../redux/reviews/reviews-selector";
 import { getReviews } from "../../redux/reviews/reviews-operation";
-import usersRevJ from "./usersReviews.json";
-import deskPaginPNG from "../../assete/png/pagination.png";
+
 import SwiperDesktopTab from "./SwiperDesktopTab/SwiperDesktopTab";
-import SingleRevieweCard from "../../shared/components/SingleRevieweCard/SingleRevieweCard";
+import { SvgSelector } from "../../shared/components/SvgSelector/SvgSelector";
+import ButtonArrow from "../../shared/components/Button/ButtonArrow/ButtonArrow";
+
+// import SingleRevieweCard from "../../shared/components/SingleRevieweCard/SingleRevieweCard";
 
 const Reviews = () => {
   const dispatch = useDispatch();
@@ -19,7 +21,11 @@ const Reviews = () => {
 
   const items = useSelector(getItemsReviews);
 
-  console.log("items", items);
+  const reviewsSwiperRef = useRef(null);
+
+  const handleClickPrev = () => reviewsSwiperRef.current.swiper.slidePrev();
+  const handleClickNext = () => reviewsSwiperRef.current.swiper.slideNext();
+
   return (
     <section className={styles.reviewsContainer}>
       <div className={styles.reviews_headerBlock}>
@@ -32,13 +38,21 @@ const Reviews = () => {
         <div className={styles.reviews_sliderBlock__description}>
           <h1>Our clients have a ton to say</h1>
           <p>*Only registered users can leave reviews</p>
-          <button>Add review</button>
+          <button className={styles.reviews_sliderBlock__button} type="button">
+            Add review
+          </button>
           <div>
-            <img width={166} alt="" src={deskPaginPNG} />
+            <ButtonArrow prev={handleClickPrev} next={handleClickNext} />
+            {/* <button className={styles.swiperPagination_button} type="button">
+              <SvgSelector id="paginationArrowL" />
+            </button>
+            <button className={styles.swiperPagination_button} type="button">
+              <SvgSelector id="paginationArrowR" />
+            </button> */}
           </div>
         </div>
         <div className={styles.reviews_sliderBlock__slider}>
-          <SwiperDesktopTab items={items} />
+          <SwiperDesktopTab items={items} refference={reviewsSwiperRef} />
           {/* <SingleRevieweCard item={items[0]} /> */}
         </div>
       </div>

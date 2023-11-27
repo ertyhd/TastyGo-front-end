@@ -38,6 +38,7 @@
   border-bottom: 1px solid var(--primary-middle-green, #536524);
 }
 .reviews_sliderBlock {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,7 +71,7 @@
 
   margin-bottom: 24px;
 }
-.reviews_sliderBlock__description button {
+.reviews_sliderBlock__button {
   display: flex;
   width: 362px;
   height: 60px;
@@ -94,8 +95,11 @@
   transition: background-color 0.3s ease, color 0.3s ease;
   margin-bottom: auto;
 }
-.reviews_sliderBlock__description button:hover {
+.reviews_sliderBlock__button:hover {
   color: var(--primary-black, #010101);
   border: 1px solid var(--primary-deep-green, #152f23);
   background-color: #fff;
+}
+.swiperPagination_button:hover {
+  border: none;
 }

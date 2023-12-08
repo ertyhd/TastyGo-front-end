@@ -9,11 +9,7 @@ const InfoContacts = () => {
         <div className={styles.infoContacts_container__block}>
           <div className={styles.infoContacts_container__blockContacts}>
             <p className={styles.infoContacts_container__headSpan}>Contacts</p>
-            <h2>
-              You can find us
-              <br />
-              at the adress
-            </h2>
+            <h2>You can find us at the adress</h2>
             <div className={styles.infoContacts_container__locSpan}>
               <span>
                 <SvgSelector

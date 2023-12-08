@@ -27,7 +27,7 @@ const MainPage = () => {
       <Services />
       {/* <SeasonalDishes windowWidth={windowWidth} /> */}
       <Reviews />
-      {/* <InfoContacts /> */}
+      <InfoContacts />
     </>
   );
 };

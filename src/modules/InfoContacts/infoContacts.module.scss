@@ -21,6 +21,15 @@
     background-image: url("../../assete/jpg/girl-friends-2M4x.jpg");
   }
   @media screen and (min-width: 768px) {
+    background-image: url("../../assete/jpg/girl-friends-T2x.jpg");
+    height: 410px;
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url("../../assete/jpg/girl-friends-T4x.jpg");
+    }
+  }
+  @media screen and (min-width: 1440px) {
     background-image: url("../../assete/jpg/girl-friends-1D2x.jpg");
     height: 770px;
     @media (min-device-pixel-ratio: 2),
@@ -35,8 +44,10 @@
   position: absolute;
   width: 360px;
   height: 447px;
-  border-radius: 20px;
-  background: var(--primary-accent);
+  // border-radius: 20px;
+  // background: var(--primary-accent);
+  border-radius: 8px;
+  background: var(--primary-light-green, #dcded0);
   top: 219px;
 
   padding: 36px 24px;
@@ -49,18 +60,22 @@
   // gap: 24px;
   justify-content: flex-start;
   @media screen and (min-width: 768px) {
-    flex-direction: row;
+    // flex-direction: row;
     justify-content: space-between;
-    width: 96vw;
-    align-items: flex-end;
+    width: 94vw;
+
     // flex-grow: 1;
-    height: 408px;
-    top: 530px;
+    height: auto;
+    gap: 32px;
+    top: 410px;
     padding: 48px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 1280px;
+    align-items: flex-end;
+    flex-direction: row;
+    top: 530px;
+    width: 1156px;
   }
 }
 .infoContacts_container__blockContacts {
@@ -75,23 +90,34 @@
   }
 }
 .infoContacts_container__headSpan {
-  font-family: Poppins-Regular;
-  font-size: 16px;
-  line-height: 1.2;
+  color: var(--primary-black, #1e1e2d);
+  font-family: DM-Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 21.6px */
   text-transform: uppercase;
   margin-bottom: 12px;
   @media screen and (min-width: 768px) {
-    font-family: Poppins-Medium;
     font-size: 18px;
     margin-bottom: 0;
   }
 }
 
 .infoContacts_container__blockContacts h2 {
-  text-transform: uppercase;
+  color: var(--primary-black, #1e1e2d);
+  font-family: DM-Sans;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%; /* 70.4px */
   margin-bottom: 16px;
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
+    font-size: 40px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 64px;
   }
 }
 .infoContacts_container__locSpan {
@@ -109,7 +135,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  font-family: Poppins-Regular;
+  font-family: DM-Sans;
   font-size: 14px;
   line-height: 1.2;
 
@@ -128,6 +154,12 @@
   gap: 12px;
   @media screen and (min-width: 768px) {
     flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+  }
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
     gap: 32px;
   }
 }
@@ -135,9 +167,12 @@
   width: 312px;
   height: 64px;
   padding: 16px;
+  // border-radius: 20px;
+  // border: 1px solid var(--primary-secondary, #1e1e2d);
+  // background: var(--primary-accent, #f9854e);
   border-radius: 20px;
-  border: 1px solid var(--primary-secondary, #1e1e2d);
-  background: var(--primary-accent, #f9854e);
+  border: 1px solid var(--primary-black, #1e1e2d);
+  background: var(--primary-light-green, #dcded0);
   color: var(--primary-secondary, #1e1e2d);
 
   display: flex;
@@ -153,7 +188,7 @@
   }
 }
 .infoContacts_container__blockLink p {
-  font-family: Poppins-Regular;
+  font-family: DM-Sans;
   font-size: 14px;
   line-height: 1.2;
   text-transform: uppercase;

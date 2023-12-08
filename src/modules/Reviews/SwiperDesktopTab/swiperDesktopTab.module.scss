@@ -146,10 +146,9 @@
 // // }
 
 // .swiperDeskWrapper {
-//   width: 100vh;
-//   padding-right: 20px;
+//   position: absolute;
 
 //   @media screen and (min-width: 1440px) {
-//     width: 845px;
+//     position: static;
 //   }
 // }

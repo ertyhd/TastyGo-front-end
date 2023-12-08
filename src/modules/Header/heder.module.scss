@@ -43,20 +43,19 @@ text-transform: uppercase;
   }
 }
 .menuListLink{
-font-family: Poppins-Regular;
-font-size: 18px;
+font-family: DM-Sans;
+font-size: 14px;
 font-style: normal;
 font-weight: 400;
-line-height: 1.2;
-text-transform: uppercase;
+line-height: 120%; /* 16.8px */
 
-color: var(--primary-secondary);
+color: var(--primary-black);
 }
 .menuListLink:hover {
   text-decoration-line: underline;
 }
 .menuListLink:global(.active){
-  color: var(--primary-accent);
+  color: var(--primary-middle-green);
   text-decoration-line: underline;
 }
 .wrapperIcon {

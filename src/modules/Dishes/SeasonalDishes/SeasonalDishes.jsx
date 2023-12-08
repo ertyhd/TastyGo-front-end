@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import items from "./items";
 import { SwiperSlide } from "swiper/react";
 // import { Link } from "react-router-dom";
@@ -7,10 +8,17 @@ import SectionLink from "../../../shared/components/SectionLink/SectionLink";
 import css from './seasonalDishes.module.scss';
 import SeasonalDishesSlider from "./SeasonalDishesSlider/SeasonalDishesSlider";
 import SingleCard from "../../../shared/components/SingleCard/SingleCard";
+import { fetchFoodsSeasonal } from "../../../redux/foods/foods-operations";
+import { getItemsSeason } from "../../../redux/foods/foods-selector";
 
 const SeasonalDishes = ({windowWidth}) => {
   const [isCenterMode, setIsCenterMode] = useState(false);
-
+  const ItemsSeasonFoods = useSelector(getItemsSeason);
+  console.log("ItemsSeasonFoods", ItemsSeasonFoods);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchFoodsSeasonal({ page: 1 }));
+  }, [dispatch]);
   // useEffect(() => {
   //   const handleResize = () => {
   //     setIsCenterMode(window.innerWidth <= 767);
@@ -24,11 +32,12 @@ const SeasonalDishes = ({windowWidth}) => {
   //   };
   // }, []);
 
-  const element = items.map(({ id, name, weight, price }) => {
+  const element = ItemsSeasonFoods.map(({ id, title, imgUrl, weight, price }) => {
     return (
       <SwiperSlide key={id}>
         <SingleCard
-          name={name}
+          name={title}
+          imgUrl={imgUrl}
           // description={description}
           weight={weight}
           price={price}

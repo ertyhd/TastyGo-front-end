@@ -62,7 +62,11 @@ const MenuCategorySlider = ({
         onClick={() => handleNameCategory(title)}
       >
         {sizeWindow < 1440 && (
-          <SwiperSlide className={css.categorySlideItem} key={_id}>
+          <SwiperSlide
+            className={css.categorySlideItem}
+            key={_id}
+            onClick={() => handleNameCategory(title)}
+          >
             {/* <div className={css.categoryList}> */}
             <NavLink to={`/menu/${title}`} className={css.categoryList}>
               {/* <p className={(css.categorySlideItem)}> */}
@@ -77,8 +81,8 @@ const MenuCategorySlider = ({
           // <div key={id}>
           <NavLink to={`/menu/${title}`} className={css.categoryList}>
             {/* <button className={css.categorySlideItem}> */}
-              {title}
-              {/* <span className={css.countCategoryDish}>10</span> */}
+            {title}
+            {/* <span className={css.countCategoryDish}>10</span> */}
             {/* </button> */}
           </NavLink>
           // </div>

@@ -50,9 +50,18 @@ const SeasonalDishesSlider = ({ item, sizeWindow }) => {
     // console.log("displayWidth", displayWidth);
     // console.log("displayWidth", displayWidth);
     // let k = 1.08 + ((2.7 - 1.08) * (displayWidth - 360)) / 440;
-    let k = (sizeWindow - 360) * 0.0031 + 1.15;
-    setDisplay(k);
+    // let k = (sizeWindow - 360) * 0.0031 + 1.15;
+    // setDisplay(k);
+    setDisplay(
+      sizeWindow > 768
+        ? sizeWindow - (sizeWindow + (560 + (sizeWindow - 768 + 1)))
+          // ? -570
+          : sizeWindow < 768
+            ? sizeWindow - (sizeWindow + (1 + (sizeWindow - 360 + 1)))
+            : 1
+     );
   }, [sizeWindow]);
+  
   const swiperRef = React.useRef(null);
 
   //   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
@@ -108,8 +117,8 @@ const SeasonalDishesSlider = ({ item, sizeWindow }) => {
       {sizeWindow < 768 && (
         <Swiper
           centeredSlides={true}
-          slidesPerView={isDisplay}
-          spaceBetween={8}
+          slidesPerView={3}
+          spaceBetween={isDisplay}
           loop={true}
           className="mySwiperMobil"
           // autoplay={{

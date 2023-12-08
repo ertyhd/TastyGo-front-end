@@ -4,7 +4,7 @@ import { dateFormater } from "../../../utils/dateFormater";
 
 const SingleRevieweCard = ({ item }) => {
   const { name, avatarURL, date, rating, text } = item;
-  console.log(item);
+
   return (
     <div className={styles.cardContainer}>
       <p className={styles.cardContainer_revieweText}>{text}</p>

@@ -51,7 +51,7 @@ const InfoContacts = () => {
               <p className={styles.phone}></p>
             </Link>
             <Link
-              to="https://goo.gl/maps/oeu81a1tXeM5aGa18"
+              to="https://maps.app.goo.gl/2hRd6d2yRpY5g1Bm7"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.infoContacts_container__blockLink}

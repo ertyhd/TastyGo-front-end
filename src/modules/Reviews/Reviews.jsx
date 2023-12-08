@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./reviewsDesk.module.scss";
 
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getItemsReviews } from "../../redux/reviews/reviews-selector";
 import { getReviews } from "../../redux/reviews/reviews-operation";
@@ -13,13 +13,14 @@ import ButtonArrow from "../../shared/components/Button/ButtonArrow/ButtonArrow"
 // import SingleRevieweCard from "../../shared/components/SingleRevieweCard/SingleRevieweCard";
 
 const Reviews = () => {
+  const items = useSelector(getItemsReviews);
+  const [isItems, setItems] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getReviews());
-  }, [dispatch]);
-
-  const items = useSelector(getItemsReviews);
+    setItems(items);
+  }, [dispatch, items]);
 
   const reviewsSwiperRef = useRef(null);
 
@@ -27,33 +28,28 @@ const Reviews = () => {
   const handleClickNext = () => reviewsSwiperRef.current.swiper.slideNext();
 
   return (
-    <section className={styles.reviewsContainer}>
-      <div className={styles.reviews_headerBlock}>
-        <span className={styles.reviews_headerBlock__title}>reviews</span>
-        <Link className={styles.reviews_headerBlock__link} to="/reviews">
+    <section className={`${styles.reviewsContainer} container`}>
+      <div className={styles.reviewsLeftBlockTop}>
+        <span className={styles.reviewsLeftBlock_title}>reviews</span>
+        <h2>Our clients have a ton to say</h2>
+      </div>
+
+      <div className={styles.reviewsLeftBlockBottom}>
+        <p>*Only registered users can leave reviews</p>
+        <button className={styles.reviewsLeftBlock_button} type="button">
+          Add review
+        </button>
+        <div className={styles.reviewsLeftBlock_arrows}>
+          <ButtonArrow prev={handleClickPrev} next={handleClickNext} />
+        </div>
+      </div>
+
+      <div className={styles.reviewsRightBlock}>
+        <Link className={styles.reviewsRightBlock_link} to="/reviews">
           View all reviews
         </Link>
-      </div>
-      <div className={styles.reviews_sliderBlock}>
-        <div className={styles.reviews_sliderBlock__description}>
-          <h1>Our clients have a ton to say</h1>
-          <p>*Only registered users can leave reviews</p>
-          <button className={styles.reviews_sliderBlock__button} type="button">
-            Add review
-          </button>
-          <div>
-            <ButtonArrow prev={handleClickPrev} next={handleClickNext} />
-            {/* <button className={styles.swiperPagination_button} type="button">
-              <SvgSelector id="paginationArrowL" />
-            </button>
-            <button className={styles.swiperPagination_button} type="button">
-              <SvgSelector id="paginationArrowR" />
-            </button> */}
-          </div>
-        </div>
-        <div className={styles.reviews_sliderBlock__slider}>
-          <SwiperDesktopTab items={items} refference={reviewsSwiperRef} />
-          {/* <SingleRevieweCard item={items[0]} /> */}
+        <div className={styles.reviewsRightBlock_slider}>
+          <SwiperDesktopTab items={isItems} refference={reviewsSwiperRef} />
         </div>
       </div>
     </section>

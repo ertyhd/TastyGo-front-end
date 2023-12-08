@@ -23,11 +23,11 @@ const MainPage = () => {
   return (
     <>
       <Hero />
-      <PopularDishes windowWidth={windowWidth} />
+      {/* <PopularDishes windowWidth={windowWidth} /> */}
       <Services />
-      <SeasonalDishes windowWidth={windowWidth} />
-      {/* <Reviews /> */}
-      <InfoContacts />
+      {/* <SeasonalDishes windowWidth={windowWidth} /> */}
+      <Reviews />
+      {/* <InfoContacts /> */}
     </>
   );
 };

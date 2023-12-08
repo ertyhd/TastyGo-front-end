@@ -4,42 +4,49 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 
 import styles from "./swiperDesktopTab.module.scss";
-import "./swiperSlider.scss";
+import "../../../styles/common/swiperSlider.scss";
 
 import SingleRevieweCard from "../../../shared/components/SingleRevieweCard/SingleRevieweCard";
 
 const SwiperDesktopTab = ({ items, refference }) => {
-  // const [isDisplay, setDisplay] = useState(1);
-  // useEffect(() => {
-  //   let displayWidth = window.innerWidth;
-  //   let k = 1.1 + ((1.9 - 1.1) * (displayWidth - 360)) / 440;
-  //   setDisplay(k);
-  // }, [isDisplay]);
-  console.log("wwww", items);
+  const [isMobile, setMobile] = useState(false);
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    setMobile(mediaQuery.matches);
+    const handleMediaChange = (event) => {
+      setMobile(event.matches);
+    };
+
+    handleMediaChange(mediaQuery);
+    mediaQuery.addListener(handleMediaChange);
+    return () => {
+      mediaQuery.removeListener(handleMediaChange);
+    };
+  }, [isMobile]);
   const elements = items.map((item) => (
     <SwiperSlide key={item._id}>
-      <div style={{ width: "409px" }}>
-        <SingleRevieweCard item={item} />
-      </div>
+      <SingleRevieweCard item={item} />
     </SwiperSlide>
   ));
 
   return (
     <div className={styles.swiperDeskWrapper}>
       <Swiper
+        style={{ width: "100%" }}
         ref={refference}
-        slidesPerView={2}
-        spaceBetween={30}
+        slidesPerView={isMobile ? 1 : 2}
+        spaceBetween={29}
+        freeMode={true}
         centeredSlides={false}
         loop={true}
-        className="swaprWrap"
+        // className="swaprWrap"
         // autoplay={{
         //   delay: 5000,
         //   // disableOnInteraction: false,
         // }}
         pagination={{
           el: ".swiperPaginationCustom",
-          // clickable: true,
+          dynamicBullets: true,
         }}
         // navigation={true}
         modules={[Autoplay, Pagination]}

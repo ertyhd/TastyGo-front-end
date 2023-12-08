@@ -1,27 +1,21 @@
 .swiperBtnWrapper {
   display: flex;
   align-items: center;
-  color: var(--primary-secondary, #1e1e2d);
-  font-family: Poppins-Regular;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  text-transform: uppercase;
-  gap: 16px;
-}
-.swiperBtnWrapper p:first-of-type {
-  color: var(--primary-accent);
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  // width: 160px;
+  // height: 24px;
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+  }
 }
 .btn {
-  border: none;
-  background: none;
+  margin: 0;
   padding: 0;
+  height: 24px;
 }
-.btn .arrowSwiper_style {
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-.btn:hover .arrowSwiper_style {
-  color: var(--primary-accent);
-  transition: transform 0.3s ease, color 0.3s ease;
+.swiperBtnWrapper_points {
+  width: 100%;
 }

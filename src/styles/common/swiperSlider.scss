@@ -1,0 +1,21 @@
+@import "swiper/css";
+@import "swiper/css/free-mode";
+@import "swiper/css/pagination";
+@import "swiper/css/navigation";
+
+.swiper-pagination-bullet {
+  opacity: 1;
+  background: #152f23;
+  border-color: var(--primary-deep-green, #152f23);
+}
+
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next,
+.swiper-pagination-bullet-active-prev,
+.swiper-pagination-bullet-active-next-next,
+.swiper-pagination-bullet-active-prev-prev {
+  background: var(--secondary-grey, #b7b7b7);
+  border-color: var(--secondary-grey, #b7b7b7);
+}
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  transform: translateX(0);
+}

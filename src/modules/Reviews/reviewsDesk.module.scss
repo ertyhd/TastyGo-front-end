@@ -28,13 +28,31 @@
 //     gap: 0;
 //   }
 // }
+.container {
+  box-sizing: border-box;
+  padding: 32px 24px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 768px) {
+    padding: 64px 20px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1440px;
+    padding: 80px;
+  }
+}
 .reviewsLeftBlockTop {
+  // padding: 32px 24px 0 24px;
   order: 1;
   width: 100%;
   @media screen and (min-width: 768px) {
     width: 407px;
+    // padding: 64px 20px 0 20px;
   }
   @media screen and (min-width: 1440px) {
+    // padding: 80px 80px 0 80px;
   }
 }
 .reviewsLeftBlockBottom {
@@ -44,7 +62,7 @@
   flex-direction: column-reverse;
   align-items: center;
   order: 3;
-  margin-top: 16px;
+  margin-top: 361px;
   @media screen and (min-width: 768px) {
     align-items: flex-start;
     margin-top: 32px;
@@ -58,17 +76,20 @@
 .reviewsRightBlock {
   order: 2;
   height: 345px;
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: center;
   // align-items: flex-end;
   padding-top: 16px;
   width: 100%;
+  left: 0px;
+  top: 131px;
   @media screen and (min-width: 768px) {
+    position: relative;
+    top: 0;
     height: 424px;
-    // width: 100%;
+    width: 100%;
     padding-top: 32px;
-
     justify-content: center;
   }
   @media screen and (min-width: 1440px) {
@@ -208,7 +229,9 @@
   letter-spacing: 0.2px;
   border-bottom: 1px solid #536524;
   top: -25px;
+  right: 24px;
   @media screen and (min-width: 768px) {
+    right: 0;
     height: 34px;
     font-size: 20px;
     top: -34px;

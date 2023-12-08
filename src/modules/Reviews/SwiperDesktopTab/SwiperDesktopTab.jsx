@@ -34,10 +34,10 @@ const SwiperDesktopTab = ({ items, refference }) => {
       <Swiper
         style={{ width: "100%" }}
         ref={refference}
-        slidesPerView={isMobile ? 1 : 2}
-        spaceBetween={29}
+        slidesPerView={isMobile ? 1.2 : 2}
+        spaceBetween={isMobile ? 8 : 29}
         freeMode={true}
-        centeredSlides={false}
+        centeredSlides={isMobile ? true : false}
         loop={true}
         // className="swaprWrap"
         // autoplay={{

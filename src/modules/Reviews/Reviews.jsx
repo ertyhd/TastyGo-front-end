@@ -1,29 +1,23 @@
 import { Link } from "react-router-dom";
 import styles from "./reviewsDesk.module.scss";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getItemsReviews } from "../../redux/reviews/reviews-selector";
 import { getReviews } from "../../redux/reviews/reviews-operation";
 
 import SwiperDesktopTab from "./SwiperDesktopTab/SwiperDesktopTab";
-import { SvgSelector } from "../../shared/components/SvgSelector/SvgSelector";
 import ButtonArrow from "../../shared/components/Button/ButtonArrow/ButtonArrow";
 
 // import SingleRevieweCard from "../../shared/components/SingleRevieweCard/SingleRevieweCard";
 
 const Reviews = () => {
-  const items = useSelector(getItemsReviews);
-  const [isItems, setItems] = useState([]);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getReviews());
-    setItems(items);
-  }, [dispatch, items]);
-
+  }, [dispatch]);
+  const items = useSelector(getItemsReviews);
   const reviewsSwiperRef = useRef(null);
-
   const handleClickPrev = () => reviewsSwiperRef.current.swiper.slidePrev();
   const handleClickNext = () => reviewsSwiperRef.current.swiper.slideNext();
 
@@ -49,7 +43,7 @@ const Reviews = () => {
           View all reviews
         </Link>
         <div className={styles.reviewsRightBlock_slider}>
-          <SwiperDesktopTab items={isItems} refference={reviewsSwiperRef} />
+          <SwiperDesktopTab items={items} refference={reviewsSwiperRef} />
         </div>
       </div>
     </section>

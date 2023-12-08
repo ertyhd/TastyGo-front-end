@@ -47,36 +47,20 @@ const AllMenu = ({ windowWidth }) => {
     <div className={css.wrapperMenu}>
       {/* <MenuBoardSlider nameCategory={stateTitle} /> */}
       <section className={css.board}>
-        <h1 className={css.textBoard}>
-          Our choice - organic products for your dishes
-        </h1>
+        <div className={css.wrapperTextBoard}>
+          <h1 className={css.textBoard}>
+            Our choice - organic products for your dishes
+          </h1>
+        </div>
         <div className={css.wrapperImgBorder}>
           <img alt="FotoSalad" src={urlImage} className={css.imageBoard} />
-          {/* {windowWidth >= 1440 && (
-            <img
-              alt="FotoSalad"
-              src={require(`../../../assete/jpg/menuBoard/monika-grabkowska-i14VzlCp-Eo-unsplash-descktop.jpg`)}
-            />
-          )}
-          {windowWidth < 768 && (
-            <img
-              alt="FotoSalad"
-              src={require(`../../../assete/jpg/menuBoard/monika-grabkowska-i14VzlCp-Eo-unsplash-mobil.jpg`)}
-            />
-          )}
-          {(windowWidth < 1440 &&
-            windowWidth >= 768) && (
-              <img
-                alt="FotoSalad"
-                src={require(`../../../assete/jpg/menuBoard/monika-grabkowska-i14VzlCp-Eo-unsplash-tablet.jpg`)}
-              />
-            )} */}
         </div>
       </section>
-      <div className={`${css.wrapperBreadcrumbs} ${"container"}`}>
-        <Breadcrumbs />
-      </div>
       <section className={`${css.menu} ${"container"}`}>
+        <div className={css.wrapperBreadcrumbs}>
+          <Breadcrumbs />
+        </div>
+
         <MenuCategorySlider
           nameCategory={stateTitle}
           handleNameCategory={handleNameCategory}

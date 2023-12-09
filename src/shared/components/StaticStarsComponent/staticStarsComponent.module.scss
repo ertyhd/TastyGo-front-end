@@ -1,0 +1,26 @@
+.staticStarsComponentWrapp {
+  display: flex;
+  gap: 4px;
+  @media screen and (min-width: 768px) {
+    gap: 8px;
+  }
+}
+.defStar {
+  width: 16px;
+  height: 16px;
+  fill: #b7b7b7;
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+}
+.chngStar {
+  width: 16px;
+  height: 16px;
+  // fill: #f9854e;
+  fill: #152f23;
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
+}

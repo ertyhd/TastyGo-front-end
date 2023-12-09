@@ -48,16 +48,16 @@
   align-items: center;
   gap: 8px;
 }
-.cardContainer_starsWrapper {
-  display: flex;
-  gap: 4px;
-  @media screen and (min-width: 768px) {
-    gap: 8px;
-  }
-  @media screen and (min-width: 1440px) {
-    gap: 8px;
-  }
-}
+// .cardContainer_starsWrapper {
+//   display: flex;
+//   gap: 4px;
+//   @media screen and (min-width: 768px) {
+//     gap: 8px;
+//   }
+//   @media screen and (min-width: 1440px) {
+//     gap: 8px;
+//   }
+// }
 .cardContainer_starsBlock {
   width: 16px;
   height: 16px;

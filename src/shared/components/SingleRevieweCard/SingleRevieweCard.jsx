@@ -1,5 +1,6 @@
 import styles from "./singleRevieweCard.module.scss";
-import RatingStars from "../RatingStars/RatingStars";
+import StaticStarsComponent from "../StaticStarsComponent/StaticStarsComponent";
+// import StarsComponent from "../AddReview/StarsComponent/StarsComponent";
 import { dateFormater } from "../../../utils/dateFormater";
 
 const SingleRevieweCard = ({ item }) => {
@@ -9,12 +10,9 @@ const SingleRevieweCard = ({ item }) => {
     <div className={styles.cardContainer}>
       <p className={styles.cardContainer_revieweText}>{text}</p>
       <div className={styles.cardContainer_revieweData}>
-        <div className={styles.cardContainer_starsWrapper}>
-          <RatingStars
-            styles={styles.cardContainer_starsBlock}
-            rating={rating}
-          />
-        </div>
+        {/* <div className={styles.cardContainer_starsWrapper}> */}
+        <StaticStarsComponent data={rating} />
+        {/* </div> */}
 
         <div className={styles.cardContainer_avNameBlock}>
           <div className={styles.cardContainer_avNameBlock__img}>

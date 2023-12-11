@@ -32,7 +32,7 @@ const SwiperDesktopTab = ({ items, refference }) => {
   return (
     <div className={styles.swiperDeskWrapper}>
       <Swiper
-        style={{ width: "100%" }}
+        // style={{ width: "100%" }}
         ref={refference}
         slidesPerView={isMobile ? 1.2 : 2}
         spaceBetween={isMobile ? 8 : 29}

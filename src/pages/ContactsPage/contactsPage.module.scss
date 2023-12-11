@@ -1,0 +1,28 @@
+.contactsPageContainerHeader {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 16px 24px 24px 24px;
+  @media screen and (min-width: 768px) {
+    padding: 24px 20px 32px 20px;
+  }
+  @media screen and (min-width: 1440px) {
+    max-width: 1440px;
+    padding: 24px 80px 32px 80px;
+  }
+}
+.contactsPageContainerHeader h1 {
+  color: var(--primary-black, #1e1e2d);
+  font-family: DM-Sans;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  margin-top: 40px;
+  @media screen and (min-width: 768px) {
+    font-size: 64px;
+    margin-top: 56px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-top: 56px;
+  }
+}

@@ -10,6 +10,13 @@
     padding: 64px 80px;
   }
 }
+.footer_content {
+  @media screen and (min-width: 1440px) {
+    max-width: 1280px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
 .footer_container {
   display: flex;
   gap: 32px;

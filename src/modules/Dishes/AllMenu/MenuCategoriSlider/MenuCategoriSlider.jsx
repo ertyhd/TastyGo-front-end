@@ -8,7 +8,7 @@ import { getItemsCategory } from "../../../../redux/category/category-selector";
 import { fetchCategory } from "../../../../redux/category/category-operations";
 import { getItemsLenght } from "../../../../redux/foods/foods-selector";
 
-import itemsCategory from "./itemsCategory";
+// import itemsCategory from "./itemsCategory";
 import css from "./menuCategoriSlider.module.scss";
 import "../../PopularDishes/PopularDishesSlider/swiperSlider.scss";
 

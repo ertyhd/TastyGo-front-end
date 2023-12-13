@@ -21,26 +21,26 @@
 // .wrapperSwiper .swiper-button-next{
 //     color: brown;
 // }
-.mySwiperMobil .swiper {
-  width: 100%;
-  height: 100%;
+.mySwiperMobil .swiper-slide {
+  width: none;
+  
 }
-.mySwiperMobil .swiper-wrapper .swiper-slide.swiper-slide-active {
-  // transform: scale(1);
-  transition: transform 0.5s ease;
-}
-.mySwiperMobil .swiper-wrapper .swiper-slide,
-.mySwiperMobil .swiper-wrapper .swiper-slide {
-  // transform: scale(0.5);
-  transition: transform 0.5s ease;
-}
+// .mySwiperMobil .swiper-wrapper .swiper-slide.swiper-slide-active {
+//   // transform: scale(1);
+//   transition: transform 0.5s ease;
+// }
+// .mySwiperMobil .swiper-wrapper .swiper-slide,
+// .mySwiperMobil .swiper-wrapper .swiper-slide {
+//   // transform: scale(0.5);
+//   transition: transform 0.5s ease;
+// }
 .mySwiperMobil .swiper-slide-active {
   z-index: 1000;
 }
-.mySwiperCategory .swiper {
-  width: 100%;
-  height: 100%;
-}
+// .mySwiperCategory .swiper {
+//   width: 100%;
+//   height: 100%;
+// }
 
 .mySwiper .swiper-wrapper .swiper-slide.swiper-slide-active,
 .mySwiper .swiper-wrapper .swiper-slide.swiper-slide-prev,

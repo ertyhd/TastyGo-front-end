@@ -12,9 +12,9 @@ import css from './menuBoardSlider.module.scss'
 const MenuBoardSlider = ({ nameCategory }) => {
     const [filterCategory, setFilterCategory] = useState([]);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    console.log("filterCategory", filterCategory);
+    // console.log("filterCategory", filterCategory);
     const ItemsFoodsByCategory = useSelector(getItemsCategory);
-    console.log("ItemsFoodsByCategory", ItemsFoodsByCategory);
+    // console.log("ItemsFoodsByCategory", ItemsFoodsByCategory);
    
      useEffect(() => {
        const foundItem = ItemsFoodsByCategory.find(

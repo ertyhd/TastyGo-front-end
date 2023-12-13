@@ -1,14 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAllFoods, fetchFoodsByCategory, fetchFoodsSeasonal } from "./foods-operations";
+import {
+  fetchAllFoods,
+  fetchFoodsByCategory,
+  fetchFoodsSeasonal,
+} from "./foods-operations";
 // console.log("fetchAllFoods", fetchAllFoods());
 const initialState = {
   items: [],
   totalFoods: null,
-  totalPages:1,
+  totalPages: 1,
 
   loading: false,
   error: null,
-
 };
 const handlePending = (store) => {
   store.loading = true;
@@ -50,7 +53,6 @@ const foodsSlice = createSlice({
         handlePending(store);
       })
       .addCase(fetchFoodsSeasonal.fulfilled, (store, { payload }) => {
-        console.log("payload", payload);
         store.loading = false;
         store.items = payload;
         store.totalFoods = payload.totalFoods;

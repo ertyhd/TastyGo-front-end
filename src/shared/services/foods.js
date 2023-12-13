@@ -33,7 +33,7 @@ export const getFoodsSeasonal = async ({
   const { data } = await instance.get(
     `api/food/seasonal?page=${totalPages}&limit=${totalFoods}`
   );
-  console.log("data", data);
+  
   return data;
 };
-// console.log("getFoodsSeasonal", getFoodsSeasonal());
+

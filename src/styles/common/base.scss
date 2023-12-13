@@ -1,6 +1,5 @@
 body {
-  font-size: 14px;
-  letter-spacing: 0.03em;
+
   margin: 0;
 }
 
@@ -29,11 +28,15 @@ h1 {
 
 h2 {
   margin: 0;
-  font-family: Poppins-Regular;
-  font-size: 32px;
-  line-height: 1.2;
-  letter-spacing: 0;
+  font-family: DM-Sans;
+font-size: 32px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%;
   @media screen and (min-width: 768px) {
+    font-size: 40px;
+  }
+   @media screen and (min-width: 1440px) {
     font-size: 64px;
   }
 }

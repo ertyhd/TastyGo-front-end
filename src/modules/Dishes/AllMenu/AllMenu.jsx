@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import MenuCategorySlider from "./MenuCategoriSlider/MenuCategoriSlider";
 
 import MenuList from "./MenuList/MenuList";
-import MenuBoardSlider from "./MenuBoardSlider/MenuBoardSlider";
+// import MenuBoardSlider from "./MenuBoardSlider/MenuBoardSlider";
 import Breadcrumbs from "../../../shared/components/Breadcrumbs/Breadcrumbs";
 import { useSelector } from "react-redux";
 import { getLoading } from "../../../redux/foods/foods-selector";
@@ -14,10 +14,10 @@ import tabletImage from "../../../assete/jpg/menuBoard/monika-grabkowska-i14VzlC
 import mobileImage from "../../../assete/jpg/menuBoard/monika-grabkowska-i14VzlCp-Eo-unsplash-mobil.jpg";
 
 const AllMenu = ({ windowWidth }) => {
-  console.log("windowWidth", windowWidth);
+  
   const [stateTitle, setStateTitle] = useState("salads");
   const [urlImage, setUrlImage] = useState();
-  // console.log("urlImage", urlImage);
+  
   const isLoading = useSelector(getLoading);
 
   const handleNameCategory = (title) => {
@@ -38,14 +38,13 @@ const AllMenu = ({ windowWidth }) => {
         return desktopImage;
     }
   };
-  // console.log("currentSizeImg", currentSizeImg());
+  
   useEffect(() => {
     const sizeImg = currentSizeImg();
     setUrlImage(sizeImg);
   }, [windowWidth]);
   return (
     <div className={css.wrapperMenu}>
-      {/* <MenuBoardSlider nameCategory={stateTitle} /> */}
       <section className={css.board}>
         <div className={css.wrapperTextBoard}>
           <h1 className={css.textBoard}>

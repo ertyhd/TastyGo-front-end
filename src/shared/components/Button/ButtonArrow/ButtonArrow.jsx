@@ -15,3 +15,7 @@ const ButtonArrow = ({ prev, next, el }) => {
   );
 };
 export default ButtonArrow;
+
+{
+  /* <SvgSelector id="arrowLeftSwiper" styles={css.arrowSwiper_style} /> */
+}

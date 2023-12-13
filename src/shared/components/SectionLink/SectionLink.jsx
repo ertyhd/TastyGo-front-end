@@ -20,11 +20,11 @@ const SectionLink = ({ children }) => {
   return (
     <Link className={css.sectionLink}>
       {children}
-      <SvgSelector
+      {/* <SvgSelector
         styles={css.arrowBtnSvg}
         id="arrowTopRight"
         viewBox={isCenterMode ? "8 8 32 32" : "7 7 32 32"}
-      />
+      /> */}
     </Link>
   );
 };

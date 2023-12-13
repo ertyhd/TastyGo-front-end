@@ -1,93 +1,61 @@
-import { useState } from "react";
+import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import items from "./items";
 import { SwiperSlide } from "swiper/react";
 // import { Link } from "react-router-dom";
 import SectionLink from "../../../shared/components/SectionLink/SectionLink";
-import css from './seasonalDishes.module.scss';
+import css from "./seasonalDishes.module.scss";
 import SeasonalDishesSlider from "./SeasonalDishesSlider/SeasonalDishesSlider";
 import SingleCard from "../../../shared/components/SingleCard/SingleCard";
+
 import { fetchFoodsSeasonal } from "../../../redux/foods/foods-operations";
 import { getItemsSeason } from "../../../redux/foods/foods-selector";
 
-const SeasonalDishes = ({windowWidth}) => {
-  const [isCenterMode, setIsCenterMode] = useState(false);
+const SeasonalDishes = ({ windowWidth }) => {
   const ItemsSeasonFoods = useSelector(getItemsSeason);
-  console.log("ItemsSeasonFoods", ItemsSeasonFoods);
+  
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchFoodsSeasonal({ page: 1 }));
   }, [dispatch]);
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setIsCenterMode(window.innerWidth <= 767);
-  //   };
 
-  //   window.addEventListener("resize", handleResize);
-  //   handleResize();
-
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
-
-  const element = ItemsSeasonFoods.map(({ id, title, imgUrl, weight, price }) => {
-    return (
-      <SwiperSlide key={id}>
-        <SingleCard
-          name={title}
-          imgUrl={imgUrl}
-          // description={description}
-          weight={weight}
-          price={price}
-        />
-        {/* <div className={css.wrapperSlideItem}>
-          <div className={css.wrapperContentDish}>
-            <div className={css.wrapperImgDish}>
-              <img
-                className={css.imgDish}
-                alt="dish"
-                src={require("../../../assete/jpg/salad-with-salmon-parmesan-cheese-tomatoes-salad-mix-banner 1.jpg")}
-              />
-            </div>
-            <div className={css.wrapperDescriptionDish}>
-              <p className={css.nameDish}>{name}</p>
-              <p className={css.descriptionDish}>{description}</p>
-              <p className={css.weightDish}>{weight}</p>
-            </div>
-          </div>
-          <div className={css.boxDishFooter}>
-            <p className={css.priceDish}>{price}</p>
-            <Link className={css.btnDishOrder}>to order</Link>
-          </div>
-        </div> */}
-      </SwiperSlide>
-    );
-  });
+  const element = ItemsSeasonFoods.map(
+    ({ _id, title, imgUrl, weight, price }) => {
+      return (
+        <SwiperSlide key={_id}>
+          <SingleCard
+            name={title}
+            imgUrl={imgUrl}
+            // description={description}
+            weight={weight}
+            price={price}
+          />
+        </SwiperSlide>
+      );
+    }
+  );
 
   return (
-    <section className={`${css.section}  `}>
-      <section
-        className={`${css.section}  ${!isCenterMode && "container"}`}
-      ></section>
-      <h2 className={css.titlePopularDish}>SEASONal MENU</h2>
+    <section
+      className={
+        windowWidth < 768 ? `${css.section}` : `${css.section} ${"container"}`
+      }
+    >
+      <p className={css.titlePopularDish}>seasonal menu</p>
       <div className={css.wrapperDescriptionSectionLink}>
-        <p className={css.descriptionSection}>
-          try dishes from our seasonal menu
-        </p>
-        {!isCenterMode && (
+        <h2 className={css.descriptionSection}>
+          Try dishes from our seasonal menu
+        </h2>
+        {windowWidth >= 768 && (
           <SectionLink>
-            <p>see ALL SALADS</p>
+            <p className={css.linkAllCategory}>View menu</p>
           </SectionLink>
         )}
       </div>
-      {/* <PopularDishesCategorySlider item={elementCategory} /> */}
-      {/* <PopularDishesSlider item={element} /> */}
       <SeasonalDishesSlider item={element} sizeWindow={windowWidth} />
-      {isCenterMode && (
+      {windowWidth < 768 && (
         <SectionLink>
-          <p>see ALL SALADS</p>
+          <p className={css.linkAllCategory}>View menu</p>
         </SectionLink>
       )}
     </section>

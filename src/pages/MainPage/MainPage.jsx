@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 
 const MainPage = () => {
   const [windowWidth, setWindowWidth] = useState();
-  console.log("windowWidth", windowWidth);
+  
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
   };
@@ -23,9 +23,9 @@ const MainPage = () => {
   return (
     <>
       <Hero />
-      {/* <PopularDishes windowWidth={windowWidth} /> */}
+      <PopularDishes windowWidth={windowWidth} />
       <Services />
-      {/* <SeasonalDishes windowWidth={windowWidth} /> */}
+      <SeasonalDishes windowWidth={windowWidth} />
       <Reviews />
       <InfoContacts />
     </>

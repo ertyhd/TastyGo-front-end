@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./payment.module.scss";
-import { DeliverySvgSelector } from "../../../shared/components/DeliverySvgSelector/DeliverySvgSelector";
+import { DeliverySvgSelector } from "../../../shared/components/SvgSelector/DeliverySvgSelector";
 import items from "./paymentServiceList";
 
 const Payment = () => {

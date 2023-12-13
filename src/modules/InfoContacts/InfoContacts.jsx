@@ -11,21 +11,21 @@ const InfoContacts = () => {
             <p className={styles.infoContacts_container__headSpan}>Contacts</p>
             <h2>You can find us at the adress</h2>
             <div className={styles.infoContacts_container__locSpan}>
-              <span>
+              <span infoContacts_container__locSpan_text>
                 <SvgSelector
                   id="location"
                   styles={styles.infoContacts_container__blockContactsSvg}
                 />
                 Kyiv, st.Shevchenka, 98
               </span>
-              <span>
+              <span infoContacts_container__locSpan_text>
                 <SvgSelector
                   id="telephone"
                   styles={styles.infoContacts_container__blockContactsSvg}
                 />
                 +38 (098) 000-11-22
               </span>
-              <span>
+              <span infoContacts_container__locSpan_text>
                 <SvgSelector
                   id="workingHours"
                   styles={styles.infoContacts_container__blockContactsSvg}
@@ -44,7 +44,7 @@ const InfoContacts = () => {
                 styles={styles.infoContacts_container__blockLinkArrow}
                 viewBox={"7 7 32 32"}
               />
-              <p className={styles.phone}></p>
+              <p className={styles.phone}>Make a phone call</p>
             </Link>
             <Link
               to="https://maps.app.goo.gl/2hRd6d2yRpY5g1Bm7"
@@ -57,7 +57,7 @@ const InfoContacts = () => {
                 styles={styles.infoContacts_container__blockLinkArrow}
                 viewBox={"7 7 32 32"}
               />
-              <p className={styles.location}></p>
+              <p className={styles.location}>View in google maps</p>
             </Link>
           </div>
         </div>

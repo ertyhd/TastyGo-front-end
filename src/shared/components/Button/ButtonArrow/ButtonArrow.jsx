@@ -7,9 +7,7 @@ const ButtonArrow = ({ prev, next, el }) => {
       <button type="button" className={styles.btn} onClick={prev}>
         <SvgSelector id="paginationArrowL" styles={styles.arrowSwiper_style} />
       </button>
-      <div
-        className={`${styles.swiperBtnWrapper_points} ${el}`}
-      ></div>
+      <div className={`${styles.swiperBtnWrapper_points} ${el}`}></div>
       <button type="button" onClick={next} className={styles.btn}>
         <SvgSelector id="paginationArrowR" styles={styles.arrowSwiper_style} />
       </button>

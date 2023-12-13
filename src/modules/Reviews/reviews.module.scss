@@ -48,11 +48,12 @@
   order: 1;
   width: 100%;
   @media screen and (min-width: 768px) {
-    width: 407px;
+    width: 502px;
     // padding: 64px 20px 0 20px;
   }
   @media screen and (min-width: 1440px) {
     // padding: 80px 80px 0 80px;
+    width: 407px;
   }
 }
 .reviewsLeftBlockBottom {
@@ -131,6 +132,7 @@
   // margin-bottom: 16px;
   @media screen and (min-width: 768px) {
     // margin-bottom: 32px;
+    font-size: 64px;
   }
   @media screen and (min-width: 1440px) {
     font-size: 64px;

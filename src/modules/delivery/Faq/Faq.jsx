@@ -11,9 +11,17 @@ import items from "./faqList";
 import FaqSingleBlock from "./FaqSingleBlock/FaqSingleBlock";
 
 const Faq = () => {
-  const [isItemID, setItemID] = useState(items[0].id);
+  // const [isItemID, setItemID] = useState(items[0].id);
+  const [isItemID, setItemID] = useState("");
   const handleButtonClick = (id) => {
+    if (isItemID === id) {
+      return setItemID("");
+    }
     setItemID(id);
+    // setItemID("");
+    // setTimeout(() => {
+    //   setItemID(id);
+    // }, 600);
   };
   const elements = items.map((item) => (
     <li key={item.id}>

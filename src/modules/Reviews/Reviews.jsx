@@ -34,7 +34,11 @@ const Reviews = () => {
           Add review
         </button>
         <div className={styles.reviewsLeftBlock_arrows}>
-          <ButtonArrow prev={handleClickPrev} next={handleClickNext} />
+          <ButtonArrow
+            prev={handleClickPrev}
+            next={handleClickNext}
+            el={"swiperPaginationCustom"}
+          />
         </div>
       </div>
 

@@ -8,22 +8,25 @@
     // min-width: 342px;
     // padding-top: 16px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     // width: 596px;
     // padding-top: 24px;
   }
 }
 .btnH3Wrap {
-  padding: 16px;
+  padding: 8px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+  border-top: 1px solid #f6f6f6;
   @media screen and (min-width: 768px) {
+    padding: 16px 0;
     gap: 16px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     gap: 24px;
+    padding: 16px;
   }
 }
 // .btnH3Wrap_button_svg {
@@ -47,15 +50,15 @@
 }
 .movingBlock {
   width: 100%;
-  //   padding-left: 24px;
-  padding: 0 16px;
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.9s ease-in-out;
+  transition: max-height 0.6s ease-in-out;
+  transform: translateZ(0);
   @media screen and (min-width: 768px) {
     // padding-left: 44px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
+    padding: 0 16px;
     // padding-left: 52px;
   }
 }
@@ -66,8 +69,8 @@
   @media screen and (min-width: 768px) {
     max-height: 100px;
   }
-  @media screen and (min-width: 1280px) {
-    max-height: 121px;
+  @media screen and (min-width: 1440px) {
+    max-height: 115px;
   }
 }
 .movingBlock p {
@@ -88,15 +91,15 @@
     font-size: 16px;
     line-height: normal;
   }
-  @media screen and (min-width: 1280px) {
-    height: 121px;
+  @media screen and (min-width: 1440px) {
+    height: 115px;
     padding-right: 63px;
     font-size: 16px;
     line-height: normal;
   }
 }
 .btnH3Wrap_button:active {
-  @media screen and (max-width: 1279px) {
+  @media screen and (max-width: 1440px) {
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     -webkit-tap-highlight-color: transparent;
   }

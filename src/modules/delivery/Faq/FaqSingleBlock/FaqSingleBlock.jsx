@@ -1,5 +1,5 @@
 import styles from "./faqSingleBlock.module.scss";
-import { DeliverySvgSelector } from "../../../../shared/components/DeliverySvgSelector/DeliverySvgSelector";
+import { DeliverySvgSelector } from "../../../../shared/components/SvgSelector/DeliverySvgSelector";
 
 const FaqSingleBlock = ({ handleClick, item, isId }) => {
   return (

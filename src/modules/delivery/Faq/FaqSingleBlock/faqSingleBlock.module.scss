@@ -52,7 +52,9 @@
   width: 100%;
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.6s ease-in-out;
+  // transition: max-height 0.3s ease-in-out;
+  transition: max-height linear 0.15s;
+
   transform: translateZ(0);
   @media screen and (min-width: 768px) {
     // padding-left: 44px;

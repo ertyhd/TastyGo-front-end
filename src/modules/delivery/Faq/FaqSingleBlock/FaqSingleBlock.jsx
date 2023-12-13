@@ -7,16 +7,22 @@ const FaqSingleBlock = ({ handleClick, item, isId }) => {
       <div className={styles.btnH3Wrap}>
         <h3>{item.q}</h3>
         <button
-          className={styles.btnH3Wrap_button}
+          className={
+            isId !== item.id
+              ? styles.btnH3Wrap_button
+              : `${styles.btnH3Wrap_button} active`
+          }
           onClick={() => {
             handleClick(item.id);
           }}
           type="button"
         >
+          {/* <figure styles={styles.btnH3Wrap_button_figure}> */}
           <DeliverySvgSelector
             styles={styles.btnH3Wrap_button_svg}
-            id={isId === item.id ? "minus" : "plus"}
+            id={"minus"}
           />
+          {/* </figure> */}
         </button>
       </div>
       <div

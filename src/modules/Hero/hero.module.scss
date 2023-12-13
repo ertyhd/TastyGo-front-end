@@ -63,13 +63,11 @@
   z-index: 99;
   background-color: #fff;
   color: var(--primary-black, #010101);
-
-  /* Body/B1 16 medium */
   font-family: DM-Sans;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 120%; /* 19.2px */
+  line-height: 120%;
 
   transition: background-color 0.3s ease;
   @media screen and (min-width: 768px) {

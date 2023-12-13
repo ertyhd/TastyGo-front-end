@@ -1,5 +1,5 @@
 import styles from "./delivery.module.scss";
-import { DeliverySvgSelector } from "../../../shared/components/DeliverySvgSelector/DeliverySvgSelector";
+import { DeliverySvgSelector } from "../../../shared/components/SvgSelector/DeliverySvgSelector";
 import imageD2x from "../../../assete/jpg/delivery/hoja-studioD2x.jpg";
 import imageD4x from "../../../assete/jpg/delivery/hoja-studioD4x.jpg";
 import imageT2x from "../../../assete/jpg/delivery/hoja-studioT2x.jpg";

@@ -13,12 +13,6 @@ const PhoneField = ({
 }) => {
   const [isPhoneInput, setPhoneInput] = useState(values ? false : true);
   const [isPhoneClick, setPhoneClick] = useState(false);
-  // const [isCCode, setCCode] = useState(false);
-  // setCCode(countryCodeEditable);
-  // const f = () => {
-  //   return setCCode(countryCodeEditable);
-  // };
-  // console.log("phone", values);
   return (
     <div className={styles.formikContainer_field_relative}>
       {isPhoneInput && (

@@ -3,9 +3,7 @@ import styles from "./userPage.module.scss";
 import { NavLink, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getUser } from "../../redux/auth/auth-selector";
-import { SvgSelector } from "../../shared/components/SvgSelector/SvgSelector";
 
-// import UserNavBar from "../../modules/User/UserNavBar/UserNavBar";
 import Breadcrumbs from "../../shared/components/Breadcrumbs/Breadcrumbs";
 
 import PersonalInformation from "../../modules/User/PersonalInformation/PersonalInformation";
@@ -20,7 +18,6 @@ import items from "./items";
 const UserPage = () => {
   const { id } = useParams();
   const user = useSelector(getUser);
-  // console.log(user);
   const elements = items.map(({ id, text, link }) => (
     <li key={id}>
       <NavLink to={link}>{text}</NavLink>

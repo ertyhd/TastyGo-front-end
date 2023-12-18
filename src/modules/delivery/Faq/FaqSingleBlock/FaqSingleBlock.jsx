@@ -17,17 +17,16 @@ const FaqSingleBlock = ({ handleClick, item, isId }) => {
           }}
           type="button"
         >
-          {" "}
           <div className={styles.btnH3Wrap_button_svgMinus}>
             <DeliverySvgSelector
               styles={styles.btnH3Wrap_button_svg}
-              id={"minus"}
+              id={"plus"}
             />
           </div>
           <div className={styles.btnH3Wrap_button_svgPlus}>
             <DeliverySvgSelector
               // styles={styles.btnH3Wrap_button_svgBg}
-              id={"plus"}
+              id={"minus"}
             />
           </div>
         </button>

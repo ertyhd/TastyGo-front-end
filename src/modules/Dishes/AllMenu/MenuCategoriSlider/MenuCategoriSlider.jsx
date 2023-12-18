@@ -17,8 +17,6 @@ const MenuCategorySlider = ({
   nameCategory,
   sizeWindow,
 }) => {
-  
-
   const dispatch = useDispatch();
   const ItemsFoodsByCategory = useSelector(getItemsCategory);
   const itemsLenght = useSelector(getItemsLenght);
@@ -31,28 +29,26 @@ const MenuCategorySlider = ({
     dispatch(fetchCategory());
   }, [dispatch]);
 
-
   const [isDisplay, setDisplay] = useState(1);
-  console.log("isDisplay", isDisplay);
   useEffect(() => {
-//     let displayWidth = window.innerWidth;
+    //     let displayWidth = window.innerWidth;
 
-//     {
-//       sizeWindow > 768 && let k = sizeWindow - (sizeWindow + (215 + (displayWidth - 360 + 1)));
-//     };
-//      {
-//       sizeWindow <768 && let k = sizeWindow - (sizeWindow + (215 + (displayWidth - 768 + 1)));
-// };
-//     setDisplay(k);
+    //     {
+    //       sizeWindow > 768 && let k = sizeWindow - (sizeWindow + (215 + (displayWidth - 360 + 1)));
+    //     };
+    //      {
+    //       sizeWindow <768 && let k = sizeWindow - (sizeWindow + (215 + (displayWidth - 768 + 1)));
+    // };
+    //     setDisplay(k);
 
     setDisplay(
       sizeWindow > 768
         ? sizeWindow - (sizeWindow + (560 + (sizeWindow - 768 + 1)))
-          // ? -570
-          : sizeWindow < 768
-            ? sizeWindow - (sizeWindow + (215 + (sizeWindow - 360 + 1)))
-            : 1
-     );
+        : // ? -570
+        sizeWindow < 768
+        ? sizeWindow - (sizeWindow + (215 + (sizeWindow - 360 + 1)))
+        : 1
+    );
   }, [sizeWindow]);
   const elementCategory = sortedItems.map(({ _id, title }) => {
     return (
@@ -117,7 +113,6 @@ const MenuCategorySlider = ({
           <span className={css.counterCategoryDesktop}>{itemsLenght}</span>
         </p>
         <p className={css.items}>
-          
           <span className={css.counterItems}>{itemsLenght}</span>
           items
         </p>

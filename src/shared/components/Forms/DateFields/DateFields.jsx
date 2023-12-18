@@ -7,13 +7,11 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useState, useEffect } from "react";
 
 import PickerIcon from "./PickerIcon";
-// dayjs(`${value.$y}-${value.$M}-${value.$D}`)
 const DateFields = ({ onDateChange, value }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [openDay, setOpenDay] = useState(false);
   const [openMonth, setOpenMonth] = useState(false);
   const [openYear, setOpenYear] = useState(false);
-  // console.log(selectedDate);
 
   useEffect(() => {
     setSelectedDate(
@@ -21,28 +19,8 @@ const DateFields = ({ onDateChange, value }) => {
     );
   }, []);
 
-  // const defDat = () => {
-  //   return value ? dayjs(`${value.day}-${value.month}-${value.year}`) : null;
-  // };
-  // setSelectedDate(defDat);
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    // const formatedDate = `${date.$D}-${months[date.$M]}-${date.$y}`;
     const formatedDate = {
       day: date.$D,
       month: date.$M,
@@ -50,16 +28,12 @@ const DateFields = ({ onDateChange, value }) => {
     };
     onDateChange(formatedDate);
   };
-
-  // console.log(selectedDate);
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en">
       <DatePicker
         open={openDay}
         onOpen={() => setOpenDay(true)}
         onClose={() => setOpenDay(false)}
-        // format="DD"
-        // defaultValue={value ? dayjs(`2022-04-${value.day}`) : null}
         sx={{
           "& .MuiButtonBase-root": {
             padding: "0",
@@ -122,8 +96,6 @@ const DateFields = ({ onDateChange, value }) => {
         open={openMonth}
         onOpen={() => setOpenMonth(true)}
         onClose={() => setOpenMonth(false)}
-        // format="MMMM"
-        // defaultValue={value ? dayjs(`2022-${value.month}-04`) : null}
         sx={{
           "& .MuiButtonBase-root": {
             padding: "0",
@@ -186,8 +158,6 @@ const DateFields = ({ onDateChange, value }) => {
         open={openYear}
         onOpen={() => setOpenYear(true)}
         onClose={() => setOpenYear(false)}
-        // format="YYYY"
-        // defaultValue={value ? dayjs(`${value.year}-02-04`) : null}
         sx={{
           "& .MuiButtonBase-root": {
             padding: "0",

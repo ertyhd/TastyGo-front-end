@@ -1,9 +1,6 @@
 import instance from "./auth";
 
 export const getCategory = async () => {
-  const { data } = await instance.get(
-    `api/category/`
-  );
-  console.log("data", data);
+  const { data } = await instance.get(`api/category/`);
   return data;
 };

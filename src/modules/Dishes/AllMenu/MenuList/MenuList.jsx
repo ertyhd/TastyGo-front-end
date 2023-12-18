@@ -5,7 +5,11 @@ import {
   getAllItemsFoods,
   getItemsSeason,
 } from "../../../../redux/foods/foods-selector";
-import { fetchFoodsByCategory, fetchAllFoods, fetchFoodsSeasonal } from "../../../../redux/foods/foods-operations";
+import {
+  fetchFoodsByCategory,
+  fetchAllFoods,
+  fetchFoodsSeasonal,
+} from "../../../../redux/foods/foods-operations";
 
 import DishesList from "../../../../shared/components/DishesList/DishesList";
 
@@ -13,18 +17,15 @@ import DishesList from "../../../../shared/components/DishesList/DishesList";
 import css from "./menuList.module.scss";
 
 const MenuList = ({ nameCategory }) => {
-  console.log("nameCategory", nameCategory);
   const dispatch = useDispatch();
   const ItemsFoodsByCategory = useSelector(getItemsFoodsByCategory);
   const ItemsSeasonFoods = useSelector(getItemsSeason);
-console.log("ItemsSeasonFoods", ItemsSeasonFoods);
   useEffect(() => {
     if (nameCategory === "Seasonal menu") {
       dispatch(fetchFoodsSeasonal({ page: 1 }));
     } else {
       dispatch(fetchFoodsByCategory({ category: `${nameCategory}`, page: 1 }));
     }
-    
   }, [dispatch, nameCategory]);
   // const element = ItemsFoodsByCategory.map(
   //   ({ _id, title, description, weight, price }) => {

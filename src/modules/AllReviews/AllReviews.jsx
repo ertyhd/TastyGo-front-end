@@ -42,7 +42,6 @@ const AllReviews = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      console.log(isSortOpen);
       if (
         sortButtonRef.current &&
         !sortButtonRef.current.contains(event.target) &&

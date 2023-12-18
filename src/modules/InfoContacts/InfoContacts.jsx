@@ -11,21 +11,21 @@ const InfoContacts = () => {
             <p className={styles.infoContacts_container__headSpan}>Contacts</p>
             <h2>You can find us at the adress</h2>
             <div className={styles.infoContacts_container__locSpan}>
-              <span infoContacts_container__locSpan_text>
+              <span>
                 <SvgSelector
                   id="location"
                   styles={styles.infoContacts_container__blockContactsSvg}
                 />
                 Kyiv, st.Shevchenka, 98
               </span>
-              <span infoContacts_container__locSpan_text>
+              <span>
                 <SvgSelector
                   id="telephone"
                   styles={styles.infoContacts_container__blockContactsSvg}
                 />
                 +38 (098) 000-11-22
               </span>
-              <span infoContacts_container__locSpan_text>
+              <span>
                 <SvgSelector
                   id="workingHours"
                   styles={styles.infoContacts_container__blockContactsSvg}

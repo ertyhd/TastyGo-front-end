@@ -18,7 +18,6 @@ export const postNewReview = createAsyncThunk(
   "reviews/post",
   async (data, { rejectWithValue }) => {
     try {
-      console.log(data);
       const result = await api.postReview(data);
       return result;
     } catch ({ response }) {

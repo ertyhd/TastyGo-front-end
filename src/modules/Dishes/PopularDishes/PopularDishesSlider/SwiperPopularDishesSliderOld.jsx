@@ -37,7 +37,7 @@ const SwiperPopularDishesSlider = ({ item, sizeWindow }) => {
   //   sliderRef.current.slickPrev();
   // }, []);
   const [isDisplay, setDisplay] = useState(0);
-  console.log("isDisplay", isDisplay);
+
   useEffect(() => {
     // let displayWidth = window.innerWidth;
     // console.log("displayWidth", displayWidth);

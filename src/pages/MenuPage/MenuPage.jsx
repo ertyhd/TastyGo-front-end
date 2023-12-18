@@ -2,8 +2,6 @@ import AllMenu from "../../modules/Dishes/AllMenu/AllMenu";
 import { useEffect, useState } from "react";
 const MenuPage = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  console.log("windowWidth", windowWidth);
- 
   const handleResize = () => {
     // setWindowWidth(window.innerWidth);
     setWindowWidth(window.innerWidth);

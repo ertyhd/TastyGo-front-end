@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { isCongrats } from "../../redux/auth/auth-selector";
 
+import BurgerMenu from "./BurgerMenu/BurgerMenu";
 import { SvgSelector } from "../../shared/components/SvgSelector/SvgSelector";
 import Navbar from "../../shared/components/NavBar/NavBar";
 import ModalCongrats from "../ModalCongrats/ModalCongrats";
+import Modal from "../../shared/components/Modal/Modal";
 
 import css from "./heder.module.scss";
 import items from "./items";
@@ -65,7 +67,6 @@ const Header = () => {
       <Link className={css.logoLink} to="/">
         <img
           src={logo}
-          // src={require("../../assete/svg/Logo_TastyGo_Black_Desktop.svg")}
           alt="Logo"
         />
 
@@ -103,20 +104,9 @@ const Header = () => {
         </button>
       </div>
       {burgerMenuOpen && (
-        <div
-          className={css.burgerMenu}
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        >
-          <ul className={css.menuList}>{elements}</ul>
-          <button
-            className={css.buttonClose}
-            onClick={() => handleBurgerMenu(false)}
-          >
-            <SvgSelector id="buttonClose" />
-          </button>
-        </div>
+        <Modal close={handleBurgerMenu}>
+          <BurgerMenu handleBurgerMenu={() => handleBurgerMenu()} />
+        </Modal>
       )}
     </div>
   );

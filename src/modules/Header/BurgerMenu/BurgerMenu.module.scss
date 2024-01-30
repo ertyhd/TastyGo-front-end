@@ -1,0 +1,119 @@
+.wrapperBurgerMobil {
+  padding: 71px 20px 32px;
+  // position: relative;
+  // margin-right: 37px;
+
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
+}
+.wrapperBurgerMobil:hover .burgerMobil path {
+  stroke: #f9854e;
+}
+.burgerMenu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 71px 20px 32px;
+  z-index: 100;
+  top: 0px;
+  right: 0px;
+  width: 360px;
+  height: auto;
+  background-color: #fff;
+  // transform: translateX(-10%);
+  // transition: transform 250ms ease;
+  // transition-duration: 1000ms;
+}
+.logoLink{
+    position: absolute;
+  display: flex;
+  gap: 8px;
+  top: 20px;
+  left: 20px;
+}
+.buttonClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.burgerInputSearch {
+  padding: 10px 16px;
+  width: 100%;
+  border: 1px;
+  border-radius: 10px;
+  border: 1px solid var(--secondary-grey, #b7b7b7);
+}
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: var(--primary-light-green);
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    gap: 32px;
+    margin-left: auto;
+    margin-right: 177px;
+  }
+}
+.menuListLink {
+  font-family: DM-Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 16.8px */
+
+  color: var(--primary-black);
+}
+.menuListLink:hover {
+  text-decoration-line: underline;
+}
+.menuListLink:global(.active) {
+  color: var(--primary-middle-green);
+  text-decoration-line: underline;
+}
+.burgerSingIn {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  height: 40px;
+  padding: 0px 16px;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid var(--secondary-grey, #b7b7b7);
+}
+
+.burgerMenuContactList{
+    display: flex;
+width: 100%;
+padding: 16px;
+flex-direction: column;
+align-items: flex-start;
+gap: 16px;
+border-radius: 10px;
+border: 1px solid var(--secondary-grey);
+}
+
+.burgerMenuContactItem{
+    display: flex;
+    gap: 16px;
+}
+
+.wrapperSvgSelector{
+    width: 24px;
+    height: 24px;
+}
+
+.burgerMenuContactItemText{
+    font-family: DM-Sans;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 120%;
+color: var(--primary-black);
+}

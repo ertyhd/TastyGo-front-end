@@ -56,6 +56,7 @@ const MenuCategorySlider = ({
         // className={css.categoryList}
         key={_id}
         onClick={() => handleNameCategory(title)}
+        
       >
         {sizeWindow < 1440 && (
           <SwiperSlide

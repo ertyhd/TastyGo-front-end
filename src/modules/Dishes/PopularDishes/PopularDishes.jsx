@@ -7,14 +7,17 @@ import SectionLink from "../../../shared/components/SectionLink/SectionLink";
 
 import { fetchFoodsSeasonal } from "../../../redux/foods/foods-operations";
 import { getItemsSeason } from "../../../redux/foods/foods-selector";
+import { getLoadingFoods } from "../../../redux/foods/foods-selector";
 import SwiperPopularDishesSlider from "./PopularDishesSlider/SwiperPopularDishesSlider";
 import ImageMainPopularSection from "./ImageMainPopularSection/ImageMainPopularSection";
 import { SvgSelector } from "../../../shared/components/SvgSelector/SvgSelector";
+import LoaderSpinner from "../../../shared/components/LoaderSpinner/LoaderSpinner";
 import css from './popularDishes.module.scss'
 
 const PopularDishes = ({ windowWidth }) => {
   
   const ItemsSeasonFoods = useSelector(getItemsSeason);
+  const isLoadingFoods = useSelector(getLoadingFoods);
   
   const dispatch = useDispatch();
   useEffect(() => {
@@ -72,7 +75,12 @@ const PopularDishes = ({ windowWidth }) => {
               </SectionLink>
             </div>
           </div>
-          <SwiperPopularDishesSlider item={element} sizeWindow={windowWidth} />
+          {isLoadingFoods && (
+            <div className={css.overlay}>
+              <LoaderSpinner />
+            </div>
+          )}
+          {!isLoadingFoods && <SwiperPopularDishesSlider item={element} sizeWindow={windowWidth} />}
         </div>
       </section>
     );

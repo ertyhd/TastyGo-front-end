@@ -6,24 +6,33 @@ import MenuList from "./MenuList/MenuList";
 // import MenuBoardSlider from "./MenuBoardSlider/MenuBoardSlider";
 import Breadcrumbs from "../../../shared/components/Breadcrumbs/Breadcrumbs";
 import { useSelector } from "react-redux";
-import { getLoading } from "../../../redux/foods/foods-selector";
+import { getLoadingFoods } from "../../../redux/foods/foods-selector";
+import { getLoadingCategory } from "../../../redux/category/category-selector";
+import LoaderSpinner from "../../../shared/components/LoaderSpinner/LoaderSpinner";
+
 import css from "./allMenu.module.scss";
 
 import desktopImage from "../../../assete/jpg/menuBoard/monika-grabkowska-i14VzlCp-Eo-unsplash-descktop.jpg";
 import tabletImage from "../../../assete/jpg/menuBoard/monika-grabkowska-i14VzlCp-Eo-unsplash-tablet.jpg";
 import mobileImage from "../../../assete/jpg/menuBoard/monika-grabkowska-i14VzlCp-Eo-unsplash-mobil.jpg";
 
+
+
 const AllMenu = ({ windowWidth }) => {
   
-  const [stateTitle, setStateTitle] = useState("salads");
+  const [stateTitle, setStateTitle] = useState(
+    localStorage.getItem("activeCategory") || "salads"
+  );
   const [urlImage, setUrlImage] = useState();
   
-  const isLoading = useSelector(getLoading);
+  const isLoadingFoods = useSelector(getLoadingFoods);
+  const isLoadingCategory = useSelector(getLoadingCategory);
 
   const handleNameCategory = (title) => {
-    setStateTitle(title);
+    // setStateTitle(title);
     if (title) {
       setStateTitle(title);
+      localStorage.setItem("activeCategory", title);
     } else {
       setStateTitle("salads");
     }
@@ -59,14 +68,20 @@ const AllMenu = ({ windowWidth }) => {
         <div className={css.wrapperBreadcrumbs}>
           <Breadcrumbs />
         </div>
+        {!isLoadingFoods && (
+          <MenuCategorySlider
+            nameCategory={stateTitle}
+            handleNameCategory={handleNameCategory}
+            sizeWindow={windowWidth}
+          />
+        )}
 
-        <MenuCategorySlider
-          nameCategory={stateTitle}
-          handleNameCategory={handleNameCategory}
-          sizeWindow={windowWidth}
-        />
-
-        {isLoading && <p>irejoghiieohr</p>}
+        {(isLoadingFoods ||
+          isLoadingCategory) && (
+            <div className={css.overlay}>
+              <LoaderSpinner />
+            </div>
+          )}
         <MenuList nameCategory={stateTitle} />
       </section>
     </div>

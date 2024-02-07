@@ -1,11 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { getLoadingFoods } from "../../../../redux/foods/foods-selector";
 
 import { Swiper } from "swiper/react";
 
 import ButtonArrow from "../../../../shared/components/Button/ButtonArrow/ButtonArrow";
 import { Pagination, Autoplay } from "swiper/modules";
+import LoaderSpinner from "../../../../shared/components/LoaderSpinner/LoaderSpinner";
 import "../../PopularDishes/PopularDishesSlider/swiperSlider.scss";
 
 import css from "./seasonalDishesSlider.module.scss";
@@ -13,6 +16,8 @@ import css from "./seasonalDishesSlider.module.scss";
 const SeasonalDishesSlider = ({ item, sizeWindow }) => {
   const [isSlidesPerView, setSlidesPerViewDisplay] = useState(0);
   const [isSpaceBetween, setSpaceBetweenDisplay] = useState(0);
+
+  const isLoadingFoods = useSelector(getLoadingFoods);
 
   useEffect(() => {
     setSlidesPerViewDisplay(
@@ -66,7 +71,12 @@ const SeasonalDishesSlider = ({ item, sizeWindow }) => {
   const handleClickNext = () => swiperRef.current.swiper.slideNext();
   return (
     <div className={css.wrapperSwiper}>
-      {sizeWindow >= 1440 && (
+      {isLoadingFoods && (
+        <div className={css.overlay}>
+          <LoaderSpinner />
+        </div>
+      )}
+      {!isLoadingFoods && sizeWindow >= 1440 && (
         <>
           <Swiper
             ref={swiperRef}
@@ -101,7 +111,7 @@ const SeasonalDishesSlider = ({ item, sizeWindow }) => {
           </div>
         </>
       )}
-      {sizeWindow < 1440 && sizeWindow >= 768 && (
+      {!isLoadingFoods && sizeWindow < 1440 && sizeWindow >= 768 && (
         <>
           <Swiper
             ref={swiperRef}
@@ -111,7 +121,7 @@ const SeasonalDishesSlider = ({ item, sizeWindow }) => {
             spaceBetween={isSpaceBetween}
             // spaceBetween={-453}
             loop={true}
-            className="mySwiperMobil"
+            className="mySwiperMobill"
             modules={[Pagination, Autoplay]}
             pagination={{
               el: ".swiperSeasonalMainPaginationCustom",
@@ -134,7 +144,7 @@ const SeasonalDishesSlider = ({ item, sizeWindow }) => {
           </div>
         </>
       )}
-      {sizeWindow < 768 && (
+      {!isLoadingFoods && sizeWindow < 768 && (
         <>
           <Swiper
             ref={swiperRef}
@@ -144,7 +154,7 @@ const SeasonalDishesSlider = ({ item, sizeWindow }) => {
             spaceBetween={isSpaceBetween}
             centeredSlides={true}
             loop={true}
-            className="mySwiperMobil"
+            className="mySwiperMobill"
             modules={[Pagination, Autoplay]}
             pagination={{
               el: ".swiperSeasonalMainPaginationCustom",

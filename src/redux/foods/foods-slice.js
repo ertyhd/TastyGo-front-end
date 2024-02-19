@@ -1,12 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-  fetchAllFoods,
+  // fetchAllFoods,
   fetchFoodsByCategory,
   fetchFoodsSeasonal,
+  fetchFoodsPopular,
 } from "./foods-operations";
-// console.log("fetchAllFoods", fetchAllFoods());
+
 const initialState = {
-  items: [],
+  itemsFoodByCategory: [],
+  itemsFoodSeasonal: [],
+  itemsFoodPopular: [],
   totalFoods: null,
   totalPages: 1,
 
@@ -17,7 +20,6 @@ const handlePending = (store) => {
   store.loading = true;
 };
 const handleReject = (store, action) => {
-  // store.items = [];
   store.loading = false;
   store.error = action.payload;
 };
@@ -25,24 +27,16 @@ const handleReject = (store, action) => {
 const foodsSlice = createSlice({
   name: "foods",
   initialState,
+
   extraReducers: (builder) => {
     builder
-      // .addCase(fetchAllFoods.pending, (store) => {
-      //   handlePending(store);
-      // })
-      // .addCase(fetchAllFoods.fulfilled, (store, { payload }) => {
-      //   store.loading = false;
-      //   store.items = payload.foods;
-      // })
-      // .addCase(fetchAllFoods.rejected, (store, action) => {
-      //   handleReject(store, action);
-      // })
+    
       .addCase(fetchFoodsByCategory.pending, (store) => {
         handlePending(store);
       })
       .addCase(fetchFoodsByCategory.fulfilled, (store, { payload }) => {
         store.loading = false;
-        store.items = payload.foods;
+        store.itemsFoodByCategory = payload.foods;
         store.totalFoods = payload.totalFoods;
         store.totalPages = payload.totalPages;
       })
@@ -54,13 +48,26 @@ const foodsSlice = createSlice({
       })
       .addCase(fetchFoodsSeasonal.fulfilled, (store, { payload }) => {
         store.loading = false;
-        store.items = payload;
+        store.itemsFoodSeasonal = payload;
         store.totalFoods = payload.totalFoods;
         store.totalPages = payload.totalPages;
       })
       .addCase(fetchFoodsSeasonal.rejected, (store, action) => {
         handleReject(store, action);
+      })
+      .addCase(fetchFoodsPopular.pending, (store) => {
+        handlePending(store);
+      })
+      .addCase(fetchFoodsPopular.fulfilled, (store, { payload }) => {
+        store.loading = false;
+        store.itemsFoodPopular = payload.popularFoods;
+        store.totalFoods = payload.totalFoods;
+        store.totalPages = payload.totalPages;
+      })
+      .addCase(fetchFoodsPopular.rejected, (store, action) => {
+        handleReject(store, action);
       });
   },
 });
 export default foodsSlice.reducer;
+

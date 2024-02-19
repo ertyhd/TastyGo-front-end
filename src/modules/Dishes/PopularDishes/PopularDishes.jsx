@@ -5,26 +5,25 @@ import { SwiperSlide } from "swiper/react";
 // import SingleCard from "../../../shared/components/SingleCard/SingleCard";
 import SectionLink from "../../../shared/components/SectionLink/SectionLink";
 
-import { fetchFoodsSeasonal } from "../../../redux/foods/foods-operations";
-import { getItemsSeason } from "../../../redux/foods/foods-selector";
+import { fetchFoodsPopular } from "../../../redux/foods/foods-operations";
+import { getItemsPopular } from "../../../redux/foods/foods-selector";
 import { getLoadingFoods } from "../../../redux/foods/foods-selector";
 import SwiperPopularDishesSlider from "./PopularDishesSlider/SwiperPopularDishesSlider";
 import ImageMainPopularSection from "./ImageMainPopularSection/ImageMainPopularSection";
 import { SvgSelector } from "../../../shared/components/SvgSelector/SvgSelector";
 import LoaderSpinner from "../../../shared/components/LoaderSpinner/LoaderSpinner";
-import css from './popularDishes.module.scss'
+import css from "./popularDishes.module.scss";
 
 const PopularDishes = ({ windowWidth }) => {
-  
-  const ItemsSeasonFoods = useSelector(getItemsSeason);
+  const ItemsPopularFoods = useSelector(getItemsPopular);
   const isLoadingFoods = useSelector(getLoadingFoods);
-  
+
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchFoodsSeasonal({ page: 1 }));
+    dispatch(fetchFoodsPopular({ page: 1 }));
   }, [dispatch]);
 
-  const element = ItemsSeasonFoods.map(
+  const element = ItemsPopularFoods.map(
     ({ _id, title, imgUrl, weight, price }) => {
       return (
         <SwiperSlide key={_id}>
@@ -59,31 +58,33 @@ const PopularDishes = ({ windowWidth }) => {
       );
     }
   );
-    return (
-      <section className={css.section}>
-        <div className={css.wrapperTitleImage}>
-          <ImageMainPopularSection />
-          <h2 className={css.titlePopularSection}>
-            Enjoy popular dishes at home
-          </h2>
-        </div>
-        <div className={css.wrapperSlider}>
-          <div className={css.sectionLinkContainer}>
-            <div className={css.sectionLink}>
-              <SectionLink>
-                <p className={css.linkAllCategory}>View menu</p>
-              </SectionLink>
-            </div>
+  return (
+    <section className={css.section}>
+      <div className={css.wrapperTitleImage}>
+        <ImageMainPopularSection />
+        <h2 className={css.titlePopularSection}>
+          Enjoy popular dishes at home
+        </h2>
+      </div>
+      <div className={css.wrapperSlider}>
+        <div className={css.sectionLinkContainer}>
+          <div className={css.sectionLink}>
+            <SectionLink>
+              <p className={css.linkAllCategory}>View menu</p>
+            </SectionLink>
           </div>
-          {isLoadingFoods && (
-            <div className={css.overlay}>
-              <LoaderSpinner />
-            </div>
-          )}
-          {!isLoadingFoods && <SwiperPopularDishesSlider item={element} sizeWindow={windowWidth} />}
         </div>
-      </section>
-    );
+        {isLoadingFoods && (
+          <div className={css.overlay}>
+            <LoaderSpinner />
+          </div>
+        )}
+        {!isLoadingFoods && (
+          <SwiperPopularDishesSlider item={element} sizeWindow={windowWidth} />
+        )}
+      </div>
+    </section>
+  );
 };
 
 export default PopularDishes;

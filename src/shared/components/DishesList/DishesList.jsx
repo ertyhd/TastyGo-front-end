@@ -1,6 +1,7 @@
 import SingleCard from "../SingleCard/SingleCard";
 
-const DishesList = ({items}) => {
+const DishesList = ({ items }) => {
+  
    
 
    

@@ -36,4 +36,11 @@ export const getFoodsSeasonal = async ({
   
   return data;
 };
+export const getFoodsPopular = async ({ totalFoods = 12, totalPages = 1 }) => {
+  const { data } = await instance.get(
+    `api/food/popular?page=${totalPages}&limit=${totalFoods}`
+  );
+
+  return data;
+};
 

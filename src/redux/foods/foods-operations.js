@@ -48,4 +48,16 @@ export const fetchFoodsSeasonal = createAsyncThunk(
       return rejectWithValue(response);
     }
   }
+  
+);
+export const fetchFoodsPopular = createAsyncThunk(
+  "foods/FoodsPopular",
+  async (data, { rejectWithValue }) => {
+    try {
+      const result = await api.getFoodsPopular(data);
+      return result;
+    } catch ({ response }) {
+      return rejectWithValue(response);
+    }
+  }
 );

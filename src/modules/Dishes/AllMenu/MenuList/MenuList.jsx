@@ -4,11 +4,13 @@ import {
   getItemsFoodsByCategory,
   getAllItemsFoods,
   getItemsSeason,
+  getItemsPopular,
 } from "../../../../redux/foods/foods-selector";
 import {
   fetchFoodsByCategory,
   fetchAllFoods,
   fetchFoodsSeasonal,
+  fetchFoodsPopular,
 } from "../../../../redux/foods/foods-operations";
 
 import DishesList from "../../../../shared/components/DishesList/DishesList";
@@ -20,13 +22,25 @@ const MenuList = ({ nameCategory }) => {
   const dispatch = useDispatch();
   const ItemsFoodsByCategory = useSelector(getItemsFoodsByCategory);
   const ItemsSeasonFoods = useSelector(getItemsSeason);
+  const ItemsPopularFoods = useSelector(getItemsPopular);
+
   useEffect(() => {
     if (nameCategory === "Seasonal menu") {
       dispatch(fetchFoodsSeasonal({ page: 1 }));
+      
+    }
+    else if (nameCategory === "popular") {
+      dispatch(fetchFoodsPopular({  page: 1 }));
     } else {
       dispatch(fetchFoodsByCategory({ category: `${nameCategory}`, page: 1 }));
     }
   }, [dispatch, nameCategory]);
+  const itemsToDisplay =
+    nameCategory === "Seasonal menu"
+      ? ItemsSeasonFoods
+      : nameCategory === "popular"
+      ? ItemsPopularFoods
+      : ItemsFoodsByCategory;
   // const element = ItemsFoodsByCategory.map(
   //   ({ _id, title, description, weight, price }) => {
   //     return (
@@ -44,7 +58,7 @@ const MenuList = ({ nameCategory }) => {
   return (
     <ul className={css.dishesList}>
       {/* {element} */}
-      <DishesList items={ItemsFoodsByCategory} />
+      <DishesList items={itemsToDisplay} />
     </ul>
   );
 };
